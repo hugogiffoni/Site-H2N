@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UNIRIO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffff;
+        }
+
+        .nav-bar {
+            background-color: #052442;
+            width: 100%;
+            height: 70px;
+        }
+
+        .form-control-dark {
+            border-color: var(--bs-gray);
+        }
+
+        .form-control-dark:focus {
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle:not(:focus) {
+            outline: 0;
+        }
+
+        .texto {
+            line-height: 1.6;
+            padding: 30px 20px;
+            color: #004F9F;
+        }
+
+        h2 {
+            padding-bottom: 30px;
+        }
+
+        h5 {
+            padding-bottom: 10px;
+        }
+
+        .btn-secondary {
+            background-color: #0d355e;
+        }
+
+        .voltar {
+            padding-top: 10px;
+        }
+
+        .img {
+            width: 100%;
+            max-width: 300px; /* Tamanho máximo */
+            height: auto; /* Mantém proporção */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            display: block;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .nav-link:hover {
+            color: #004F9F;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .nav-link.active {
+            color: #004F9F;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="nav-bar">
+            <header class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-white">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cursos.html" class="nav-link active" aria-current="page">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="duvidas.html" class="nav-link text-white">Duvidas Frequentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="saibamais.html" class="nav-link text-white">Saiba Mais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link text-white">Sobre Nós</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+
+        <div class="voltar">
+            <a class="btn btn-secondary btn-s" href="bsi.html" role="button">Voltar</a>
+        </div>
+
+        <!-- Imagem centralizada -->
+        <img class="img" src="img/logo_unirio.png" alt="Logo UNIRIO">
+
+        <div class="texto">
+            <h4>Sistemas de Informação - UNIRIO</h4>
+            <h5>O curso de Sistemas de Informação da Universidade Federal do Estado do Rio de Janeiro (UNIRIO)
+                é uma graduação de bacharelado oferecida pelo Instituto de Matemática e Estatística (IME). Criado com o objetivo de
+                formar profissionais aptos a atuar no desenvolvimento, gerenciamento e inovação de sistemas computacionais, o curso
+                prepara os alunos para lidar com os desafios tecnológicos contemporâneos tanto no setor público quanto no privado.</h5>
+            <h5>Com uma grade curricular que combina fundamentos da computação, administração e engenharia de
+                software, os estudantes têm a oportunidade de aprender desde linguagens de programação e bancos de dados até gestão
+                de projetos, segurança da informação e empreendedorismo. A formação é voltada tanto para a prática quanto para a
+                pesquisa, com incentivo à participação em projetos de iniciação científica, estágios e atividades de extensão.</h5>
+            <h5>O curso é ofertado no campus da Urca, na zona sul do Rio de Janeiro, e conta com professores
+                qualificados, muitos deles doutores atuantes em pesquisas nas áreas de computação aplicada, inteligência
+                artificial, ciência de dados e tecnologia da informação. Além disso, o ambiente acadêmico favorece a
+                interdisciplinaridade, permitindo que os alunos desenvolvam uma visão crítica e inovadora sobre o papel
+                dos sistemas de informação na sociedade.</h5>  
+            <h5>Ao se formar, o profissional de Sistemas de Informação pela UNIRIO está apto a atuar como
+                analista de sistemas, desenvolvedor de software, gestor de TI, consultor ou pesquisador, com uma formação sólida
+                e voltada para as necessidades do mercado e da transformação digital.</h5>
+        </div>
+
+        <div class="texto-footer">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Company, Inc</p>
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cursos.html" class="nav-link">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="duvidas.html" class="nav-link">Duvidas Frequentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="saibamais.html" class="nav-link">Saiba Mais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noticias.html" class="nav-link">Notícias</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

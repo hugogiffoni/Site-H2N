@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEFET/RJ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffff;
+        }
+
+        .nav-bar {
+            background-color: #052442;
+            width: 100%; /* Mudança para 100% para que ocupe toda a largura */
+            height: 70px;
+        }
+
+        .form-control-dark {
+            border-color: var(--bs-gray);
+        }
+
+        .form-control-dark:focus {
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle:not(:focus) {
+            outline: 0;
+        }
+
+        .texto {
+            line-height: 1.6;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            color: #004F9F;
+        }
+
+        h2 {
+            padding-bottom: 30px;
+        }
+
+        h5 {
+            padding-bottom: 10px;
+        }
+
+        .btn-secondary {
+            background-color: #0d355e;
+        }
+
+        .voltar {
+            padding-top: 10px;
+        }
+
+        .img {
+            width: 100%; /* Mudança para largura 100% */
+            max-width: 640px; /* Definindo o tamanho máximo */
+            height: auto;
+            margin: 0 auto; /* Centralizar a imagem */
+        }
+
+        /* Media Query para telas menores */
+        @media (max-width: 768px) {
+            .nav-bar {
+                height: auto;
+            }
+
+            .img {
+                max-width: 100%; /* A imagem ocupa toda a largura em telas pequenas */
+            }
+
+            .texto {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .voltar {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="nav-bar">
+            <header class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-white">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cursos.html" class="nav-link active" aria-current="page">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="duvidas.html" class="nav-link text-white">Duvidas Frequentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="saibamais.html" class="nav-link text-white">Saiba Mais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link text-white">Sobre Nós</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+
+        <div class="voltar">
+            <a class="btn btn-secondary btn-s" href="bsi.html" role="button">Voltar</a>
+        </div>
+
+        <div class="img">
+            <img src="img/logo_cefet.jpg" class="d-block w-100 h-100" alt="Logo CEFET/RJ">
+        </div>
+
+        <div class="texto">
+            <h4 class="text-#004F9F mt-4">Sistemas de Informação - CEFET/RJ</h4>
+            <h5 class="text-#004F9F">O curso de Sistemas de Informação do CEFET/RJ é uma graduação de excelência voltada para a
+                formação de profissionais altamente capacitados para atuar no dinâmico e crescente mercado de tecnologia da
+                informação. Oferecido no campus Maracanã, o curso prepara os alunos para o desenvolvimento, análise e gerenciamento
+                de sistemas computacionais, com ênfase em soluções tecnológicas inovadoras para organizações públicas e privadas.</h5>
+            <h5 class="text-#004F9F">Durante a graduação, os estudantes do CEFET/RJ adquirem um sólido conhecimento em
+                programação, banco de dados, redes de computadores, inteligência artificial, engenharia de software, e
+                segurança da informação, além de desenvolverem habilidades em gestão de projetos e análise de dados. A
+                grade curricular é cuidadosamente estruturada para combinar teoria e prática, com um foco importante
+                no desenvolvimento de competências técnicas e em habilidades comportamentais, como trabalho em equipe e pensamento crítico.</h5>
+            <h5 class="text-#004F9F">O CEFET/RJ também se destaca por promover uma intensa integração com o mercado de trabalho. Os
+                alunos têm a oportunidade de realizar estágios, iniciação científica e projetos de extensão, interagindo com empresas, órgãos
+                governamentais e iniciativas do setor privado. Essa conexão com o mundo profissional é essencial para que os graduados possam
+                aplicar seus conhecimentos de maneira prática, além de estarem atualizados com as demandas do mercado.</h5>
+            <h5 class="text-#004F9F">Além disso, o corpo docente do curso é altamente qualificado, composto por professores com vasta experiência
+                acadêmica e profissional, que trazem um grande conhecimento das tendências tecnológicas e do mercado de TI. A infraestrutura do
+                CEFET/RJ é outro diferencial, com laboratórios modernos e recursos tecnológicos avançados para apoiar o aprendizado dos alunos.</h5>
+        </div>
+
+        <div class="texto-footer">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Company, Inc</p>
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cursos.html" class="nav-link">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="duvidas.html" class="nav-link">Duvidas Frequentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="saibamais.html" class="nav-link">Saiba Mais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noticias.html" class="nav-link">Notícias</a>
+                    </li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
