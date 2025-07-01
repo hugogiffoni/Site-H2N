@@ -52,21 +52,88 @@
   <div class="texto container">
     <h2 class="text-center text-custom mt-4">Dúvidas Frequentes!</h2>
 
-    <h4 class="text-custom mt-4">Qual área da programação tem os melhores salários?</h4>
-    <h5 class="text-custom">Áreas como ciência de dados, inteligência artificial, cibersegurança e back-end geralmente oferecem salários mais altos, especialmente conforme o profissional adquire experiência. Mas isso também varia bastante de acordo com a empresa, localização e nível de especialização.</h5>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h4 class="text-custom mt-4">Qual área da programação tem os melhores salários?</h4>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong></strong><h5 class="text-custom">Áreas como ciência de dados, inteligência artificial, cibersegurança e back-end geralmente oferecem salários mais altos, especialmente conforme o profissional adquire experiência. Mas isso também varia bastante de acordo com a empresa, localização e nível de especialização.</h5>
 
-    <h4 class="text-custom mt-4">Qual curso devo fazer para começar na programação?</h4>
-    <h5 class="text-custom">Cursos de introdução à lógica de programação e linguagens como Python ou JavaScript são ótimos para começar. Depois, você pode seguir para cursos mais específicos, como desenvolvimento web, mobile, ciência de dados, entre outros.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h4 class="text-custom mt-4">Qual curso devo fazer para começar na programação?</h4>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong></strong> <h5 class="text-custom">Cursos de introdução à lógica de programação e linguagens como Python ou JavaScript são ótimos para começar. Depois, você pode seguir para cursos mais específicos, como desenvolvimento web, mobile, ciência de dados, entre outros.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h4 class="text-custom mt-4">Faculdade ou curso técnico: o que vale mais a pena?</h4>
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong></strong> <h5 class="text-custom">Depende do seu objetivo. A faculdade oferece uma base mais teórica e pode abrir portas em grandes empresas. Já os cursos técnicos ou livres (como bootcamps) focam na prática e têm uma duração menor, sendo ideais para quem quer entrar no mercado mais rapidamente.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            <h4 class="text-custom mt-4">É possível mudar de carreira para programação mesmo depois de adulto?</h4>
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong></strong><h5 class="text-custom">Com certeza! A programação é uma das áreas mais acessíveis para quem quer fazer transição de carreira. Existem muitos casos de pessoas que começaram aos 30, 40 anos (ou mais) e estão trabalhando com tecnologia hoje.</h5>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+            <h4 class="text-custom mt-4">Preciso saber inglês para trabalhar com programação?</h4>
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong></strong><h5 class="text-custom">Não é obrigatório para começar, mas faz muita diferença. A maioria da documentação, tutoriais e até entrevistas em empresas internacionais são em inglês. Começar a estudar o idioma desde cedo pode abrir muitas portas.</h5>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <h4 class="text-custom mt-4">Faculdade ou curso técnico: o que vale mais a pena?</h4>
-    <h5 class="text-custom">Depende do seu objetivo. A faculdade oferece uma base mais teórica e pode abrir portas em grandes empresas. Já os cursos técnicos ou livres (como bootcamps) focam na prática e têm uma duração menor, sendo ideais para quem quer entrar no mercado mais rapidamente.</h5>
+    <h4 class="text-custom mt-4">    </h4>
+    <h4 class="text-custom mt-4">Compartilhe sua duvida!</h4>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"> Endereço de Email </label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Sua Dúvida </label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
 
-    <h4 class="text-custom mt-4">É possível mudar de carreira para programação mesmo depois de adulto?</h4>
-    <h5 class="text-custom">Com certeza! A programação é uma das áreas mais acessíveis para quem quer fazer transição de carreira. Existem muitos casos de pessoas que começaram aos 30, 40 anos (ou mais) e estão trabalhando com tecnologia hoje.</h5>
-
-    <h4 class="text-custom mt-4">Preciso saber inglês para trabalhar com programação?</h4>
-    <h5 class="text-custom">Não é obrigatório para começar, mas faz muita diferença. A maioria da documentação, tutoriais e até entrevistas em empresas internacionais são em inglês. Começar a estudar o idioma desde cedo pode abrir muitas portas.</h5>
+    <div class="voltar">
+      <a class="btn btn-secondary btn-s" href="duvidas.html" role="button">Enviar</a>
+    </div>
   </div>
+
+
+  
 
   <!-- Footer -->
   <div class="texto-footer">
