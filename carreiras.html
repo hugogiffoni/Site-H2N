@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carreiras em T.I.</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #f8f9fa; /* Um cinza claro para o corpo */
+            color: #333;
+        }
+
+        .nav-bar {
+            background-color: #052442;
+            position: sticky; /* Menu fixo no topo ao rolar */
+            top: 0;
+            z-index: 1020; /* Garante que o menu fique acima de outros elementos */
+        }
+
+        .text-custom {
+            color: #004F9F;
+        }
+
+        .texto {
+            line-height: 1.6;
+            padding: 20px 15px;
+        }
+
+        h4 {
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .botao {
+            margin-top: 30px;
+        }
+
+        .btn-secondary {
+            background-color: #0d355e;
+            border-color: #0d355e;
+        }
+
+        .btn-secondary:hover {
+            background-color: #004F9F;
+            border-color: #004F9F;
+        }
+
+        /* Card Flip */
+        .card-container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .card-container {
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .card-front {
+            background-color: #ffffff;
+            color: #333;
+            border: 2px solid #007bff;
+        }
+
+        .card-front .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .card-front h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+            font-size: 1.8em;
+        }
+
+        .card-front p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .card-back {
+            background-color: #007bff;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+            align-items: flex-start;
+            text-align: left;
+            padding-top: 30px;
+            overflow-y: auto;
+        }
+
+        .card-back h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-back p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .card-back strong {
+            color: #ffe082;
+        }
+
+        .card-back ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+            font-size: 0.9em;
+        }
+
+        .card-back li {
+            margin-bottom: 5px;
+        }
+
+        /* Estilos para Entrevistas */
+        .interview-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .interview-card img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #007bff;
+        }
+
+        .interview-card h4 {
+            color: #052442;
+            margin-bottom: 10px;
+        }
+
+        .interview-card p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Estilos para Questionário */
+        .quiz-section {
+            background-color: #e9ecef;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px; /* Adicionado para espaçamento inferior */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .quiz-section .form-check {
+            margin-bottom: 10px;
+        }
+
+        .quiz-section .form-check-label {
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .quiz-section button {
+            margin-top: 20px;
+        }
+
+        #quizResult {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: none; /* Escondido por padrão */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <header class="container">
+            <ul class="nav nav-pills justify-content-center py-3">
+                <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link active" aria-current="page">Carreiras</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
+                <li class="nav-item"><a href="noticias.html" class="nav-link text-white">Notícias</a></li>
+                <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
+            </ul>
+        </header>     
+    </div>
+
+    <div class="container mt-4">
+        <h1 class="text-center text-custom mb-5">Carreiras em T.I.: Construindo o Futuro Digital</h1>
+
+        <section id="areas-atuacao" class="content-section pt-4">
+            <h2 class="text-center text-custom mb-4">Áreas de Atuação em T.I.</h2>
+            <p class="text-center lead">A área de Tecnologia da Informação (TI) é um universo vasto e em constante evolução. Se você tem paixão por tecnologia, lógica e resolução de problemas, há um lugar para você neste setor dinâmico. As profissões em TI são diversas, abrangendo desde o desenvolvimento de softwares e aplicativos até a segurança de dados e a infraestrutura de redes. Profissionais da área são os arquitetos do mundo digital, criando soluções que facilitam a vida das pessoas, otimizam negócios e conectam o globo.</p>
+            
+            <div class="card-container-wrapper">
+                <div class="card-container">
+                    <div class="card" onclick="this.classList.toggle('flipped')">
+                        <div class="card-face card-front">
+                            <span class="icon"><i class="fas fa-code"></i></span>
+                            <h2>Desenvolvedor(a) de Software</h2>
+                            <p>Gosta de criar e dar vida a ideias com código?</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Desenvolvedor(a) de Software</h3>
+                            <p>O desenvolvedor cria, testa e mantém programas e aplicações. Pode ser:</p>
+                            <ul>
+                                <li><strong>Front-end:</strong> Foco na interface do usuário (o que você vê), usando HTML, CSS, JavaScript (React, Angular, Vue.js).</li>
+                                <li><strong>Back-end:</strong> Foco na lógica e servidores (o que está por trás), usando Python (Django, Flask), Java (Spring Boot), Node.js, C# (.NET).</li>
+                                <li><strong>Full-stack:</strong> Atua nas duas frentes, com conhecimento em ambas as áreas.</li>
+                                <li><strong>Mobile:</strong> Desenvolve apps para iOS (Swift, Objective-C) ou Android (Kotlin, Java).</li>
+                            </ul>
+                            <p><strong>Competências Desejadas:</strong> Lógica de programação, resolução de problemas, design patterns, versionamento (Git), adaptabilidade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card" onclick="this.classList.toggle('flipped')">
+                        <div class="card-face card-front">
+                            <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                            <h2>Especialista em Cibersegurança</h2>
+                            <p>Tem paixão por proteger dados e combater ameaças digitais?</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Especialista em Cibersegurança</h3>
+                            <p>Este profissional protege sistemas, redes e dados contra acessos não autorizados, ataques cibernéticos e vazamentos de informação.</p>
+                            <p><strong>Atividades:</strong></p>
+                            <ul>
+                                <li>Monitoramento de segurança (SIEM).</li>
+                                <li>Análise de vulnerabilidades (pentest, varreduras).</li>
+                                <li>Implementação de protocolos e políticas de segurança.</li>
+                                <li>Resposta a incidentes.</li>
+                            </ul>
+                            <p><strong>Tecnologias:</strong> Firewalls, VPNs, IDS/IPS, ferramentas de criptografia, Wireshark, Nmap, Metasploit.</p>
+                            <p><strong>Competências Desejadas:</strong> Conhecimento em redes, sistemas operacionais (Linux, Windows Server), ética, pensamento analítico, resiliência.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card" onclick="this.classList.toggle('flipped')">
+                        <div class="card-face card-front">
+                            <span class="icon"><i class="fas fa-database"></i></span>
+                            <h2>Analista de Dados / Cientista de Dados</h2>
+                            <p>Gosta de transformar números em insights valiosos?</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Analista de Dados / Cientista de Dados</h3>
+                            <p>Coleta, organiza e interpreta grandes volumes de dados para identificar tendências e apoiar decisões estratégicas.</p>
+                            <p><strong>Atividades:</strong></p>
+                            <ul>
+                                <li>Coleta e limpeza de dados (ETL).</li>
+                                <li>Análise exploratória de dados.</li>
+                                <li>Desenvolvimento de modelos preditivos (Machine Learning).</li>
+                                <li>Criação de dashboards e relatórios (BI).</li>
+                            </ul>
+                            <p><strong>Tecnologias:</strong> Python (Pandas, NumPy, Scikit-learn), R, SQL, Power BI, Tableau, Apache Spark, Hadoop.</p>
+                            <p><strong>Competências Desejadas:</strong> Estatística, matemática, raciocínio lógico, comunicação (storytelling com dados), curiosidade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container">
+                    <div class="card" onclick="this.classList.toggle('flipped')">
+                        <div class="card-face card-front">
+                            <span class="icon"><i class="fas fa-cloud"></i></span>
+                            <h2>Engenheiro(a) DevOps</h2>
+                            <p>Curte automatizar e otimizar a entrega de software?</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <h3>Engenheiro(a) DevOps</h3>
+                            <p>Responsável por integrar desenvolvimento (Dev) e operações (Ops), automatizando o ciclo de vida do software.</p>
+                            <p><strong>Atividades:</strong></p>
+                            <ul>
+                                <li>Automação de CI/CD (Integração e Entrega Contínua).</li>
+                                <li>Gerenciamento de infraestrutura como código (IaC).</li>
+                                <li>Monitoramento de sistemas e aplicações.</li>
+                                <li>Otimização de processos de deployment.</li>
+                            </ul>
+                            <p><strong>Tecnologias:</strong> Docker, Kubernetes, Jenkins, GitLab CI, AWS, Azure, GCP, Ansible, Terraform, Linux.</p>
+                            <p><strong>Competências Desejadas:</strong> Conhecimento em nuvem, scripting (Shell, Python), automação, resolução de problemas complexos, colaboração.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="trilhas-aprendizagem" class="content-section pt-4">
+            <h2 class="text-center text-custom mb-4">Trilhas de Aprendizagem</h2>
+            <p class="text-center lead">Aqui você encontra roteiros sugeridos para iniciar ou aprimorar sua jornada em diferentes carreiras de TI. Lembre-se que o aprendizado é contínuo!</p>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Desenvolvedor(a) Front-end</h4>
+                            <p class="card-text">Comece do básico e construa interfaces incríveis!</p>
+                            <ul>
+                                <li><strong>Fundamentos:</strong> HTML5, CSS3 (Flexbox, Grid), JavaScript (ES6+).</li>
+                                <li><strong>Frameworks/Bibliotecas:</strong> React, Angular ou Vue.js.</li>
+                                <li><strong>Ferramentas:</strong> Git, npm/yarn, VS Code.</li>
+                                <li><strong>Recursos:</strong> Cursos da Alura, freeCodeCamp, The Odin Project.</li>
+                                <li><strong>Projetos:</strong> Crie um portfólio com sites responsivos e SPAs.</li>
+                            </ul>
+                            <a href="https://www.alura.com.br/carreira/desenvolvedor-frontend" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cientista de Dados</h4>
+                            <p class="card-text">Transforme dados em conhecimento e insights acionáveis.</p>
+                            <ul>
+                                <li><strong>Matemática e Estatística:</strong> Álgebra Linear, Cálculo, Probabilidade.</li>
+                                <li><strong>Programação:</strong> Python (com bibliotecas Pandas, NumPy, Scikit-learn) ou R.</li>
+                                <li><strong>Bancos de Dados:</strong> SQL, NoSQL.</li>
+                                <li><strong>Machine Learning:</strong> Conceitos, modelos (regressão, classificação, clustering).</li>
+                                <li><strong>Recursos:</strong> Coursera (especializações em Data Science), Kaggle (competições).</li>
+                                <li><strong>Projetos:</strong> Análise de dados reais, construção de modelos de ML.</li>
+                            </ul>
+                            <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cibersegurança</h4>
+                            <p class="card-text">Desenvolva as habilidades para defender o mundo digital.</p>
+                            <ul>
+                                <li><strong>Fundamentos de Redes:</strong> TCP/IP, modelos OSI/TCP.</li>
+                                <li><strong>Sistemas Operacionais:</strong> Linux, Windows Server.</li>
+                                <li><strong>Conceitos de Segurança:</strong> Criptografia, Firewalls, Segurança de Aplicações.</li>
+                                <li><strong>Ferramentas:</strong> Nmap, Wireshark, Kali Linux (para prática ética).</li>
+                                <li><strong>Certificações:</strong> CompTIA Security+, Certified Ethical Hacker (CEH).</li>
+                                <li><strong>Recursos:</strong> TryHackMe, Hack The Box (plataformas de laboratório).</li>
+                            </ul>
+                            <a href="#" class="btn btn-secondary btn-sm mt-2">Ver Mais Trilhas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="entrevistas-profissionais" class="content-section pt-4">
+            <h2 class="text-center text-custom mb-4">Histórias de Sucesso: Entrevistas com Profissionais</h2>
+            <p class="text-center lead">Inspire-se com as trajetórias e experiências de quem já está no mercado de T.I.</p>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                <div class="col">
+                    <div class="interview-card text-center">
+                        <img src="https://via.placeholder.com/150/007bff/FFFFFF?text=Maria" class="img-fluid" alt="Maria Clara - Desenvolvedora Full Stack">
+                        <h4>Maria Clara - Desenvolvedora Full Stack Sênior</h4>
+                        <p>"Comecei na TI por curiosidade, e hoje amo ver minhas criações impactando usuários. A chave é nunca parar de aprender e colaborar!"</p>
+                        <p class="small text-muted"><strong>Tecnologias:</strong> React, Node.js, AWS, PostgreSQL.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="interview-card text-center">
+                        <img src="https://via.placeholder.com/150/28a745/FFFFFF?text=João" class="img-fluid" alt="João Silva - Especialista em Cibersegurança">
+                        <h4>João Silva - Especialista em Cibersegurança</h4>
+                        <p>"Proteger dados é um desafio constante. É preciso estar sempre um passo à frente das ameaças. Minha paixão é desvendar vulnerabilidades."</p>
+                        <p class="small text-muted"><strong>Tecnologias:</strong> Firewalls, SIEM, Ferramentas de Pentest.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="interview-card text-center">
+                        <img src="https://via.placeholder.com/150/ffc107/FFFFFF?text=Ana" class="img-fluid" alt="Ana Paula - Cientista de Dados">
+                        <h4>Ana Paula - Cientista de Dados</h4>
+                        <p>"Adoro a parte de transformar dados brutos em histórias que ajudam as empresas a crescer. Estatística e programação são minhas ferramentas diárias."</p>
+                        <p class="small text-muted"><strong>Tecnologias:</strong> Python, R, SQL, Power BI.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="interview-card text-center">
+                        <img src="https://via.placeholder.com/150/6f42c1/FFFFFF?text=Carlos" class="img-fluid" alt="Carlos Souza - Engenheiro DevOps">
+                        <h4>Carlos Souza - Engenheiro DevOps</h4>
+                        <p>"Ver um pipeline CI/CD funcionando perfeitamente é gratificante. A automação é o futuro, e otimizar processos é minha missão!"</p>
+                        <p class="small text-muted"><strong>Tecnologias:</strong> Docker, Kubernetes, Jenkins, Azure DevOps.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="questionario-preferencias" class="content-section pt-4">
+            <h2 class="text-center text-custom mb-4">Descubra Sua Área em T.I.!</h2>
+            <p class="text-center lead">Responda a algumas perguntas rápidas para descobrir qual área de T.I. combina mais com você.</p>
+
+            <div class="quiz-section container">
+                <form id="careerQuiz">
+                    <div class="mb-4 pergunta">
+                        <h5>1. Qual tipo de desafio mais te atrai?</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="dev" id="q1_dev">
+                            <label class="form-check-label" for="q1_dev">Resolver problemas lógicos e criar novas funcionalidades.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="sec" id="q1_sec">
+                            <label class="form-check-label" for="q1_sec">Proteger sistemas contra ameaças e vulnerabilidades.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="data" id="q1_data">
+                            <label class="form-check-label" for="q1_data">Analisar grandes volumes de informações para encontrar padrões.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q1" value="devops" id="q1_devops">
+                            <label class="form-check-label" for="q1_devops">Automatizar processos e otimizar a infraestrutura.</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 pergunta">
+                        <h5>2. Com qual das seguintes atividades você se identifica mais?</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="dev" id="q2_dev">
+                            <label class="form-check-label" for="q2_dev">Escrever código para softwares ou aplicativos.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="sec" id="q2_sec">
+                            <label class="form-check-label" for="q2_sec">Identificar falhas de segurança e implementar defesas.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="data" id="q2_data">
+                            <label class="form-check-label" for="q2_data">Criar gráficos e relatórios a partir de dados complexos.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q2" value="devops" id="q2_devops">
+                            <label class="form-check-label" for="q2_devops">Configurar servidores e ambientes de nuvem.</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 pergunta">
+                        <h5>3. Qual tipo de tecnologia te desperta mais curiosidade?</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="dev" id="q3_dev">
+                            <label class="form-check-label" for="q3_dev">Novas linguagens de programação e frameworks web/mobile.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="sec" id="q3_sec">
+                            <label class="form-check-label" for="q3_sec">Ferramentas de hacking ético e sistemas de monitoramento de segurança.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="data" id="q3_data">
+                            <label class="form-check-label" for="q3_data">Inteligência Artificial, Machine Learning e Big Data.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q3" value="devops" id="q3_devops">
+                            <label class="form-check-label" for="q3_devops">Containers (Docker), orquestração (Kubernetes) e provedores de nuvem (AWS, Azure).</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 pergunta">
+                        <h5>4. Você se vê...</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="dev" id="q4_dev">
+                            <label class="form-check-label" for="q4_dev">Criando a experiência do usuário de um site ou aplicativo.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="sec" id="q4_sec">
+                            <label class="form-check-label" for="q4_sec">Investigando incidentes de segurança ou auditorias.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="data" id="q4_data">
+                            <label class="form-check-label" for="q4_data">Fazendo previsões baseadas em tendências de dados.</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q4" value="devops" id="q4_devops">
+                            <label class="form-check-label" for="q4_devops">Garantindo que sistemas e aplicações estejam sempre online e performando bem.</label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary btn-lg w-100" onclick="calculateResult()">Ver Meu Perfil</button>
+                </form>
+
+                <div id="quizResult" class="resultado mt-4 alert alert-success" role="alert">
+                    </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="container mt-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; H2N Technology</p>
+
+            <ul class="nav col-md-8 justify-content-end">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link px-2">Carreiras</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link px-2">Cursos</a></li>
+                <li class="nav-item"><a href="duvidas.html" class="nav-link px-2">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="saibamais.html" class="nav-link px-2">Saiba Mais</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link px-2">Sobre Nós</a></li>
+                <li class="nav-item"><a href="noticias.html" class="nav-link px-2">Notícias</a></li>
+              </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Lógica do Questionário
+        function calculateResult() {
+            const answers = {
+                dev: 0,
+                sec: 0,
+                data: 0,
+                devops: 0
+            };
+
+            const form = document.getElementById('careerQuiz');
+            let allAnswered = true;
+
+            for (let i = 1; i <= 4; i++) {
+                const selected = form.querySelector(input[name="q${i}"],checked);
+                if (selected) {
+                    answers[selected.value]++;
+                } else {
+                    allAnswered = false;
+                    break;
+                }
+            }
+
+            const quizResultDiv = document.getElementById('quizResult');
+            if (!allAnswered) {
+                quizResultDiv.className = 'resultado mt-4 alert alert-danger';
+                quizResultDiv.innerHTML = 'Por favor, responda a todas as perguntas para obter seu resultado.';
+                quizResultDiv.style.display = 'block';
+                return;
+            }
+
+            let maxScore = 0;
+            let bestMatch = '';
+            let multipleMatches = [];
+
+            for (const area in answers) {
+                if (answers[area] > maxScore) {
+                    maxScore = answers[area];
+                    bestMatch = area;
+                    multipleMatches = [area]; // Reinicia se encontrar um novo máximo
+                } else if (answers[area] === maxScore && answers[area] > 0) {
+                    multipleMatches.push(area); // Adiciona se houver empate com score > 0
+                }
+            }
+
+            let resultText = '';
+            let careerLink = '';
+            let resultClass = 'alert-success';
+
+            const areaNames = {
+                'dev': 'Desenvolvimento de Software',
+                'sec': 'Cibersegurança',
+                'data': 'Dados (Cientista/Analista)',
+                'devops': 'Engenheiro(a) DevOps'
+            };
+
+            if (maxScore === 0) {
+                resultText = "Não foi possível determinar um perfil. Por favor, tente novamente.";
+                resultClass = 'alert-warning';
+            } else if (multipleMatches.length > 1) {
+                const formattedMatches = multipleMatches.map(m => `**${areaNames[m]}**`).join(', ').replace(/, ([^,]*)$/, ' e $1');
+                resultText = `Você tem um perfil versátil! Suas áreas potenciais são: ${formattedMatches}.`;
+                careerLink = ` Explore as <a href="#areas-atuacao">áreas de atuação</a> para descobrir mais.`;
+                resultClass = 'alert-info';
+            } else {
+                resultText = `Você parece ter um forte perfil para **${areaNames[bestMatch]}**!`;
+                careerLink = ` Clique <a href="#areas-atuacao">aqui</a> para saber mais sobre esta área.`;
+            }
+            
+            quizResultDiv.className = `resultado mt-4 alert ${resultClass}`;
+            quizResultDiv.innerHTML = resultText + careerLink;
+            quizResultDiv.style.display = 'block';
+
+            // Rolagem suave para o resultado
+            quizResultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
