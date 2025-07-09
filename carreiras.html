@@ -559,80 +559,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Lógica do Questionário
-        function calculateResult() {
-            const answers = {
-                dev: 0,
-                sec: 0,
-                data: 0,
-                devops: 0
-            };
+function calculateResult() {
+    const answers = {
+        dev: 0,
+        sec: 0,
+        data: 0,
+        devops: 0
+    };
 
-            const form = document.getElementById('careerQuiz');
-            let allAnswered = true;
+    const form = document.getElementById('careerQuiz');
+    let allAnswered = true;
 
-            for (let i = 1; i <= 4; i++) {
-                const selected = form.querySelector(input[name="q${i}"],checked);
-                if (selected) {
-                    answers[selected.value]++;
-                } else {
-                    allAnswered = false;
-                    break;
-                }
-            }
-
-            const quizResultDiv = document.getElementById('quizResult');
-            if (!allAnswered) {
-                quizResultDiv.className = 'resultado mt-4 alert alert-danger';
-                quizResultDiv.innerHTML = 'Por favor, responda a todas as perguntas para obter seu resultado.';
-                quizResultDiv.style.display = 'block';
-                return;
-            }
-
-            let maxScore = 0;
-            let bestMatch = '';
-            let multipleMatches = [];
-
-            for (const area in answers) {
-                if (answers[area] > maxScore) {
-                    maxScore = answers[area];
-                    bestMatch = area;
-                    multipleMatches = [area]; // Reinicia se encontrar um novo máximo
-                } else if (answers[area] === maxScore && answers[area] > 0) {
-                    multipleMatches.push(area); // Adiciona se houver empate com score > 0
-                }
-            }
-
-            let resultText = '';
-            let careerLink = '';
-            let resultClass = 'alert-success';
-
-            const areaNames = {
-                'dev': 'Desenvolvimento de Software',
-                'sec': 'Cibersegurança',
-                'data': 'Dados (Cientista/Analista)',
-                'devops': 'Engenheiro(a) DevOps'
-            };
-
-            if (maxScore === 0) {
-                resultText = "Não foi possível determinar um perfil. Por favor, tente novamente.";
-                resultClass = 'alert-warning';
-            } else if (multipleMatches.length > 1) {
-                const formattedMatches = multipleMatches.map(m => `**${areaNames[m]}**`).join(', ').replace(/, ([^,]*)$/, ' e $1');
-                resultText = `Você tem um perfil versátil! Suas áreas potenciais são: ${formattedMatches}.`;
-                careerLink = ` Explore as <a href="#areas-atuacao">áreas de atuação</a> para descobrir mais.`;
-                resultClass = 'alert-info';
-            } else {
-                resultText = `Você parece ter um forte perfil para **${areaNames[bestMatch]}**!`;
-                careerLink = ` Clique <a href="#areas-atuacao">aqui</a> para saber mais sobre esta área.`;
-            }
-            
-            quizResultDiv.className = `resultado mt-4 alert ${resultClass}`;
-            quizResultDiv.innerHTML = resultText + careerLink;
-            quizResultDiv.style.display = 'block';
-
-            // Rolagem suave para o resultado
-            quizResultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    for (let i = 1; i <= 4; i++) {
+        const selected = form.querySelector(`input[name="q${i}"]:checked`); // Corrected line
+        if (selected) {
+            answers[selected.value]++;
+        } else {
+            allAnswered = false;
+            break;
         }
+    }
+
+    const quizResultDiv = document.getElementById('quizResult');
+    if (!allAnswered) {
+        quizResultDiv.className = 'resultado mt-4 alert alert-danger';
+        quizResultDiv.innerHTML = 'Por favor, responda a todas as perguntas para obter seu resultado.';
+        quizResultDiv.style.display = 'block';
+        return;
+    }
+
+    let maxScore = 0;
+    let bestMatches = []; // Changed to an array to handle ties
+
+    for (const area in answers) {
+        if (answers[area] > maxScore) {
+            maxScore = answers[area];
+            bestMatches = [area]; // Reset if a new max is found
+        } else if (answers[area] === maxScore && answers[area] > 0) {
+            bestMatches.push(area); // Add if it's a tie with a score greater than 0
+        }
+    }
+
+    let resultText = '';
+    let resultClass = 'alert-success';
+
+    const areaNames = {
+        'dev': 'Desenvolvimento de Software',
+        'sec': 'Cibersegurança',
+        'data': 'Dados (Cientista/Analista)',
+        'devops': 'Engenheiro(a) DevOps'
+    };
+
+    if (maxScore === 0) {
+        resultText = "Não foi possível determinar um perfil claro. Tente explorar as áreas acima ou refazer o questionário!";
+        resultClass = 'alert-info'; // Set a more appropriate class for no clear result
+    } else if (bestMatches.length === 1) {
+        resultText = `Parabéns! Pelo que respondemos, você tem um forte perfil para a área de <strong class="text-custom">${areaNames[bestMatches[0]]}</strong>. Explore as trilhas de aprendizado e entrevistas nesta página para saber mais!`;
+    } else {
+        const matchedAreas = bestMatches.map(area => `<strong class="text-custom">${areaNames[area]}</strong>`).join(' e ');
+        resultText = `Interessante! Suas respostas indicam afinidade com as áreas de ${matchedAreas}. Você pode ter múltiplas paixões em T.I.!`;
+        resultClass = 'alert-warning'; // Suggest a different class for multiple matches
+    }
+
+    quizResultDiv.className = `resultado mt-4 alert ${resultClass}`;
+    quizResultDiv.innerHTML = resultText;
+    quizResultDiv.style.display = 'block';
+}
     </script>
 </body>
 </html>
