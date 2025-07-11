@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oportunidades em T.I.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #f8f9fa;
@@ -44,8 +44,58 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px #052442;
             margin-bottom: 30px;
+        }
+
+        /* Diminuir a área de pesquisa e centralizar */
+        .job-filter-card {
+            max-width: 800px; /* Largura máxima para a área de pesquisa */
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Um pouco transparente para ver o fundo */
+        }
+
+        /* Estilo para a imagem de fundo da seção de busca */
+        #buscar-vagas {
+            background-image: url('image_ce8735.png'); /* Usando o nome do arquivo que você forneceu */
+            background-size: cover; /* Cobre toda a área do elemento */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Não repete a imagem */
+            color: white; /* Cor do texto para contraste com a imagem */
+            padding: 60px 0; /* Aumenta o padding para a imagem aparecer mais */
+            margin-top: -24px; /* Ajuste para preencher o espaço do h1 */
+            position: relative; /* Para o overlay */
+        }
+
+        /* Overlay para escurecer a imagem e melhorar a legibilidade do texto */
+        #buscar-vagas::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem */
+            z-index: 1;
+        }
+
+        #buscar-vagas > .container {
+            position: relative;
+            z-index: 2; /* Garante que o conteúdo fique acima do overlay */
+        }
+
+        #buscar-vagas h2, #buscar-vagas p {
+            color: white; /* Garante que o texto seja branco para contraste */
+        }
+        
+        .job-filter-card .form-label {
+             color: #052442; /* Força a cor do texto dos labels dentro do card para ser escura */
+        }
+
+        /* Oculta os resultados da busca por padrão */
+        #jobResultsContainer {
+            display: none;
         }
 
         /* Estilos para os Cards de Vaga */
@@ -137,7 +187,7 @@
         }
 
         #featuredJobsCarousel .carousel-item {
-            padding: 20px;
+            padding: 20px 0; /* Adjusted padding for better fit */
         }
 
         #featuredJobsCarousel .carousel-inner {
@@ -145,7 +195,7 @@
         }
 
         /* Ajuste para alinhar os cards no carrossel */
-        #carouselJobs .job-card {
+        #featuredJobsCarousel .job-card { /* Changed selector from #carouselJobs to #featuredJobsCarousel */
             margin: auto; /* Centraliza o card */
             max-width: 400px; /* Limita a largura do card no carrossel */
             margin-bottom: 0; /* Remove margem inferior padrão */
@@ -156,7 +206,6 @@
         .carousel-control-next.carousel-control-disabled {
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -164,112 +213,108 @@
     <div class="nav-bar">
         <header class="container">
             <ul class="nav nav-pills justify-content-center py-3">
-              <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
-              <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
-              <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
-              <li class="nav-item"><a href="oportunidades.html" class="nav-link active" aria-current="page">Oportunidades</a></li>
-              <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
-              <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
-              <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link text-white">Início</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
+                <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="#buscar-vagas" class="nav-link active" aria-current="page">Oportunidades</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
             </ul>
-          </header>      
+        </header>     
+    </div>
+
+          <div class="container-fluid p-0">  <h1 class="text-center text-custom mb-4" style="color: #004F9F;">Oportunidades: Encontre Sua Próxima Vaga!</h1>
+        <section id="buscar-vagas" class="content-section pt-4 mb-5">
+            <div class="container"> 
+                <h2 class="text-center mb-4">Buscar Vagas</h2>
+                <p class="text-center lead">Utilize os filtros abaixo para encontrar as vagas de relacionadas a tecnologia,
+                 que mais combinam com você.</p>
+                <div class="job-filter-card">
+                    <div class="row g-3 align-items-end">
+                        <div class="col-md-5">
+                            <label for="searchKeywords" class="form-label text-dark">Palavras-chave (cargo, tecnologia, etc.):</label>
+                            <input type="text" class="form-control" id="searchKeywords" placeholder="Desenvolvedor, Python, DevOps...">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="filterLocation" class="form-label text-dark">Localização:</label>
+                            <select class="form-select" id="filterLocation">
+                                <option value="">Todas as Localizações</option>
+                                <option value="Remoto">Remoto</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Belo Horizonte">Belo Horizonte</option>
+                                <option value="Porto Alegre">Porto Alegre</option>
+                                <option value="Curitiba">Curitiba</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary w-100" onclick="filterJobs()"><i class="fas fa-search"></i> Buscar Vagas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="jobResultsContainer">
+                    <h3 class="text-custom mt-5 mb-3 text-white">Resultados da Busca:</h3>
+                    <div id="jobResults" class="row row-cols-1 row-cols-md-2 g-4">
+                        <p class="text-muted text-center col-12 text-white" id="noResultsMessage">Use os filtros para encontrar vagas. As vagas aparecerão aqui.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <div class="container mt-4">
-        <h1 class="text-center text-custom mb-5">Oportunidades em T.I.: Encontre Sua Próxima Vaga!</h1>
-
-        
+        <div class="mb-4">
+            <button class="btn btn-secondary">Voltar</button>
+        </div>
 
         <section id="featured-jobs" class="content-section pt-4 mb-5">
             <h2 class="text-center text-custom mb-4">Vagas em Destaque</h2>
             <p class="text-center lead mb-4">Confira algumas das nossas melhores oportunidades:</p>
 
-            <div id="featuredJobsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner" id="carouselJobs">
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-center">
-                            <p class="text-muted">Carregando vagas em destaque...</p>
-                        </div>
+            <div id="featuredJobsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
                     </div>
-                </div>
+                <div class="carousel-inner" id="carouselJobs">
+                    </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#featuredJobsCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
+                    <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#featuredJobsCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Próximo</span>
+                    <span class="visually-hidden">Next</span>
                 </button>
-                <div class="carousel-indicators">
-                    </div>
             </div>
         </section>
 
-        
-
         <div class="row">
-            <div class="col-lg-7">
-                <section id="buscar-vagas" class="content-section pt-4">
-                    <h2 class="text-center text-custom mb-4">Buscar Vagas</h2>
-                    <p class="text-center lead">Utilize os filtros abaixo para encontrar as vagas de T.I. que mais combinam com você.</p>
-
-                    <div class="job-filter-card">
-                        <div class="row g-3 align-items-end">
-                            <div class="col-md-5">
-                                <label for="searchKeywords" class="form-label">Palavras-chave (cargo, tecnologia, etc.):</label>
-                                <input type="text" class="form-control" id="searchKeywords" placeholder="Desenvolvedor, Python, DevOps...">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="filterLocation" class="form-label">Localização:</label>
-                                <select class="form-select" id="filterLocation">
-                                    <option value="">Todas as Localizações</option>
-                                    <option value="Remoto">Remoto</option>
-                                    <option value="São Paulo">São Paulo</option>
-                                    <option value="Rio de Janeiro">Rio de Janeiro</option>
-                                    <option value="Belo Horizonte">Belo Horizonte</option>
-                                    <option value="Porto Alegre">Porto Alegre</option>
-                                    <option value="Curitiba">Curitiba</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn btn-primary w-100" onclick="filterJobs()"><i class="fas fa-search"></i> Buscar Vagas</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="text-custom mt-5 mb-3">Resultados da Busca:</h3>
-                    <div id="jobResults" class="row row-cols-1 row-cols-md-2 g-4">
-                        <p class="text-muted text-center col-12" id="noResultsMessage">Use os filtros para encontrar vagas. As vagas aparecerão aqui.</p>
-                        </div>
-                </section>
-            </div>
-
-            <div class="col-lg-5">
+            <div class="col-lg-12"> 
                 <section id="jobDetailsSection" class="content-section pt-4">
                     <h2 class="text-center text-custom mb-4">Detalhes da Vaga</h2>
                     
                     <div id="jobDetailContent" class="job-detail-card">
                         <p class="job-detail-placeholder" id="placeholderMessage">Selecione uma vaga para ver os detalhes.</p>
-                        </div>
+                    </div>
                 </section>
             </div>
-        </div> </div>
+        </div> 
+    </div>
 
-        <footer class="container mt-5">
-            <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-              <p class="col-md-4 mb-0 text-muted">&copy; H2N Technology</p>
-                <ul class="nav col-md-8 justify-content-end">
-                  <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
-                  <li class="nav-item"><a href="carreiras.html" class="nav-link px-2">Carreiras</a></li>
-                  <li class="nav-item"><a href="cursos.html" class="nav-link px-2">Cursos</a></li>
-                  <li class="nav-item"><a href="oportunidades.html" class="nav-link px-2">Oportunidades</a></li>
-                  <li class="nav-item"><a href="duvidas.html" class="nav-link px-2">Dúvidas Frequentes</a></li>
-                  <li class="nav-item"><a href="saibamais.html" class="nav-link px-2">Saiba Mais</a></li>
-                  <li class="nav-item"><a href="sobre.html" class="nav-link px-2">Sobre Nós</a></li>
-                  <li class="nav-item"><a href="noticias.html" class="nav-link px-2">Notícias</a></li>
-                </ul>
-            </div>
-          </footer>
+    <footer class="container mt-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; H2N Technology</p>
+
+            <ul class="nav col-md-8 justify-content-end">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Início</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link px-2 text-muted">Carreiras</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link px-2 text-muted">Cursos</a></li>
+                <li class="nav-item"><a href="duvidas.html" class="nav-link px-2 text-muted">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="#buscar-vagas" class="nav-link px-2 text-muted">Oportunidades</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link px-2 text-muted">Sobre Nós</a></li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -394,7 +439,7 @@
                 ],
                 link: "https://example.com/vaga/backend-senior"
             },
-             {
+            {
                 id: 6,
                 title: "Arquiteto(a) de Soluções Cloud",
                 company: "CloudBuilders",
@@ -499,11 +544,23 @@
         function displayJobs(jobsToDisplay) {
             const jobResultsDiv = document.getElementById('jobResults');
             jobResultsDiv.innerHTML = ''; // Limpa os resultados anteriores
-            document.getElementById('noResultsMessage').style.display = 'none'; // Esconde a mensagem de "sem resultados"
+            
+            // Esconde a mensagem de "sem resultados" por padrão, só mostra se necessário
+            const noResultsMessageElement = document.getElementById('noResultsMessage');
+            if (noResultsMessageElement) {
+                noResultsMessageElement.style.display = 'none';
+            }
+
 
             if (jobsToDisplay.length === 0) {
-                document.getElementById('noResultsMessage').style.display = 'block';
-                jobResultsDiv.innerHTML = '<p class="text-muted text-center col-12">Nenhuma vaga encontrada com os filtros aplicados.</p>';
+                // Se não há vagas, exibe a mensagem no centro da coluna
+                if (noResultsMessageElement) {
+                    noResultsMessageElement.style.display = 'block';
+                    noResultsMessageElement.textContent = 'Nenhuma vaga encontrada com os filtros aplicados.';
+                } else {
+                    // Fallback se o elemento não for encontrado (improvável)
+                    jobResultsDiv.innerHTML = '<p class="text-muted text-center col-12 text-white">Nenhuma vaga encontrada com os filtros aplicados.</p>';
+                }
                 return;
             }
 
@@ -526,7 +583,9 @@
             jobCard.setAttribute('data-job-id', job.id); // Armazena o ID da vaga
             
             jobCard.onclick = (event) => {
-                if (event.target.tagName.toLowerCase() !== 'button' && event.target.closest('button') === null) {
+                // Garante que clicar no botão dentro do card ainda selecione a vaga sem interferir na ação do botão
+                // Target the entire card for selection, but allow the button's default action
+                if (event.target.tagName !== 'BUTTON' && !event.target.closest('button')) { 
                     selectJob(event, job.id);
                 }
             };
@@ -565,7 +624,7 @@
                     carouselItem.classList.add('active'); // Primeiro item ativo
                 }
 
-                const jobCard = createJobCardElement(job); // Reutiliza a criação do card
+                const jobCard = createJobCardElement(job);
                 jobCard.classList.add('mb-0'); // Remove margem inferior se o card estiver no carrossel
 
                 const dFlexDiv = document.createElement('div');
@@ -594,6 +653,9 @@
             const keywords = document.getElementById('searchKeywords').value.toLowerCase();
             const location = document.getElementById('filterLocation').value.toLowerCase();
 
+            // Exibe a div de resultados ao iniciar a busca
+            document.getElementById('jobResultsContainer').style.display = 'block';
+
             const filtered = allJobs.filter(job => {
                 const matchesKeywords = keywords === '' ||
                     job.title.toLowerCase().includes(keywords) ||
@@ -613,7 +675,6 @@
                 currentSelectedCard.classList.remove('selected-card');
                 currentSelectedCard = null;
             }
-            document.getElementById('buscar-vagas').scrollIntoView({ behavior: 'smooth' });
         }
 
         // Função para selecionar e exibir os detalhes de uma vaga
@@ -622,10 +683,12 @@
             const selectedJob = allJobs.find(job => job.id === jobId);
             const jobDetailContentDiv = document.getElementById('jobDetailContent');
 
+            // Remove o destaque do card selecionado anteriormente
             if (currentSelectedCard) {
                 currentSelectedCard.classList.remove('selected-card');
             }
 
+            // Encontra o card clicado e adiciona o destaque
             let clickedCard = event.target.closest('.job-card');
             if (clickedCard) {
                 clickedCard.classList.add('selected-card');
@@ -654,6 +717,7 @@
 
                     <a id="detailLink" href="${selectedJob.link}" target="_blank" class="btn btn-success btn-lg mt-4 w-100">Candidatar-se à Vaga <i class="fas fa-external-link-alt"></i></a>
                 `;
+                // Rola para a seção de detalhes da vaga, se ela estiver fora da tela
                 document.getElementById('jobDetailsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
@@ -670,10 +734,11 @@
             }
         }
 
-        // Exibe todas as vagas e popula o carrossel ao carregar a página inicialmente
+        // Ao carregar a página, não exibe as vagas inicialmente
         document.addEventListener('DOMContentLoaded', () => {
             populateCarousel(); // Popula o carrossel
-            displayJobs(allJobs); // Popula a lista de busca
+            // Não chame displayJobs(allJobs) aqui, pois queremos que esteja oculto
+            // O container de resultados já estará oculto via CSS
             clearJobDetails(); 
         });
     </script>
