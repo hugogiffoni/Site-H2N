@@ -38,9 +38,7 @@
 
     .btn-secondary {
       text-align: center;
-      width: 100%;
-      max-width: 200px;
-      height: 150px;
+      
       margin: 5px;
       background-color: #0d355e;
       padding: 20px;
@@ -78,22 +76,69 @@
   </div>
 <!-- Texto -->
   <div class="texto container">
-    <h3 class="text-center text-custom mt-4">Saiba Mais Sobre as Áreas de Estudo em Programação!</h3>
-    <h5 class="text-custom">
-      A programação é um universo amplo, repleto de possibilidades para quem deseja entrar no mundo da tecnologia. Ao começar a estudar, é comum se deparar com diferentes caminhos, cada um com suas características, desafios e oportunidades. Entre as opções mais conhecidas, está o desenvolvimento web, onde você pode criar sites e aplicações para a internet, atuando tanto na parte visual e interativa quanto na lógica por trás do funcionamento dos sistemas.
-    </h5>
-    <h5 class="text-custom">
-      Outra área em destaque é o desenvolvimento mobile, voltado para a criação de aplicativos para smartphones e tablets, cada vez mais presentes no dia a dia das pessoas. Para quem se interessa por dados, algoritmos e aprendizado de máquina, a ciência de dados e a inteligência artificial oferecem um campo riquíssimo de atuação, com aplicações que vão desde sistemas de recomendação até modelos preditivos.
-    </h5>   
-    <h5 class="text-custom">
-      O desenvolvimento de jogos é uma alternativa criativa e desafiadora, ideal para quem gosta de unir programação com arte, narrativa e interatividade. Já quem se preocupa com segurança e proteção digital pode se aprofundar em segurança da informação, área responsável por manter dados e sistemas protegidos contra falhas e ameaças.
-    </h5>  
-    <h5 class="text-custom">
-      Além disso, há o campo de DevOps e infraestrutura, que integra o desenvolvimento de software com práticas de automação, monitoramento e melhoria contínua, contribuindo para tornar os processos mais ágeis e eficientes. Independentemente da área escolhida, o mais importante é explorar, testar possibilidades e encontrar aquilo que mais desperta o seu interesse. A programação oferece espaço para todos os perfis e está em constante evolução — sempre há algo novo para aprender.
-    </h5>
-  </div>
+    <h2 class="text-center text-custom mt-4">Saiba Mais Sobre as Áreas de Estudo em Programação!</h2>
+    <section id="trilhas-aprendizagem" class="content-section pt-4">
+      <h2 class="text-center text-custom mb-4">Trilhas de Aprendizagem</h2>
+      <p class="text-center lead">Aqui você encontra roteiros sugeridos para iniciar ou aprimorar sua jornada em diferentes carreiras de TI. Lembre-se que o aprendizado é contínuo!</p>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                      <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Desenvolvedor(a) Front-end</h4>
+                      <p class="card-text">Comece do básico e construa interfaces incríveis!</p>
+                      <ul>
+                          <li><strong>Fundamentos:</strong> HTML5, CSS3 (Flexbox, Grid), JavaScript (ES6+).</li>
+                          <li><strong>Frameworks/Bibliotecas:</strong> React, Angular ou Vue.js.</li>
+                          <li><strong>Ferramentas:</strong> Git, npm/yarn, VS Code.</li>
+                          <li><strong>Recursos:</strong> Cursos da Alura, freeCodeCamp, The Odin Project.</li>
+                          <li><strong>Projetos:</strong> Crie um portfólio com sites responsivos e SPAs.</li>
+                      </ul>
+                      <a href="https://www.alura.com.br/carreira/desenvolvedor-frontend" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                      <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cientista de Dados</h4>
+                      <p class="card-text">Transforme dados em conhecimento e insights acionáveis.</p>
+                      <ul>
+                          <li><strong>Matemática e Estatística:</strong> Álgebra Linear, Cálculo, Probabilidade.</li>
+                          <li><strong>Programação:</strong> Python (com bibliotecas Pandas, NumPy, Scikit-learn) ou R.</li>
+                          <li><strong>Bancos de Dados:</strong> SQL, NoSQL.</li>
+                          <li><strong>Machine Learning:</strong> Conceitos, modelos (regressão, classificação, clustering).</li>
+                          <li><strong>Recursos:</strong> Coursera (especializações em Data Science), Kaggle (competições).</li>
+                          <li><strong>Projetos:</strong> Análise de dados reais, construção de modelos de ML.</li>
+                      </ul>
+                      <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                      <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cibersegurança</h4>
+                      <p class="card-text">Desenvolva as habilidades para defender o mundo digital.</p>
+                      <ul>
+                          <li><strong>Fundamentos de Redes:</strong> TCP/IP, modelos OSI/TCP.</li>
+                          <li><strong>Sistemas Operacionais:</strong> Linux, Windows Server.</li>
+                          <li><strong>Conceitos de Segurança:</strong> Criptografia, Firewalls, Segurança de Aplicações.</li>
+                          <li><strong>Ferramentas:</strong> Nmap, Wireshark, Kali Linux (para prática ética).</li>
+                          <li><strong>Certificações:</strong> CompTIA Security+, Certified Ethical Hacker (CEH).</li>
+                          <li><strong>Recursos:</strong> TryHackMe, Hack The Box (plataformas de laboratório).</li>
+                      </ul>
+                      <a href="#" class="btn btn-secondary btn-sm mt-2">Ver Mais Trilhas</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <hr class="my-5">
 
 <!-- Quiz -->
+  <!--
   <div class="texto container mt-5">
     <h3 class="text-center text-custom">Descubra qual área da programação combina com você!</h3>
 
@@ -122,7 +167,8 @@
       <div class="text-center mt-3">
         <button type="button" class="btn btn-primary" onclick="calcularResultado()">Ver Resultado</button>
       </div>
-    </form>
+    </form> 
+  -->
 
     <div class="resultado text-center mt-4 text-custom" id="resultado"></div>
   </div>
@@ -140,6 +186,8 @@
   <div class="botao">
     <a class="btn btn-secondary btn-lg d-flex align-items-center justify-content-center" href="programas.html" role="button">Programas mais Utilizados</a>
   </div>
+
+  
 
   <!-- Footer -->
   <footer class="container mt-5">
