@@ -95,8 +95,8 @@
         }
 
         .card-front {
-            background-color: #ffffff;
-            color: #333;
+            background-color: #052442;
+            color: #f8f9fa;
             border: 2px solid #007bff;
         }
 
@@ -114,7 +114,7 @@
 
         .card-front p {
             font-size: 1em;
-            color: #555;
+            color: #fff;
         }
 
         .card-back {
@@ -238,106 +238,113 @@
     </div>
 
     <div class="container mt-4">
-        <h1 class="text-center text-custom mb-5">Carreiras em T.I.: Construindo o Futuro Digital</h1>
-
+        
         <section id="areas-atuacao" class="content-section pt-4">
-            <h2 class="text-center text-custom mb-4">Áreas de Atuação em T.I.</h2>
-            <p class="text-center lead">A área de Tecnologia da Informação (TI) é um universo vasto e em constante evolução. Se você tem paixão por tecnologia, lógica e resolução de problemas, há um lugar para você neste setor dinâmico. As profissões em TI são diversas, abrangendo desde o desenvolvimento de softwares e aplicativos até a segurança de dados e a infraestrutura de redes. Profissionais da área são os arquitetos do mundo digital, criando soluções que facilitam a vida das pessoas, otimizam negócios e conectam o globo.</p>
+            <h1 class="text-center text-custom mb-5">Carreiras em Tecnolgia: Construindo o Futuro Digital</h1>
+            <p class="text-center lead">
+              A área de Tecnologia da Informação (TI) é um universo vasto e em constante evolução.
+              Se você tem paixão por tecnologia, lógica e resolução de problemas,
+              há um lugar para você neste setor dinâmico. As profissões em TI são diversas,
+              abrangendo desde o desenvolvimento de softwares e aplicativos até a segurança
+              de dados e a infraestrutura de redes. Profissionais da área são os arquitetos
+              do mundo digital, criando soluções que facilitam a vida das pessoas,
+              otimizam negócios e conectam o globo.</p>
             
             <div class="card-container-wrapper">
-                <div class="card-container">
-                    <div class="card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-face card-front">
-                            <span class="icon"><i class="fas fa-code"></i></span>
-                            <h2>Desenvolvedor(a) de Software</h2>
-                            <p>Gosta de criar e dar vida a ideias com código?</p>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Desenvolvedor(a) de Software</h3>
-                            <p>O desenvolvedor cria, testa e mantém programas e aplicações. Pode ser:</p>
-                            <ul>
-                                <li><strong>Front-end:</strong> Foco na interface do usuário (o que você vê), usando HTML, CSS, JavaScript (React, Angular, Vue.js).</li>
-                                <li><strong>Back-end:</strong> Foco na lógica e servidores (o que está por trás), usando Python (Django, Flask), Java (Spring Boot), Node.js, C# (.NET).</li>
-                                <li><strong>Full-stack:</strong> Atua nas duas frentes, com conhecimento em ambas as áreas.</li>
-                                <li><strong>Mobile:</strong> Desenvolve apps para iOS (Swift, Objective-C) ou Android (Kotlin, Java).</li>
-                            </ul>
-                            <p><strong>Competências Desejadas:</strong> Lógica de programação, resolução de problemas, design patterns, versionamento (Git), adaptabilidade.</p>
-                        </div>
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <img src="img_desenvolvedor.jpg" alt="Ilustração de um desenvolvedor de software" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        <span class="icon"><i class="fas fa-code"></i></span>
+                        <h2>Desenvolvedor(a) de Software</h2>
+                        <p>Gosta de criar e dar vida a ideias com código?</p>
                     </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-face card-front">
-                            <span class="icon"><i class="fas fa-shield-alt"></i></span>
-                            <h2>Especialista em Cibersegurança</h2>
-                            <p>Tem paixão por proteger dados e combater ameaças digitais?</p>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Especialista em Cibersegurança</h3>
-                            <p>Este profissional protege sistemas, redes e dados contra acessos não autorizados, ataques cibernéticos e vazamentos de informação.</p>
-                            <p><strong>Atividades:</strong></p>
-                            <ul>
-                                <li>Monitoramento de segurança (SIEM).</li>
-                                <li>Análise de vulnerabilidades (pentest, varreduras).</li>
-                                <li>Implementação de protocolos e políticas de segurança.</li>
-                                <li>Resposta a incidentes.</li>
-                            </ul>
-                            <p><strong>Tecnologias:</strong> Firewalls, VPNs, IDS/IPS, ferramentas de criptografia, Wireshark, Nmap, Metasploit.</p>
-                            <p><strong>Competências Desejadas:</strong> Conhecimento em redes, sistemas operacionais (Linux, Windows Server), ética, pensamento analítico, resiliência.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-face card-front">
-                            <span class="icon"><i class="fas fa-database"></i></span>
-                            <h2>Analista de Dados / Cientista de Dados</h2>
-                            <p>Gosta de transformar números em insights valiosos?</p>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Analista de Dados / Cientista de Dados</h3>
-                            <p>Coleta, organiza e interpreta grandes volumes de dados para identificar tendências e apoiar decisões estratégicas.</p>
-                            <p><strong>Atividades:</strong></p>
-                            <ul>
-                                <li>Coleta e limpeza de dados (ETL).</li>
-                                <li>Análise exploratória de dados.</li>
-                                <li>Desenvolvimento de modelos preditivos (Machine Learning).</li>
-                                <li>Criação de dashboards e relatórios (BI).</li>
-                            </ul>
-                            <p><strong>Tecnologias:</strong> Python (Pandas, NumPy, Scikit-learn), R, SQL, Power BI, Tableau, Apache Spark, Hadoop.</p>
-                            <p><strong>Competências Desejadas:</strong> Estatística, matemática, raciocínio lógico, comunicação (storytelling com dados), curiosidade.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-container">
-                    <div class="card" onclick="this.classList.toggle('flipped')">
-                        <div class="card-face card-front">
-                            <span class="icon"><i class="fas fa-cloud"></i></span>
-                            <h2>Engenheiro(a) DevOps</h2>
-                            <p>Curte automatizar e otimizar a entrega de software?</p>
-                        </div>
-                        <div class="card-face card-back">
-                            <h3>Engenheiro(a) DevOps</h3>
-                            <p>Responsável por integrar desenvolvimento (Dev) e operações (Ops), automatizando o ciclo de vida do software.</p>
-                            <p><strong>Atividades:</strong></p>
-                            <ul>
-                                <li>Automação de CI/CD (Integração e Entrega Contínua).</li>
-                                <li>Gerenciamento de infraestrutura como código (IaC).</li>
-                                <li>Monitoramento de sistemas e aplicações.</li>
-                                <li>Otimização de processos de deployment.</li>
-                            </ul>
-                            <p><strong>Tecnologias:</strong> Docker, Kubernetes, Jenkins, GitLab CI, AWS, Azure, GCP, Ansible, Terraform, Linux.</p>
-                            <p><strong>Competências Desejadas:</strong> Conhecimento em nuvem, scripting (Shell, Python), automação, resolução de problemas complexos, colaboração.</p>
-                        </div>
+                    <div class="card-face card-back">
+                        <h3>Desenvolvedor(a) de Software</h3>
+                        <p>O desenvolvedor cria, testa e mantém programas e aplicações. Pode ser:</p>
+                        <ul>
+                            <li><strong>Front-end:</strong> Foco na interface do usuário (o que você vê), usando HTML, CSS, JavaScript (React, Angular, Vue.js).</li>
+                            <li><strong>Back-end:</strong> Foco na lógica e servidores (o que está por trás), usando Python (Django, Flask), Java (Spring Boot), Node.js, C# (.NET).</li>
+                            <li><strong>Full-stack:</strong> Atua nas duas frentes, com conhecimento em ambas as áreas.</li>
+                            <li><strong>Mobile:</strong> Desenvolve apps para iOS (Swift, Objective-C) ou Android (Kotlin, Java).</li>
+                        </ul>
+                        <p><strong>Competências Desejadas:</strong> Lógica de programação, resolução de problemas, design patterns, versionamento (Git), adaptabilidade.</p>
                     </div>
                 </div>
             </div>
+
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <img src="img_cyberseguranca.jpg" alt="Ilustração de cibersegurança com um escudo ou cadeado" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                        <h2>Especialista em Cibersegurança</h2>
+                        <p>Tem paixão por proteger dados e combater ameaças digitais?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Especialista em Cibersegurança</h3>
+                        <p>Este profissional protege sistemas, redes e dados contra acessos não autorizados, ataques cibernéticos e vazamentos de informação.</p>
+                        <ul>
+                            <li>Monitoramento de segurança (SIEM).</li>
+                            <li>Análise de vulnerabilidades (pentest, varreduras).</li>
+                            <li>Implementação de protocolos e políticas de segurança.</li>
+                            <li>Resposta a incidentes.</li>
+                        </ul>
+                        <p><strong>Tecnologias:</strong> Firewalls, VPNs, IDS/IPS, ferramentas de criptografia, Wireshark, Nmap, Metasploit.</p>
+                        <p><strong>Competências Desejadas:</strong> Conhecimento em redes, sistemas operacionais (Linux, Windows Server), ética, pensamento analítico, resiliência.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <img src="img_cientista_dados.jpg" alt="Ilustração de um cientista de dados analisando gráficos" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <h2>Analista de Dados / Cientista de Dados</h2>
+                        <p>Gosta de transformar números em insights valiosos?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Analista de Dados / Cientista de Dados</h3>
+                        <p>Coleta, organiza e interpreta grandes volumes de dados para identificar tendências e apoiar decisões estratégicas.</p>
+                        <ul>
+                            <li>Coleta e limpeza de dados (ETL).</li>
+                            <li>Análise exploratória de dados.</li>
+                            <li>Desenvolvimento de modelos preditivos (Machine Learning).</li>
+                            <li>Criação de dashboards e relatórios (BI).</li>
+                        </ul>
+                        <p><strong>Tecnologias:</strong> Python (Pandas, NumPy, Scikit-learn), R, SQL, Power BI, Tableau, Apache Spark, Hadoop.</p>
+                        <p><strong>Competências Desejadas:</strong> Estatística, matemática, raciocínio lógico, comunicação (storytelling com dados), curiosidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <img src="img_engenheiro_devops.jpg" alt="Ilustração de um engenheiro DevOps com elementos de nuvem e automação" style="max-width: 100%; height: auto; margin-bottom: 15px;">
+                        <span class="icon"><i class="fas fa-cloud"></i></span>
+                        <h2>Engenheiro(a) DevOps</h2>
+                        <p>Curte automatizar e otimizar a entrega de software?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Engenheiro(a) DevOps</h3>
+                        <p>Responsável por integrar desenvolvimento (Dev) e operações (Ops), automatizando o ciclo de vida do software.</p>
+                        <ul>
+                            <li>Automação de CI/CD (Integração e Entrega Contínua).</li>
+                            <li>Gerenciamento de infraestrutura como código (IaC).</li>
+                            <li>Monitoramento de sistemas e aplicações.</li>
+                            <li>Otimização de processos de deployment.</li>
+                        </ul>
+                        <p><strong>Tecnologias:</strong> Docker, Kubernetes, Jenkins, GitLab CI, AWS, Azure, GCP, Ansible, Terraform, Linux.</p>
+                        <p><strong>Competências Desejadas:</strong> Conhecimento em nuvem, scripting (Shell, Python), automação, resolução de problemas complexos, colaboração.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         </section>
 
-        <hr class="my-5">
+        
 
        <!--
         <section id="trilhas-aprendizagem" class="content-section pt-4">
@@ -397,7 +404,7 @@
                 </div>
             </div>
         </section>
-    -->
+     -->
 
         <hr class="my-5">
 
@@ -444,8 +451,8 @@
                 </div>
             </div>
         </section>
-
-        <hr class="my-5">
+     <!--
+       <hr class="my-5">
 
         <section id="questionario-preferencias" class="content-section pt-4">
             <h2 class="text-center text-custom mb-4">Descubra Sua Área em T.I.!</h2>
@@ -540,9 +547,9 @@
                     </div>
             </div>
         </section>
-
+      -->
     </div>
-
+ 
     <footer class="container mt-5">
         <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
             <p class="col-md-4 mb-0 text-muted">&copy; H2N Technology</p>
@@ -560,7 +567,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+   <!-- <script>
         // Lógica do Questionário
 function calculateResult() {
     const answers = {
@@ -627,7 +634,7 @@ function calculateResult() {
     quizResultDiv.className = `resultado mt-4 alert ${resultClass}`;
     quizResultDiv.innerHTML = resultText;
     quizResultDiv.style.display = 'block';
-}
+}-->
     </script>
 </body>
 </html>
