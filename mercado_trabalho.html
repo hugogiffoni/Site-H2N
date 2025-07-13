@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado de Trabalho em TI - H2N Technology</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .nav-bar {
+            background-color: #052442;
+            width: 100%;
+            height: 70px;
+        }
+        .form-control-dark {
+            border-color: var(--bs-gray);
+        }
+        .form-control-dark:focus {
+            border-color: #fff;
+            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+        }
+        .text-small {
+            font-size: 85%;
+        }
+        .dropdown-toggle:not(:focus) {
+            outline: 0;
+        }
+        /* Removido .btn-secondary e .botao pois não se aplicam diretamente a esta página */
+        .texto {
+            white-space: pre-line;
+            color: #004F9F;
+        }
+        a {
+            text-align: center; /* Pode ser ajustado conforme necessário */
+        }
+        .container {
+            padding-bottom: 10px;
+        }
+        .noticia_direcionamento {
+            padding-bottom: 50px;
+        }
+        .carousel {
+            padding-top: 50px;
+        }
+        @media (max-width: 768px) {
+            .carousel-caption h5 {
+                font-size: 1.2em;
+            }
+            .carousel-caption p {
+                font-size: 0.9em;
+            }
+        }
+        /* Estilos específicos para esta página */
+        .section-title {
+            color: #0d355e;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        .accordion-button {
+            background-color: #0d355e;
+            color: white;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #004F9F;
+            color: white;
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 53, 94, 0.25);
+        }
+        .nav-link.active-mercado-trabalho { /* Novo estilo para o link ativo nesta página */
+            background-color: #004F9F !important;
+            color: white !important;
+        }
+        .tab-content .card-body {
+            color: #333; /* Cor do texto padrão */
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <header class="container">
+            <ul class="nav nav-pills justify-content-center py-3">
+                <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
+                <li class="nav-item"><a href="oportunidades.html" class="nav-link text-white active-mercado-trabalho" aria-current="page">Mercado de Trabalho</a></li> <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
+                <li class="nav-item"><a href="noticias.html" class="nav-link text-white">Notícias</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <main class="container my-5">
+        <h1 class="text-center section-title">Mercado de Trabalho em TI:<br>
+                       Compreendendo as Etapas do Processo Seletivo</h1>
+        <p class="text-center texto mb-5">
+            Bem-vindo à sua jornada no dinâmico mercado de trabalho em Tecnologia da Informação!
+             Aqui você encontrará as ferramentas e informações essenciais para impulsionar sua carreira. 
+             Entender as etapas do processo seletivo e se preparar adequadamente é fundamental para alcançar seus objetivos.</p>
+        <p class="text-center texto mb-4">Clique nas abas abaixo para explorar cada fase do processo seletivo em TI.</p>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <ul class="nav nav-tabs justify-content-center" id="jobMarketTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume-content" type="button" role="tab" aria-controls="resume-content" aria-selected="true">Análise de Currículos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="technical-tab" data-bs-toggle="tab" data-bs-target="#technical-content" type="button" role="tab" aria-controls="technical-content" aria-selected="false">Teste Técnico</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="behavioral-tab" data-bs-toggle="tab" data-bs-target="#behavioral-content" type="button" role="tab" aria-controls="behavioral-content" aria-selected="false">Entrevista Comportamental</button>
+                    </li>
+                </ul>
+                <div class="tab-content border border-top-0 p-3" id="jobMarketTabContent">
+                    <div class="tab-pane fade show active" id="resume-content" role="tabpanel" aria-labelledby="resume-tab">
+                        <h4 class="text-center mt-3 mb-4 texto">Otimizando Seu Currículo para o Mercado de TI</h4>
+                        <p class="mb-3">Seu currículo é seu cartão de visitas! Aprenda a destacá-lo com as informações certas e as palavras-chave que os recrutadores de TI buscam.</p>
+                        
+                        <h5>Recursos Interativos:</h5>
+                        <div class="accordion" id="accordionResume">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingResume1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResume1" aria-expanded="false" aria-controls="collapseResume1">
+                                        Checklist para um Currículo Vencedor
+                                    </button>
+                                </h2>
+                                <div id="collapseResume1" class="accordion-collapse collapse" aria-labelledby="headingResume1" data-bs-parent="#accordionResume">
+                                    <div class="accordion-body">
+                                        <p>Marque os itens que você já incluiu no seu currículo:</p>
+                                        <form>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="checkKeyword">
+                                                <label class="form-check-label" for="checkKeyword">
+                                                    Palavras-chave da área (ex: Python, Java, Cloud, Agile)?
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="checkObjective">
+                                                <label class="form-check-label" for="checkObjective">
+                                                    Objetivo profissional claro e alinhado à vaga?
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="checkProjects">
+                                                <label class="form-check-label" for="checkProjects">
+                                                    Projetos pessoais ou acadêmicos relevantes com links (GitHub, portfólio)?
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="checkMetrics">
+                                                <label class="form-check-label" for="checkMetrics">
+                                                    Resultados e conquistas quantificáveis (se possível)?
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="checkFormat">
+                                                <label class="form-check-label" for="checkFormat">
+                                                    Formato limpo, organizado e fácil de ler?
+                                                </label>
+                                            </div>
+                                            <button type="button" class="btn btn-primary mt-3" onclick="alert('Funcionalidade em desenvolvimento! 😉')">Ver Feedback (em breve)</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingResume2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResume2" aria-expanded="false" aria-controls="collapseResume2">
+                                        Exemplos de Currículos (Antes e Depois)
+                                    </button>
+                                </h2>
+                                <div id="collapseResume2" class="accordion-collapse collapse" aria-labelledby="headingResume2" data-bs-parent="#accordionResume">
+                                    <div class="accordion-body">
+                                        <p>Em breve, exemplos visuais de como transformar um currículo comum em um currículo de alto impacto para a área de TI!</p>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="technical-content" role="tabpanel" aria-labelledby="technical-tab">
+                        <h4 class="text-center mt-3 mb-4 texto">Preparação para Testes Técnicos em TI</h4>
+                        <p class="mb-3">Os testes técnicos avaliam suas habilidades na prática. Prepare-se para desafios de lógica, programação e conhecimento específico da área.</p>
+                        
+                        <h5>Recursos Interativos:</h5>
+                        <div class="accordion" id="accordionTechnical">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTechnical1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechnical1" aria-expanded="false" aria-controls="collapseTechnical1">
+                                        Miniquizzes de Autoavaliação
+                                    </button>
+                                </h2>
+                                <div id="collapseTechnical1" class="accordion-collapse collapse" aria-labelledby="headingTechnical1" data-bs-parent="#accordionTechnical">
+                                    <div class="accordion-body">
+                                        <p>Teste seus conhecimentos com nossos miniquizzes:</p>
+                                        <ul>
+                                            <li><a href="#" class="texto" onclick="alert('Quiz de Lógica em breve!')">Quiz de Lógica de Programação</a></li>
+                                            <li><a href="#" class="texto" onclick="alert('Quiz de SQL em breve!')">Quiz de SQL Básico</a></li>
+                                            <li><a href="#" class="texto" onclick="alert('Quiz de Conceitos de Redes em breve!')">Quiz de Conceitos de Redes</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTechnical2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTechnical2" aria-expanded="false" aria-controls="collapseTechnical2">
+                                        Plataformas para Prática de Código
+                                    </button>
+                                </h2>
+                                <div id="collapseTechnical2" class="accordion-collapse collapse" aria-labelledby="headingTechnical2" data-bs-parent="#accordionTechnical">
+                                    <div class="accordion-body">
+                                        <p>Recomendamos as seguintes plataformas para você praticar e aprimorar suas habilidades:</p>
+                                        <ul>
+                                            <li><a href="https://leetcode.com/" target="_blank" class="texto">LeetCode</a> - Desafios de programação para entrevistas técnicas.</li>
+                                            <li><a href="https://www.hackerrank.com/" target="_blank" class="texto">HackerRank</a> - Plataforma com diversos desafios e tutoriais.</li>
+                                            <li><a href="https://www.codewars.com/" target="_blank" class="texto">Codewars</a> - Aprenda e pratique com desafios divertidos.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="behavioral-content" role="tabpanel" aria-labelledby="behavioral-tab">
+                        <h4 class="text-center mt-3 mb-4 texto">Dominando a Entrevista Comportamental</h4>
+                        <p class="mb-3">Soft skills são tão importantes quanto as técnicas! Prepare-se para demonstrar suas habilidades de comunicação, trabalho em equipe e resolução de problemas.</p>
+                        
+                        <h5>Recursos Interativos:</h5>
+                        <div class="accordion" id="accordionBehavioral">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingBehavioral1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBehavioral1" aria-expanded="false" aria-controls="collapseBehavioral1">
+                                        Simulador de Perguntas STAR
+                                    </button>
+                                </h2>
+                                <div id="collapseBehavioral1" class="accordion-collapse collapse" aria-labelledby="headingBehavioral1" data-bs-parent="#accordionBehavioral">
+                                    <div class="accordion-body">
+                                        <p>Pratique suas respostas usando o método STAR (Situação, Tarefa, Ação, Resultado).</p>
+                                        <div class="card p-3 mb-3">
+                                            <p><strong>Pergunta Exemplo:</strong> "Descreva uma situação em que você teve que lidar com um prazo apertado."</p>
+                                            <textarea class="form-control" rows="4" placeholder="Sua resposta usando o método STAR"></textarea>
+                                            <button type="button" class="btn btn-primary mt-2" onclick="alert('Sua resposta foi enviada para análise (funcionalidade em desenvolvimento)!')">Analisar Resposta (em breve)</button>
+                                        </div>
+                                        <p><small><strong>Dica STAR:</strong> Estruture sua resposta descrevendo a <strong>S</strong>ituação, a <strong>T</strong>arefa que você tinha, as <strong>A</strong>ções que tomou e os <strong>R</strong>esultados alcançados.</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingBehavioral2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBehavioral2" aria-expanded="false" aria-controls="collapseBehavioral2">
+                                        Flashcards de Perguntas Frequentes
+                                    </button>
+                                </h2>
+                                <div id="collapseBehavioral2" class="accordion-collapse collapse" aria-labelledby="headingBehavioral2" data-bs-parent="#accordionBehavioral">
+                                    <div class="accordion-body">
+                                        <p>Em breve, flashcards interativos para você praticar respostas a perguntas comuns de entrevistas comportamentais!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center section-title mt-5">Assista a Simulações de Entrevistas</h2>
+        <p class="text-center texto mb-4">Aprenda na prática! Assista a simulações de entrevistas e analise as melhores abordagens.</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title texto">Simulação 1: Entrevista para Desenvolvedor Full Stack Júnior</h5>
+                        <p class="card-text">Veja como um candidato júnior se sai em uma entrevista técnica e comportamental para uma vaga de Desenvolvedor Full Stack.</p>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item w-100" style="height: 350px;" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <h6 class="mt-3 texto">Análise e Feedback:</h6>
+                        <p><small>Este vídeo demonstra a importância de articular bem suas experiências. Observe como o candidato explica seus projetos pessoais e lida com perguntas sobre trabalho em equipe.</small></p>
+                        <button type="button" class="btn btn-outline-info btn-sm" onclick="alert('Quizzes e pontos de discussão para este vídeo em desenvolvimento!')">Quizzes e Pontos de Discussão (em breve)</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title texto">Simulação 2: Entrevista para Analista de Dados Pleno</h5>
+                        <p class="card-text">Acompanhe uma simulação focada em habilidades analíticas, SQL e comunicação de resultados para uma vaga de Analista de Dados.</p>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item w-100" style="height: 350px;" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <h6 class="mt-3 texto">Análise e Feedback:</h6>
+                        <p><small>Observe a clareza nas explicações e a forma como o candidato aborda problemas complexos. A comunicação técnica é crucial nesta área.</small></p>
+                        <button type="button" class="btn btn-outline-info btn-sm" onclick="alert('Quizzes e pontos de discussão para este vídeo em desenvolvimento!')">Quizzes e Pontos de Discussão (em breve)</button>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+    </main>
+
+    <footer class="container mt-5">
+        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; H2N Technology</p>
+
+            <ul class="nav col-md-8 justify-content-end">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="carreiras.html" class="nav-link px-2 text-muted">Carreiras</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link px-2 text-muted">Cursos</a></li>
+                <li class="nav-item"><a href="oportunidades.html" class="nav-link px-2 text-muted">Oportunidades</a></li>
+                <li class="nav-item"><a href="duvidas.html" class="nav-link px-2 text-muted">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="saibamais.html" class="nav-link px-2 text-muted">Saiba Mais</a></li>
+                <li class="nav-item"><a href="sobre.html" class="nav-link px-2 text-muted">Sobre Nós</a></li>
+                <li class="nav-item"><a href="noticias.html" class="nav-link px-2 text-muted">Notícias</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
