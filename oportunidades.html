@@ -22,12 +22,15 @@
         .text-custom {
             color: #004F9F;
         }
-        
+        .text-muted {
+         color:#fff !important;
+         }
+
         .texto {
             line-height: 1.6;
             padding: 20px 15px;
         }
-
+        
         .btn-secondary {
             background-color: #0d355e;
             border-color: #0d355e;
@@ -254,42 +257,50 @@
                 <div class="mb-4">
                 <p class="text-center lead">     </p>
                 </div>
-            <section id="buscar-vagas" class="content-section pt-4 mb-5">
-                <div class="container"> 
-                    <h2 class="text-center mb-4">Buscar Vagas</h2>
-                    <p class="text-center lead">Utilize os filtros abaixo para encontrar as vagas de relacionadas a tecnologia,
-                        que mais combinam com você.</p>
-                    <div class="job-filter-card">
-    <div class="row g-3">
-        <div class="col-md-5">
-            <label for="searchKeywords" class="form-label">Palavras-chave (cargo, tecnologia, etc.):</label>
-            <input type="text" class="form-control" id="searchKeywords" placeholder="Desenvolvedor, Python, DevOps...">
+     <section id="buscar-vagas" class="content-section pt-4 mb-5">
+    <div class="container"> 
+        <h2 class="text-center mb-4">Buscar Vagas</h2>
+        <p class="text-center lead">Utilize os filtros abaixo para encontrar as vagas de relacionadas a tecnologia,
+            que mais combinam com você.</p>
+
+        <div class="job-filter-card mx-auto">
+            <div class="row g-3">
+                <div class="col-md-5">
+                    <label for="searchKeywords" class="form-label" style="color: white;">Palavras-chave (cargo, tecnologia, etc.):</label>
+                    <input type="text" class="form-control" id="searchKeywords" placeholder="Desenvolvedor, Python, DevOps...">
+                </div>
+                <div class="col-md-4">
+                    <label for="filterLocation" class="form-label" style="color: white;">Localização:</label>
+                    <select class="form-select" id="filterLocation">
+                        <option value="">Todas as Localizações</option>
+                        <option value="Remoto">Remoto</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Rio de Janeiro">Rio de Janeiro</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Porto Alegre">Porto Alegre</option>
+                        <option value="Curitiba">Curitiba</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-primary w-100" onclick="filterJobs()"><i class="fas fa-search"></i> Buscar Vagas</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <label for="filterLocation" class="form-label">Localização:</label>
-            <select class="form-select" id="filterLocation">
-                <option value="">Todas as Localizações</option>
-                <option value="Remoto">Remoto</option>
-                <option value="São Paulo">São Paulo</option>
-                <option value="Rio de Janeiro">Rio de Janeiro</option>
-                <option value="Belo Horizonte">Belo Horizonte</option>
-                <option value="Porto Alegre">Porto Alegre</option>
-                <option value="Curitiba">Curitiba</option>
-            </select>
-        </div>
-        <div class="col-md-3 d-flex align-items-end">
-            <button class="btn btn-primary w-100" onclick="filterJobs()"><i class="fas fa-search"></i> Buscar Vagas</button>
-        </div>
+
+       <div id="jobResultsContainer" class="mt-5">
+    <div class="text-center">
+        <h3 class="text-custom mb-3 text-white">Resultados da Busca:</h3>
+    </div>
+    <div id="jobResults" class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+        <p class="text-white text-center col-12" id="noResultsMessage">
+            Use os filtros para encontrar vagas. As vagas aparecerão aqui.
+        </p>
     </div>
 </div>
-                    <div id="jobResultsContainer">
-                        <h3 class="text-custom mt-5 mb-3 text-white">Resultados da Busca:</h3>
-                        <div id="jobResults" class="row row-cols-1 row-cols-md-2 g-4">
-                            <p class="text-muted text-center col-12 text-white" id="noResultsMessage">Use os filtros para encontrar vagas. As vagas aparecerão aqui.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
+    </div>
+</section>
+
     </div>
 
     <div class="container mt-4">
@@ -609,7 +620,8 @@
                     noResultsMessageElement.textContent = 'Nenhuma vaga encontrada com os filtros aplicados.';
                 } else {
                     // Fallback se o elemento não for encontrado (improvável)
-                    jobResultsDiv.innerHTML = '<p class="text-muted text-center col-12 text-white">Nenhuma vaga encontrada com os filtros aplicados.</p>';
+                   jobResultsDiv.innerHTML = '<p class="text-white text-center col-12">Nenhuma vaga encontrada com os filtros aplicados.</p>';
+
                 }
                 return;
             }
