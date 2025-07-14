@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gráfico ENEM por Curso</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .container-grafico {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    select {
+      display: block;
+      margin: 0 auto 2rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+    .voltar {
+      
+      padding-top: 10px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (ATUALIZADO COM COR #052442) -->
+<div class="nav-bar" style="background-color: #052442;">
+  <header class="container">
+    <ul class="nav nav-pills justify-content-center py-3">
+      <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
+      <li class="nav-item"><a href="cursos.html" class="nav-link active" aria-current="page">Cursos</a></li>
+      <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
+      <li class="nav-item"><a href="oportunidades.html" class="nav-link text-white">Oportunidades</a></li>
+      <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
+      <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
+      <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
+    </ul>
+  </header>
+</div>
+<div class="voltar">
+  <a class="btn btn-secondary btn-s" href="ads.html" role="button">Voltar</a>
+</div>
+
+
+  <!-- CONTEÚDO PRINCIPAL (GRÁFICO) -->
+  <main class="container-grafico">
+    <h2>Notas do ENEM por Curso</h2>
+    <select id="cursoSelect">
+      <option value="bsi">Sistemas de Informação</option>
+      <option value="ccomp">Ciência da Computação</option>
+      <option value="eng_comp">Engenharia de Software</option>
+      <option value="ads">Analise Desenvolvimento Sist.</option>
+    </select>
+
+    <canvas id="enemChart"></canvas>
+  </main>
+
+  <!-- FOOTER (SEU FOOTER ORIGINAL) -->
+  <div class="texto-footer">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top container">
+      <p class="col-md-4 mb-0 text-body-secondary">&copy; H2N Technology</p>
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="cursos.html" class="nav-link">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a href="duvidas.html" class="nav-link">Duvidas Frequentes</a>
+        </li>
+        <li class="nav-item">
+          <a href="saibamais.html" class="nav-link">Saiba Mais</a>
+        </li>
+        <li class="nav-item">
+          <a href="sobre.html" class="nav-link">Sobre Nós</a>
+        </li>
+        <li class="nav-item">
+          <a href="noticias.html" class="nav-link">Notícias</a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+  <!-- SCRIPT DO GRÁFICO -->
+  <script>
+    const dadosPorCurso = {
+      "bsi": [
+        { ano: 2015, nota: 680 },
+        { ano: 2016, nota: 695 },
+        { ano: 2017, nota: 710 },
+        { ano: 2018, nota: 700 },
+        { ano: 2019, nota: 730 },
+        { ano: 2020, nota: 695 },
+        { ano: 2021, nota: 710 },
+        { ano: 2022, nota: 720 },
+        { ano: 2023, nota: 780 },
+        { ano: 2024, nota: 750 },
+        
+      ],
+      "ccomp": [
+        { ano: 2015, nota: 680 },
+        { ano: 2016, nota: 690 },
+        { ano: 2017, nota: 700 },
+        { ano: 2018, nota: 730 },
+        { ano: 2019, nota: 745 },
+        { ano: 2020, nota: 765 },
+        { ano: 2021, nota: 780 },
+        { ano: 2022, nota: 760 },
+        { ano: 2023, nota: 750 },
+        { ano: 2024, nota: 790 },
+      ],
+      "eng_comp": [
+        { ano: 2015, nota: 680 },
+        { ano: 2016, nota: 695 },
+        { ano: 2017, nota: 710 },
+        { ano: 2018, nota: 700 },
+        { ano: 2019, nota: 720 },
+        { ano: 2020, nota: 730 },
+        { ano: 2021, nota: 740 },
+        { ano: 2022, nota: 750 },
+        { ano: 2023, nota: 760 },
+        { ano: 2024, nota: 745 },
+      ],
+      "ads": [
+        { ano: 2015, nota: 680 },
+        { ano: 2016, nota: 695 },
+        { ano: 2017, nota: 710 },
+        { ano: 2018, nota: 700 },
+        { ano: 2019, nota: 710 },
+        { ano: 2020, nota: 695 },
+        { ano: 2021, nota: 705 },
+        { ano: 2022, nota: 680 },
+        { ano: 2023, nota: 685 },
+        { ano: 2024, nota: 700 },
+      ],
+    };
+
+    const ctx = document.getElementById("enemChart").getContext("2d");
+    let chart;
+
+    function renderChart(curso) {
+      const data = dadosPorCurso[curso];
+      const labels = data.map(d => d.ano);
+      const notas = data.map(d => d.nota);
+
+      if (chart) chart.destroy();
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: `Notas ENEM - ${curso}`,
+            data: notas,
+            borderColor: '#4f46e5',
+            backgroundColor: 'rgba(79,70,229,0.2)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointHoverRadius: 7
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            tooltip: {
+              enabled: true
+            },
+            legend: {
+              display: true,
+              position: 'top'
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: false
+            }
+          }
+        }
+      });
+    }
+
+    const select = document.getElementById("cursoSelect");
+    select.addEventListener("change", (e) => {
+      renderChart(e.target.value);
+    });
+
+    renderChart(select.value);
+  </script>
+</body>
+</html>
