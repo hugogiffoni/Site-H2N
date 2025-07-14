@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carreiras em T.I.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #f8f9fa; /* Um cinza claro para o corpo */
@@ -46,159 +46,159 @@
             background-color: #004F9F;
             border-color: #004F9F;
         }
-       /* Card Flip */
-.card-container-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 30px 0;
-}
+        /* Card Flip */
+        .card-container-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 30px 0;
+        }
 
-.card-container {
-    width: 300px;
-    height: 400px;
-    perspective: 1000px; /* Define a perspectiva para o efeito 3D */
-}
+        .card-container {
+            width: 300px;
+            height: 400px;
+            perspective: 1000px; /* Define a perspectiva para o efeito 3D */
+        }
 
-.card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d; /* Permite que os filhos (faces) tenham transformações 3D */
-    transition: transform 0.8s; /* Transição suave para o flip */
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden; /* Garante que o conteúdo e backgrounds respeitem o border-radius */
-    border: none;
-}
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d; /* Permite que os filhos (faces) tenham transformações 3D */
+            transition: transform 0.8s; /* Transição suave para o flip */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden; /* Garante que o conteúdo e backgrounds respeitem o border-radius */
+            border: none;
+        }
 
-.card.flipped {
-    transform: rotateY(180deg); /* Gira o card quando a classe 'flipped' é adicionada */
-}
+        .card.flipped {
+            transform: rotateY(180deg); /* Gira o card quando a classe 'flipped' é adicionada */
+        }
 
-.card-face {
-    position: absolute; /* Posiciona as faces uma sobre a outra */
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden; /* ESSENCIAL: Esconde a face quando ela está virada de costas */
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
-    display: flex; /* Para controlar o alinhamento do conteúdo */
-    flex-direction: column;
-    justify-content: center; /* Centraliza o conteúdo verticalmente */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
-    text-align: center;
-}
+        .card-face {
+            position: absolute; /* Posiciona as faces uma sobre a outra */
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* ESSENCIAL: Esconde a face quando ela está virada de costas */
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+            display: flex; /* Para controlar o alinhamento do conteúdo */
+            flex-direction: column;
+            justify-content: center; /* Centraliza o conteúdo verticalmente */
+            align-items: center; /* Centraliza o conteúdo horizontalmente */
+            text-align: center;
+        }
 
-/* --- CARD FRENTE --- */
-.card-front {
-    /* A imagem de fundo é definida no HTML via style="background-image: url(...)" */
-    background-size: cover; /* Faz a imagem cobrir todo o card-front */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita repetição da imagem */
-    z-index: 2; /* A frente deve ter um z-index maior para aparecer primeiro */
-}
+        /* --- CARD FRENTE --- */
+        .card-front {
+            /* A imagem de fundo é definida no HTML via style="background-image: url(...)" */
+            background-size: cover; /* Faz a imagem cobrir todo o card-front */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita repetição da imagem */
+            z-index: 2; /* A frente deve ter um z-index maior para aparecer primeiro */
+        }
 
-/* Overlay escuro para melhorar a legibilidade do texto na frente */
-.card-front::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente preto */
-    border-radius: 10px;
-    z-index: 1; /* Fica abaixo do texto/ícone, acima da imagem de fundo */
-}
+        /* Overlay escuro para melhorar a legibilidade do texto na frente */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparente preto */
+            border-radius: 10px;
+            z-index: 1; /* Fica abaixo do texto/ícone, acima da imagem de fundo */
+        }
 
-/* Conteúdo da frente (ícone, h2, p) */
-.card-front .icon,
-.card-front h2,
-.card-front p {
-    position: relative; /* Garante que o texto fique acima do overlay */
-    z-index: 3; /* Fica acima do overlay */
-    color: #f8f9fa; /* Cor clara para o texto, já que terá um overlay escuro */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para o texto para super legibilidade */
-}
+        /* Conteúdo da frente (ícone, h2, p) */
+        .card-front .icon,
+        .card-front h2,
+        .card-front p {
+            position: relative; /* Garante que o texto fique acima do overlay */
+            z-index: 3; /* Fica acima do overlay */
+            color: #f8f9fa; /* Cor clara para o texto, já que terá um overlay escuro */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para o texto para super legibilidade */
+        }
 
-.card-front .icon {
-    font-size: 60px;
-    margin-bottom: 15px;
-    color: #007bff; /* Mantenha a cor azul para o ícone se quiser destaque */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para o ícone */
-}
+        .card-front .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: #007bff; /* Mantenha a cor azul para o ícone se quiser destaque */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para o ícone */
+        }
 
-.card-front h2 {
-    margin-bottom: 10px;
-    font-size: 1.8em;
-}
+        .card-front h2 {
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
 
-.card-front p {
-    font-size: 1em;
-}
+        .card-front p {
+            font-size: 1em;
+        }
 
-/* --- CARD VERSO --- */
-.card-back {
-    background-color: #007bff; /* Fundo azul puro para o verso */
-    color: #ffffff;
-    transform: rotateY(180deg); /* Gira o verso para ele ficar escondido atrás da frente */
-    z-index: 1; /* O verso deve ter um z-index menor que a frente inicialmente */
-    
-    /* Alinhamento para o conteúdo do verso */
-    justify-content: flex-start; /* Alinha o conteúdo ao topo */
-    align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    text-align: left;
-    padding-top: 30px; /* Mais padding no topo para o verso */
-    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
-}
+        /* --- CARD VERSO --- */
+        .card-back {
+            background-color: #007bff; /* Fundo azul puro para o verso */
+            color: #ffffff;
+            transform: rotateY(180deg); /* Gira o verso para ele ficar escondido atrás da frente */
+            z-index: 1; /* O verso deve ter um z-index menor que a frente inicialmente */
+            
+            /* Alinhamento para o conteúdo do verso */
+            justify-content: flex-start; /* Alinha o conteúdo ao topo */
+            align-items: flex-start; /* Alinha o conteúdo à esquerda */
+            text-align: left;
+            padding-top: 30px; /* Mais padding no topo para o verso */
+            overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
+        }
 
-.card-back h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.4em;
-    width: 100%; /* Garante que o h3 ocupe a largura total para centralização */
-    text-align: center; /* Centraliza o título do verso */
-}
+        .card-back h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            width: 100%; /* Garante que o h3 ocupe a largura total para centralização */
+            text-align: center; /* Centraliza o título do verso */
+        }
 
-.card-back p {
-    font-size: 0.95em;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
+        .card-back p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
 
-.card-back strong {
-    color: #ffe082; /* Cor amarela para destaque de texto forte no verso */
-}
+        .card-back strong {
+            color: #ffe082; /* Cor amarela para destaque de texto forte no verso */
+        }
 
-.card-back ul {
-    list-style-type: disc; /* Marcadores de lista */
-    margin-left: 20px;
-    padding: 0;
-    font-size: 0.9em;
-}
+        .card-back ul {
+            list-style-type: disc; /* Marcadores de lista */
+            margin-left: 20px;
+            padding: 0;
+            font-size: 0.9em;
+        }
 
-.card-back ul li {
-    margin-bottom: 5px;
-}
+        .card-back ul li {
+            margin-bottom: 5px;
+        }
 
-/* Media Queries (mantenha as suas existentes, se tiver) */
-@media (max-width: 768px) {
-    .card-container {
-        width: 80%;
-        height: 380px;
-    }
-}
+        /* Media Queries (mantenha as suas existentes, se tiver) */
+        @media (max-width: 768px) {
+            .card-container {
+                width: 80%;
+                height: 380px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .card-container {
-        width: 95%;
-        height: 360px;
-    }
-}
+        @media (max-width: 480px) {
+            .card-container {
+                width: 95%;
+                height: 360px;
+            }
+        }
         /* Estilos para Entrevistas */
         .interview-card {
             background-color: #ffffff;
@@ -207,6 +207,10 @@
             padding: 20px;
             margin-bottom: 30px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex; /* Adicionado para centralizar conteúdo */
+            flex-direction: column; /* Organiza itens em coluna */
+            align-items: center; /* Centraliza horizontalmente */
+            justify-content: center; /* Centraliza verticalmente */
         }
 
         .interview-card img {
@@ -225,43 +229,79 @@
             font-size: 0.95em;
             line-height: 1.6;
             color: #555;
+            text-align: center; /* Centraliza o texto do parágrafo */
         }
-      
-        /* Estilos para Questionário 
-        .quiz-section {
-            background-color: #e9ecef;
-            border-radius: 10px;
+        
+        /* --- ESTILOS DO POP-UP DE ENTREVISTA --- */
+        .interview-popup-background {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo mais escuro */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; /* Acima de tudo, incluindo o nav-bar */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .interview-popup-background.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .interview-popup-content {
+            background-color: white;
             padding: 30px;
-            margin-top: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            max-width: 700px; /* Largura maior para o conteúdo da entrevista */
+            width: 90%;
+            max-height: 90vh; /* Altura máxima da janela de visualização */
+            overflow-y: auto; /* Adiciona rolagem se o conteúdo for longo */
+            position: relative; /* Para posicionar o botão de fechar */
+            transform: translateY(20px); /* Começa ligeiramente abaixo */
+            transition: transform 0.3s ease;
         }
 
-        .quiz-section .form-check {
-            margin-bottom: 10px;
+        .interview-popup-background.active .interview-popup-content {
+            transform: translateY(0); /* Volta para a posição original */
         }
 
-        .quiz-section .form-check-label {
-            font-size: 1.1em;
+        .interview-popup-content h3 {
+            color: #052442;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        .interview-popup-content p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify; /* Justifica o texto da entrevista */
+        }
+
+        .interview-popup-content .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .interview-popup-content .close-btn:hover {
             color: #333;
         }
-
-        .quiz-section button {
-            margin-top: 20px;
-        }
-
-        #quizResult {
-            margin-top: 25px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            font-size: 1.1em;
-            font-weight: bold;
-            display: none; 
-        }
-        */
     </style>
 </head>
 <body>
@@ -282,172 +322,111 @@
 
     <div class="container mt-4">
         
-   <section id="areas-atuacao" class="content-section pt-4">
-       <h1 class="text-center text-custom mb-5">Carreiras em Tecnolgia: Construindo o Futuro Digital</h1>
-       <p class="text-center lead">
-        A área de Tecnologia da Informação (TI) é um universo vasto e em constante evolução.
-        Se você tem paixão por tecnologia, lógica e resolução de problemas,
-        há um lugar para você neste setor dinâmico. As profissões em TI são diversas,
-        abrangendo desde o desenvolvimento de softwares e aplicativos até a segurança
-        de dados e a infraestrutura de redes. Profissionais da área são os arquitetos
-        do mundo digital, criando soluções que facilitam a vida das pessoas,
-        otimizam negócios e conectam o globo.
-        </p>
+    <section id="areas-atuacao" class="content-section pt-4">
+           <h1 class="text-center text-custom mb-5">Carreiras em Tecnolgia: Construindo o Futuro Digital</h1>
+           <p class="text-center lead">
+           A área de Tecnologia da Informação (TI) é um universo vasto e em constante evolução.
+           Se você tem paixão por tecnologia, lógica e resolução de problemas,
+           há um lugar para você neste setor dinâmico. As profissões em TI são diversas,
+           abrangendo desde o desenvolvimento de softwares e aplicativos até a segurança
+           de dados e a infraestrutura de redes. Profissionais da área são os arquitetos
+           do mundo digital, criando soluções que facilitam a vida das pessoas,
+           otimizam negócios e conectam o globo.
+           </p>
 
-       <div class="card-container-wrapper">
-        <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face card-front" style="background-image: url('img/img_desenvolvedor.jpg');">
-                    <span class="icon"><i class="fas fa-code"></i></span>
-                    <h2>Desenvolvedor(a) de Software</h2>
-                    <p>Gosta de criar e dar vida a ideias com código?</p>
-                </div>
-                <div class="card-face card-back">
-                    <h3>Desenvolvedor(a) de Software</h3>
-                    <p><strong>O que faz:</strong> Cria, testa e mantém programas, sistemas e aplicações. Pode atuar em diversas frentes:</p>
-                    <ul>
-                        <li><strong>Front-end:</strong> Desenvolve a interface do usuário (o que você vê e interage), usando HTML, CSS, JavaScript (React, Angular, Vue.js).</li>
-                        <li><strong>Back-end:</strong> Foca na lógica do servidor, bancos de dados e APIs (a "inteligência" por trás da aplicação), usando Python (Django, Flask), Java (Spring Boot), Node.js, C# (.NET).</li>
-                        <li><strong>Full-stack:</strong> Atua nas duas frentes, com conhecimento abrangente.</li>
-                        <li><strong>Mobile:</strong> Cria aplicativos para smartphones e tablets (iOS com Swift/Objective-C, Android com Kotlin/Java, ou frameworks como React Native, Flutter).</li>
-                    </ul>
-                    <p><strong>Tecnologias Comuns:</strong> Python, Java, JavaScript, C#, Ruby, Go, SQL, NoSQL, Git, Docker.</p>
-                    <p><strong>Competências Desejadas:</strong> Raciocínio lógico apurado, resolução de problemas, atenção aos detalhes, criatividade, aprendizado contínuo.</p>
+           <div class="card-container-wrapper">
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front" style="background-image: url('img/img_desenvolvedor.jpg');">
+                        <span class="icon"><i class="fas fa-code"></i></span>
+                        <h2>Desenvolvedor(a) de Software</h2>
+                        <p>Gosta de criar e dar vida a ideias com código?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Desenvolvedor(a) de Software</h3>
+                        <p><strong>O que faz:</strong> Cria, testa e mantém programas, sistemas e aplicações. Pode atuar em diversas frentes:</p>
+                        <ul>
+                            <li><strong>Front-end:</strong> Desenvolve a interface do usuário (o que você vê e interage), usando HTML, CSS, JavaScript (React, Angular, Vue.js).</li>
+                            <li><strong>Back-end:</strong> Foca na lógica do servidor, bancos de dados e APIs (a "inteligência" por trás da aplicação), usando Python (Django, Flask), Java (Spring Boot), Node.js, C# (.NET).</li>
+                            <li><strong>Full-stack:</strong> Atua nas duas frentes, com conhecimento abrangente.</li>
+                            <li><strong>Mobile:</strong> Cria aplicativos para smartphones e tablets (iOS com Swift/Objective-C, Android com Kotlin/Java, ou frameworks como React Native, Flutter).</li>
+                        </ul>
+                        <p><strong>Tecnologias Comuns:</strong> Python, Java, JavaScript, C#, Ruby, Go, SQL, NoSQL, Git, Docker.</p>
+                        <p><strong>Competências Desejadas:</strong> Raciocínio lógico apurado, resolução de problemas, atenção aos detalhes, criatividade, aprendizado contínuo.</p>
+                    </div>
                 </div>
             </div>
-         </div>
 
-         <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face card-front" style="background-image: url('img/img_cyberseguranca.jpg');">
-                    <span class="icon"><i class="fas fa-shield-alt"></i></span>
-                    <h2>Especialista em Cibersegurança</h2>
-                    <p>Tem paixão por proteger dados e combater ameaças digitais?</p>
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front" style="background-image: url('img/img_cyberseguranca.jpg');">
+                        <span class="icon"><i class="fas fa-shield-alt"></i></span>
+                        <h2>Especialista em Cibersegurança</h2>
+                        <p>Tem paixão por proteger dados e combater ameaças digitais?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Especialista em Cibersegurança</h3>
+                        <p><strong>O que faz:</strong> Protege sistemas, redes e dados contra acessos não autorizados, ataques cibernéticos e vazamentos de informação. É uma área de constante vigilância e adaptação.</p>
+                        <ul>
+                            <li><strong>Análise de Vulnerabilidades:</strong> Identifica falhas em sistemas e aplicações (incluindo pentesting).</li>
+                            <li><strong>Monitoramento de Segurança:</strong> Utiliza ferramentas para detectar e responder a ameaças em tempo real (SIEM).</li>
+                            <li><strong>Implementação de Políticas:</strong> Desenvolve e aplica regras e protocolos de segurança.</li>
+                            <li><strong>Resposta a Incidentes:</strong> Atua rapidamente para conter e remediar ataques.</li>
+                            <li><strong>Forensics Digital:</strong> Investiga incidentes de segurança para entender o que aconteceu e evitar futuras ocorrências.</li>
+                        </ul>
+                        <p><strong>Tecnologias Comuns:</strong> Firewalls, VPNs, IDS/IPS, ferramentas de criptografia, Wireshark, Nmap, Metasploit, Antivírus Empresariais.</p>
+                        <p><strong>Competências Desejadas:</strong> Conhecimento profundo em redes e sistemas operacionais, pensamento crítico, ética, atenção aos detalhes, atualização constante.</p>
+                    </div>
                 </div>
-                <div class="card-face card-back">
-                    <h3>Especialista em Cibersegurança</h3>
-                    <p><strong>O que faz:</strong> Protege sistemas, redes e dados contra acessos não autorizados, ataques cibernéticos e vazamentos de informação. É uma área de constante vigilância e adaptação.</p>
-                    <ul>
-                        <li><strong>Análise de Vulnerabilidades:</strong> Identifica falhas em sistemas e aplicações (incluindo pentesting).</li>
-                        <li><strong>Monitoramento de Segurança:</strong> Utiliza ferramentas para detectar e responder a ameaças em tempo real (SIEM).</li>
-                        <li><strong>Implementação de Políticas:</strong> Desenvolve e aplica regras e protocolos de segurança.</li>
-                        <li><strong>Resposta a Incidentes:</strong> Atua rapidamente para conter e remediar ataques.</li>
-                        <li><strong>Forensics Digital:</strong> Investiga incidentes de segurança para entender o que aconteceu e evitar futuras ocorrências.</li>
-                    </ul>
-                    <p><strong>Tecnologias Comuns:</strong> Firewalls, VPNs, IDS/IPS, ferramentas de criptografia, Wireshark, Nmap, Metasploit, Antivírus Empresariais.</p>
-                    <p><strong>Competências Desejadas:</strong> Conhecimento profundo em redes e sistemas operacionais, pensamento crítico, ética, atenção aos detalhes, atualização constante.</p>
+            </div>
+
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front" style="background-image: url('img/img_cientista_dados.jpg');">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <h2>Analista de Dados / Cientista de Dados</h2>
+                        <p>Gosta de transformar números em insights valiosos?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Analista de Dados / Cientista de Dados</h3>
+                        <p><strong>O que faz:</strong> Coleta, organiza, processa e interpreta grandes volumes de dados para identificar tendências, padrões e gerar insights que apoiam decisões estratégicas de negócios.</p>
+                        <ul>
+                            <li><strong>Coleta e Limpeza de Dados (ETL):</strong> Extrai dados de diversas fontes, transforma-os para um formato adequado e carrega-os para análise.</li>
+                            <li><strong>Análise Exploratória:</strong> Desvenda as características principais dos dados.</li>
+                            <li><strong>Modelagem Preditiva:</strong> Desenvolve modelos de Machine Learning para prever comportamentos ou resultados futuros.</li>
+                            <li><strong>Visualização de Dados:</strong> Cria dashboards e relatórios interativos para comunicar descobertas de forma clara (Business Intelligence - BI).</li>
+                        </ul>
+                        <p><strong>Tecnologias Comuns:</strong> Python (Pandas, NumPy, Scikit-learn, TensorFlow, Keras), R, SQL, Power BI, Tableau, Excel, Apache Spark, Hadoop, bancos de dados NoSQL.</p>
+                        <p><strong>Competências Desejadas:</strong> Forte base em estatística e matemática, raciocínio lógico, curiosidade, comunicação eficaz (transformar dados em "histórias"), domínio de ferramentas de visualização.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front" style="background-image: url('img/img_engenheiro_devops.jpg');">
+                        <span class="icon"><i class="fas fa-cloud"></i></span>
+                        <h2>Engenheiro(a) DevOps</h2>
+                        <p>Curte automatizar e otimizar a entrega de software?</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Engenheiro(a) DevOps</h3>
+                        <p><strong>O que faz:</strong> Responsável por integrar o desenvolvimento de software (Dev) com as operações de TI (Ops), visando automatizar e otimizar todo o ciclo de vida do software, desde o código até a implantação em produção.</p>
+                        <ul>
+                            <li><strong>Automação de CI/CD:</strong> Cria e gerencia pipelines de Integração Contínua e Entrega Contínua para automatizar testes e deployments.</li>
+                            <li><strong>Infraestrutura como Código (IaC):</strong> Gerencia e provisiona infraestrutura (servidores, redes, bancos de dados) usando código (ex: Terraform, Ansible).</li>
+                            <li><strong>Orquestração de Containers:</strong> Trabalha com tecnologias de containers para empacotar e executar aplicações (Docker, Kubernetes).</li>
+                            <li><strong>Monitoramento e Logs:</strong> Implementa soluções para monitorar a saúde e performance de sistemas e aplicações.</li>
+                            <li><strong>Otimização de Processos:</strong> Busca continuamente formas de acelerar e tornar os processos mais eficientes e confiáveis.</li>
+                        </ul>
+                        <p><strong>Tecnologias Comuns:</strong> Docker, Kubernetes, Jenkins, GitLab CI/CD, CircleCI, AWS, Azure, GCP, Ansible, Terraform, Puppet, Chef, Linux, Shell Scripting, Python.</p>
+                        <p><strong>Competências Desejadas:</strong> Conhecimento em sistemas operacionais (Linux), redes, automação, Scripting, resolução de problemas complexos, colaboração e comunicação.</p>
+                    </div>
                 </div>
             </div>
            </div>
-
-           <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face card-front" style="background-image: url('img/img_cientista_dados.jpg');">
-                    <span class="icon"><i class="fas fa-database"></i></span>
-                    <h2>Analista de Dados / Cientista de Dados</h2>
-                    <p>Gosta de transformar números em insights valiosos?</p>
-                </div>
-                <div class="card-face card-back">
-                    <h3>Analista de Dados / Cientista de Dados</h3>
-                    <p><strong>O que faz:</strong> Coleta, organiza, processa e interpreta grandes volumes de dados para identificar tendências, padrões e gerar insights que apoiam decisões estratégicas de negócios.</p>
-                    <ul>
-                        <li><strong>Coleta e Limpeza de Dados (ETL):</strong> Extrai dados de diversas fontes, transforma-os para um formato adequado e carrega-os para análise.</li>
-                        <li><strong>Análise Exploratória:</strong> Desvenda as características principais dos dados.</li>
-                        <li><strong>Modelagem Preditiva:</strong> Desenvolve modelos de Machine Learning para prever comportamentos ou resultados futuros.</li>
-                        <li><strong>Visualização de Dados:</strong> Cria dashboards e relatórios interativos para comunicar descobertas de forma clara (Business Intelligence - BI).</li>
-                    </ul>
-                    <p><strong>Tecnologias Comuns:</strong> Python (Pandas, NumPy, Scikit-learn, TensorFlow, Keras), R, SQL, Power BI, Tableau, Excel, Apache Spark, Hadoop, bancos de dados NoSQL.</p>
-                    <p><strong>Competências Desejadas:</strong> Forte base em estatística e matemática, raciocínio lógico, curiosidade, comunicação eficaz (transformar dados em "histórias"), domínio de ferramentas de visualização.</p>
-                </div>
-            </div>
-           </div>
-
-           <div class="card-container">
-            <div class="card" onclick="this.classList.toggle('flipped')">
-                <div class="card-face card-front" style="background-image: url('img/img_engenheiro_devops.jpg');">
-                    <span class="icon"><i class="fas fa-cloud"></i></span>
-                    <h2>Engenheiro(a) DevOps</h2>
-                    <p>Curte automatizar e otimizar a entrega de software?</p>
-                </div>
-                <div class="card-face card-back">
-                    <h3>Engenheiro(a) DevOps</h3>
-                    <p><strong>O que faz:</strong> Responsável por integrar o desenvolvimento de software (Dev) com as operações de TI (Ops), visando automatizar e otimizar todo o ciclo de vida do software, desde o código até a implantação em produção.</p>
-                    <ul>
-                        <li><strong>Automação de CI/CD:</strong> Cria e gerencia pipelines de Integração Contínua e Entrega Contínua para automatizar testes e deployments.</li>
-                        <li><strong>Infraestrutura como Código (IaC):</strong> Gerencia e provisiona infraestrutura (servidores, redes, bancos de dados) usando código (ex: Terraform, Ansible).</li>
-                        <li><strong>Orquestração de Containers:</strong> Trabalha com tecnologias de containers para empacotar e executar aplicações (Docker, Kubernetes).</li>
-                        <li><strong>Monitoramento e Logs:</strong> Implementa soluções para monitorar a saúde e performance de sistemas e aplicações.</li>
-                        <li><strong>Otimização de Processos:</strong> Busca continuamente formas de acelerar e tornar os processos mais eficientes e confiáveis.</li>
-                    </ul>
-                    <p><strong>Tecnologias Comuns:</strong> Docker, Kubernetes, Jenkins, GitLab CI/CD, CircleCI, AWS, Azure, GCP, Ansible, Terraform, Puppet, Chef, Linux, Shell Scripting, Python.</p>
-                    <p><strong>Competências Desejadas:</strong> Conhecimento em sistemas operacionais (Linux), redes, automação, Scripting, resolução de problemas complexos, colaboração e comunicação.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>
+     </section>
         
-
-       <!--
-        <section id="trilhas-aprendizagem" class="content-section pt-4">
-            <h2 class="text-center text-custom mb-4">Trilhas de Aprendizagem</h2>
-            <p class="text-center lead">Aqui você encontra roteiros sugeridos para iniciar ou aprimorar sua jornada em diferentes carreiras de TI. Lembre-se que o aprendizado é contínuo!</p>
-
-            <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Desenvolvedor(a) Front-end</h4>
-                            <p class="card-text">Comece do básico e construa interfaces incríveis!</p>
-                            <ul>
-                                <li><strong>Fundamentos:</strong> HTML5, CSS3 (Flexbox, Grid), JavaScript (ES6+).</li>
-                                <li><strong>Frameworks/Bibliotecas:</strong> React, Angular ou Vue.js.</li>
-                                <li><strong>Ferramentas:</strong> Git, npm/yarn, VS Code.</li>
-                                <li><strong>Recursos:</strong> Cursos da Alura, freeCodeCamp, The Odin Project.</li>
-                                <li><strong>Projetos:</strong> Crie um portfólio com sites responsivos e SPAs.</li>
-                            </ul>
-                            <a href="https://www.alura.com.br/carreira/desenvolvedor-frontend" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cientista de Dados</h4>
-                            <p class="card-text">Transforme dados em conhecimento e insights acionáveis.</p>
-                            <ul>
-                                <li><strong>Matemática e Estatística:</strong> Álgebra Linear, Cálculo, Probabilidade.</li>
-                                <li><strong>Programação:</strong> Python (com bibliotecas Pandas, NumPy, Scikit-learn) ou R.</li>
-                                <li><strong>Bancos de Dados:</strong> SQL, NoSQL.</li>
-                                <li><strong>Machine Learning:</strong> Conceitos, modelos (regressão, classificação, clustering).</li>
-                                <li><strong>Recursos:</strong> Coursera (especializações em Data Science), Kaggle (competições).</li>
-                                <li><strong>Projetos:</strong> Análise de dados reais, construção de modelos de ML.</li>
-                            </ul>
-                            <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="btn btn-secondary btn-sm mt-2">Ver Trilha Detalhada (Exemplo)</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h4 class="card-title text-custom"><i class="fas fa-road"></i> Trilha para Cibersegurança</h4>
-                            <p class="card-text">Desenvolva as habilidades para defender o mundo digital.</p>
-                            <ul>
-                                <li><strong>Fundamentos de Redes:</strong> TCP/IP, modelos OSI/TCP.</li>
-                                <li><strong>Sistemas Operacionais:</strong> Linux, Windows Server.</li>
-                                <li><strong>Conceitos de Segurança:</strong> Criptografia, Firewalls, Segurança de Aplicações.</li>
-                                <li><strong>Ferramentas:</strong> Nmap, Wireshark, Kali Linux (para prática ética).</li>
-                                <li><strong>Certificações:</strong> CompTIA Security+, Certified Ethical Hacker (CEH).</li>
-                                <li><strong>Recursos:</strong> TryHackMe, Hack The Box (plataformas de laboratório).</li>
-                            </ul>
-                            <a href="#" class="btn btn-secondary btn-sm mt-2">Ver Mais Trilhas</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-     -->
-
         <hr class="my-5">
 <section id="entrevistas-profissionais" class="content-section pt-4">
     <h2 class="text-center text-custom mb-4">Histórias de Sucesso: Entrevistas com Profissionais</h2>
@@ -460,7 +439,16 @@
                 <h4>Maria Clara - Desenvolvedora Full Stack Sênior</h4>
                 <p>"Comecei na TI por curiosidade, e hoje amo ver minhas criações impactando usuários. A chave é nunca parar de aprender e colaborar!"</p>
                 <p class="small text-muted"><strong>Tecnologias:</strong> React, Node.js, AWS, PostgreSQL.</p>
-                <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                <button class="btn btn-outline-primary btn-sm mt-2 open-interview-popup"
+                        data-name="Maria Clara"
+                        data-interview="
+                            <p><strong>Entrevista com Maria Clara:</strong></p>
+                            <p>Maria Clara, Desenvolvedora Full Stack Sênior, compartilha sua jornada: 'Minha paixão por resolver problemas me guiou para a programação. No início, experimentei diversas linguagens e frameworks, até me apaixonar pelo desenvolvimento web com React e Node.js. O mais gratificante é ver um projeto sair do papel e ser usado por pessoas reais. É um campo de aprendizado constante; sempre há algo novo para explorar e dominar. Minha dica para quem está começando é: não tenha medo de errar, pratique muito e procure comunidades para trocar experiências. A colaboração é fundamental na área de TI.'</p>
+                            <p>Ela também destaca a importância de entender o negócio para construir soluções que realmente agreguem valor. 'Não se trata apenas de escrever código, mas de entender a necessidade do usuário e transformá-la em uma solução eficiente e escalável. O conhecimento em cloud (AWS, Azure, GCP) e bancos de dados (PostgreSQL, MongoDB) é um diferencial hoje em dia.' </p>
+                            <p>Maria acredita que a diversidade na TI é um ponto crucial. 'Temos que incentivar mais mulheres e minorias a entrarem na área. Diferentes perspectivas trazem soluções mais inovadoras e completas.' Ela é mentora em alguns programas de inclusão e sempre busca compartilhar seu conhecimento.</p>
+                        ">
+                    Leia a Entrevista Completa
+                </button>
             </div>
         </div>
         <div class="col">
@@ -469,7 +457,16 @@
                 <h4>João Silva - Especialista em Cibersegurança</h4>
                 <p>"Proteger dados é um desafio constante. É preciso estar sempre um passo à frente das ameaças. Minha paixão é desvendar vulnerabilidades."</p>
                 <p class="small text-muted"><strong>Tecnologias:</strong> Firewalls, SIEM, Ferramentas de Pentest.</p>
-                <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                <button class="btn btn-outline-primary btn-sm mt-2 open-interview-popup"
+                        data-name="João Silva"
+                        data-interview="
+                            <p><strong>Entrevista com João Silva:</strong></p>
+                            <p>João Silva, Especialista em Cibersegurança, enfatiza a relevância da proteção de dados no cenário atual. 'A cada dia, novas ameaças surgem, e nossa função é estar sempre um passo à frente. É um jogo de gato e rato, onde a vigilância e a atualização contínua são essenciais. Lembro-me de um incidente em que um ataque sofisticado foi detectado e neutralizado a tempo, evitando um grande prejuízo. A sensação de proteger algo tão valioso é indescritível.'</p>
+                            <p>Ele aconselha aos aspirantes à carreira: 'Estude redes, sistemas operacionais e criptografia a fundo. Compreender como os sistemas funcionam é o primeiro passo para identificar suas vulnerabilidades. Ferramentas de pentest, SIEM e firewalls são seus melhores amigos. Além disso, a ética é inegociável; use seus conhecimentos para o bem.'</p>
+                            <p>João também menciona a importância das certificações na área, como CompTIA Security+, Certified Ethical Hacker (CEH) e CISSP, para impulsionar a carreira. 'Elas validam seu conhecimento e abrem muitas portas no mercado. Mas o mais importante é a experiência prática e a capacidade de pensar como um atacante para se defender melhor.'</p>
+                        ">
+                    Leia a Entrevista Completa
+                </button>
             </div>
         </div>
         <div class="col">
@@ -478,7 +475,16 @@
                 <h4>Ana Paula - Cientista de Dados</h4>
                 <p>"Adoro a parte de transformar dados brutos em histórias que ajudam as empresas a crescer. Estatística e programação são minhas ferramentas diárias."</p>
                 <p class="small text-muted"><strong>Tecnologias:</strong> Python, R, SQL, Power BI.</p>
-                <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                <button class="btn btn-outline-primary btn-sm mt-2 open-interview-popup"
+                        data-name="Ana Paula"
+                        data-interview="
+                            <p><strong>Entrevista com Ana Paula:</strong></p>
+                            <p>Ana Paula, Cientista de Dados, revela sua fascinação por números e o poder da informação. 'Quando comecei, não imaginava o quão impactante seria transformar dados brutos em insights acionáveis. Lembro-me de um projeto onde analisamos dados de vendas e descobrimos um padrão inesperado que levou a uma campanha de marketing muito bem-sucedida, gerando um aumento significativo na receita. É como ser um detetive, mas com números.'</p>
+                            <p>Ela destaca a versatilidade da profissão: 'É uma área que exige conhecimento em estatística, programação (Python e R são essenciais) e um bom entendimento de negócios. Saber comunicar seus achados de forma clara, utilizando ferramentas de visualização como Power BI ou Tableau, é tão importante quanto a análise em si.'</p>
+                            <p>Ana Paula também ressalta a importância da curiosidade: 'Você precisa ter vontade de explorar, de fazer as perguntas certas aos dados. Cada dataset é uma nova história esperando para ser contada. O aprendizado é contínuo, com novas técnicas e algoritmos surgindo o tempo todo, especialmente em Machine Learning.'</p>
+                        ">
+                    Leia a Entrevista Completa
+                </button>
             </div>
         </div>
         <div class="col">
@@ -487,108 +493,21 @@
                 <h4>Carlos Souza - Engenheiro DevOps</h4>
                 <p>"Ver um pipeline CI/CD funcionando perfeitamente é gratificante. A automação é o futuro, e otimizar processos é minha missão!"</p>
                 <p class="small text-muted"><strong>Tecnologias:</strong> Docker, Kubernetes, Jenkins, Azure DevOps.</p>
-                <a href="#" class="btn btn-outline-primary btn-sm mt-2">Leia a Entrevista Completa</a>
+                <button class="btn btn-outline-primary btn-sm mt-2 open-interview-popup"
+                        data-name="Carlos Souza"
+                        data-interview="
+                            <p><strong>Entrevista com Carlos Souza:</strong></p>
+                            <p>Carlos Souza, Engenheiro DevOps, fala com entusiasmo sobre a automação e otimização. 'Minha maior satisfação é construir sistemas que tornam o trabalho dos desenvolvedores mais fácil e a entrega de software mais rápida e confiável. Já passei por situações onde deployments eram demorados e cheios de erros, e hoje, com CI/CD, isso é coisa do passado. É uma transformação que beneficia a todos.'</p>
+                            <p>Ele aconselha: 'Para ser um bom Engenheiro DevOps, você precisa entender tanto de desenvolvimento quanto de infraestrutura. Ferramentas como Docker e Kubernetes são fundamentais, assim como o domínio de provedores de nuvem como AWS, Azure ou GCP. A habilidade de automatizar tarefas repetitivas e resolver problemas complexos é crucial.'</p>
+                            <p>Carlos também destaca o papel de comunicação e colaboração. 'DevOps não é só tecnologia, é uma cultura. É sobre quebrar barreiras entre equipes de desenvolvimento e operações para que trabalhem juntas em prol de um objetivo comum. Ser capaz de se comunicar bem e entender as necessidades de ambos os lados é um diferencial enorme.'</p>
+                        ">
+                    Leia a Entrevista Completa
+                </button>
             </div>
         </div>
     </div>
 </section>
-     <!--
-       <hr class="my-5">
-
-        <section id="questionario-preferencias" class="content-section pt-4">
-            <h2 class="text-center text-custom mb-4">Descubra Sua Área em T.I.!</h2>
-            <p class="text-center lead">Responda a algumas perguntas rápidas para descobrir qual área de T.I. combina mais com você.</p>
-
-            <div class="quiz-section container">
-                <form id="careerQuiz">
-                    <div class="mb-4 pergunta">
-                        <h5>1. Qual tipo de desafio mais te atrai?</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="dev" id="q1_dev">
-                            <label class="form-check-label" for="q1_dev">Resolver problemas lógicos e criar novas funcionalidades.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="sec" id="q1_sec">
-                            <label class="form-check-label" for="q1_sec">Proteger sistemas contra ameaças e vulnerabilidades.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="data" id="q1_data">
-                            <label class="form-check-label" for="q1_data">Analisar grandes volumes de informações para encontrar padrões.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q1" value="devops" id="q1_devops">
-                            <label class="form-check-label" for="q1_devops">Automatizar processos e otimizar a infraestrutura.</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-4 pergunta">
-                        <h5>2. Com qual das seguintes atividades você se identifica mais?</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="dev" id="q2_dev">
-                            <label class="form-check-label" for="q2_dev">Escrever código para softwares ou aplicativos.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="sec" id="q2_sec">
-                            <label class="form-check-label" for="q2_sec">Identificar falhas de segurança e implementar defesas.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="data" id="q2_data">
-                            <label class="form-check-label" for="q2_data">Criar gráficos e relatórios a partir de dados complexos.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q2" value="devops" id="q2_devops">
-                            <label class="form-check-label" for="q2_devops">Configurar servidores e ambientes de nuvem.</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-4 pergunta">
-                        <h5>3. Qual tipo de tecnologia te desperta mais curiosidade?</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="dev" id="q3_dev">
-                            <label class="form-check-label" for="q3_dev">Novas linguagens de programação e frameworks web/mobile.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="sec" id="q3_sec">
-                            <label class="form-check-label" for="q3_sec">Ferramentas de hacking ético e sistemas de monitoramento de segurança.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="data" id="q3_data">
-                            <label class="form-check-label" for="q3_data">Inteligência Artificial, Machine Learning e Big Data.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q3" value="devops" id="q3_devops">
-                            <label class="form-check-label" for="q3_devops">Containers (Docker), orquestração (Kubernetes) e provedores de nuvem (AWS, Azure).</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-4 pergunta">
-                        <h5>4. Você se vê...</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="dev" id="q4_dev">
-                            <label class="form-check-label" for="q4_dev">Criando a experiência do usuário de um site ou aplicativo.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="sec" id="q4_sec">
-                            <label class="form-check-label" for="q4_sec">Investigando incidentes de segurança ou auditorias.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="data" id="q4_data">
-                            <label class="form-check-label" for="q4_data">Fazendo previsões baseadas em tendências de dados.</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="q4" value="devops" id="q4_devops">
-                            <label class="form-check-label" for="q4_devops">Garantindo que sistemas e aplicações estejam sempre online e performando bem.</label>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn btn-primary btn-lg w-100" onclick="calculateResult()">Ver Meu Perfil</button>
-                </form>
-
-                <div id="quizResult" class="resultado mt-4 alert alert-success" role="alert">
-                    </div>
-            </div>
-        </section>
-      -->
+     
     </div>
  
     <footer class="container mt-5">
@@ -607,76 +526,56 @@
         </div>
     </footer>
 
+    <div id="interviewPopup" class="interview-popup-background">
+        <div class="interview-popup-content">
+            <button class="close-btn" id="closeInterviewPopup">&times;</button>
+            <h3 id="interviewPopupTitle"></h3>
+            <div id="interviewPopupBody">
+                </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-   <!-- <script>
-        // Lógica do Questionário
-function calculateResult() {
-    const answers = {
-        dev: 0,
-        sec: 0,
-        data: 0,
-        devops: 0
-    };
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openPopupButtons = document.querySelectorAll('.open-interview-popup');
+            const interviewPopup = document.getElementById('interviewPopup');
+            const closeInterviewPopupButton = document.getElementById('closeInterviewPopup');
+            const interviewPopupTitle = document.getElementById('interviewPopupTitle');
+            const interviewPopupBody = document.getElementById('interviewPopupBody');
+            const interviewPopupContent = document.querySelector('.interview-popup-content');
 
-    const form = document.getElementById('careerQuiz');
-    let allAnswered = true;
+            // Função para mostrar o pop-up com o conteúdo da entrevista
+            function showInterviewPopup(name, interviewContent) {
+                interviewPopupTitle.innerHTML = `Entrevista com ${name}`;
+                interviewPopupBody.innerHTML = interviewContent; // Isso permite HTML, tome cuidado com fontes externas
+                interviewPopup.classList.add('active');
+            }
 
-    for (let i = 1; i <= 4; i++) {
-        const selected = form.querySelector(`input[name="q${i}"]:checked`); // Corrected line
-        if (selected) {
-            answers[selected.value]++;
-        } else {
-            allAnswered = false;
-            break;
-        }
-    }
+            // Função para esconder o pop-up
+            function hideInterviewPopup() {
+                interviewPopup.classList.remove('active');
+            }
 
-    const quizResultDiv = document.getElementById('quizResult');
-    if (!allAnswered) {
-        quizResultDiv.className = 'resultado mt-4 alert alert-danger';
-        quizResultDiv.innerHTML = 'Por favor, responda a todas as perguntas para obter seu resultado.';
-        quizResultDiv.style.display = 'block';
-        return;
-    }
+            // Adiciona evento de clique a todos os botões "Leia a Entrevista Completa"
+            openPopupButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const name = this.dataset.name; // Pega o nome do atributo data-name
+                    const interview = this.dataset.interview; // Pega o conteúdo da entrevista do data-interview
+                    showInterviewPopup(name, interview);
+                });
+            });
 
-    let maxScore = 0;
-    let bestMatches = []; // Changed to an array to handle ties
+            // Fechar o pop-up ao clicar no botão "x"
+            closeInterviewPopupButton.addEventListener('click', hideInterviewPopup);
 
-    for (const area in answers) {
-        if (answers[area] > maxScore) {
-            maxScore = answers[area];
-            bestMatches = [area]; // Reset if a new max is found
-        } else if (answers[area] === maxScore && answers[area] > 0) {
-            bestMatches.push(area); // Add if it's a tie with a score greater than 0
-        }
-    }
-
-    let resultText = '';
-    let resultClass = 'alert-success';
-
-    const areaNames = {
-        'dev': 'Desenvolvimento de Software',
-        'sec': 'Cibersegurança',
-        'data': 'Dados (Cientista/Analista)',
-        'devops': 'Engenheiro(a) DevOps'
-    };
-
-    if (maxScore === 0) {
-        resultText = "Não foi possível determinar um perfil claro. Tente explorar as áreas acima ou refazer o questionário!";
-        resultClass = 'alert-info'; // Set a more appropriate class for no clear result
-    } else if (bestMatches.length === 1) {
-        resultText = `Parabéns! Pelo que respondemos, você tem um forte perfil para a área de <strong class="text-custom">${areaNames[bestMatches[0]]}</strong>. Explore as trilhas de aprendizado e entrevistas nesta página para saber mais!`;
-    } else {
-        const matchedAreas = bestMatches.map(area => `<strong class="text-custom">${areaNames[area]}</strong>`).join(' e ');
-        resultText = `Interessante! Suas respostas indicam afinidade com as áreas de ${matchedAreas}. Você pode ter múltiplas paixões em T.I.!`;
-        resultClass = 'alert-warning'; // Suggest a different class for multiple matches
-    }
-
-    quizResultDiv.className = `resultado mt-4 alert ${resultClass}`;
-    quizResultDiv.innerHTML = resultText;
-    quizResultDiv.style.display = 'block';
-}
+            // Fechar o pop-up ao clicar fora do conteúdo da entrevista
+            interviewPopup.addEventListener('click', function(event) {
+                if (!interviewPopupContent.contains(event.target)) {
+                    hideInterviewPopup();
+                }
+            });
+        });
     </script>
-    -->
 </body>
 </html>

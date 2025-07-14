@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oportunidades em T.I.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #f8f9fa;
@@ -22,10 +22,7 @@
         .text-custom {
             color: #004F9F;
         }
-        p{
-          padding top: 20px;  
-        }
-
+        
         .texto {
             line-height: 1.6;
             padding: 20px 15px;
@@ -71,7 +68,7 @@
             padding: 60px 0;
             margin-top: -24px;
         }
-           
+            
         #buscar-vagas > .container {
             position: relative;
             z-index: 2; /* Garante que o conteúdo fique acima do overlay */
@@ -255,13 +252,13 @@
 
             <div class="container-fluid p-0">  <h1 class="text-center text-custom mb-4" style="color: #004F9F;"> </h1>
                 <div class="mb-4">
-                <p class="text-center lead">    </p>
+                <p class="text-center lead">     </p>
                 </div>
             <section id="buscar-vagas" class="content-section pt-4 mb-5">
                 <div class="container"> 
                     <h2 class="text-center mb-4">Buscar Vagas</h2>
                     <p class="text-center lead">Utilize os filtros abaixo para encontrar as vagas de relacionadas a tecnologia,
-                      que mais combinam com você.</p>
+                        que mais combinam com você.</p>
                     <div class="job-filter-card">
     <div class="row g-3">
         <div class="col-md-5">
@@ -318,18 +315,7 @@
             </div>
         </section>
 
-        <div class="row">
-            <div class="col-lg-12"> 
-                <section id="jobDetailsSection" class="content-section pt-4">
-                    <h2 class="text-center text-custom mb-4">Detalhes da Vaga</h2>
-                    
-                    <div id="jobDetailContent" class="job-detail-card">
-                        <p class="job-detail-placeholder" id="placeholderMessage">Selecione uma vaga para ver os detalhes.</p>
-                    </div>
-                </section>
-            </div>
-        </div> 
-    </div>
+        </div>
 
     <footer class="container mt-5">
             <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
@@ -346,7 +332,40 @@
                 <li class="nav-item"><a href="noticias.html" class="nav-link px-2">Notícias</a></li>
               </ul>
             </div>
-        </footer>
+    </footer>
+
+    <div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="jobDetailsModalLabel">Detalhes da Vaga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="modalDetailTitle" class="text-custom mb-3"></h3>
+                    <p><strong>Empresa:</strong> <span id="modalDetailCompany"></span></p>
+                    <p><strong>Localização:</strong> <span id="modalDetailLocation"></span></p>
+                    <p><strong>Nível:</strong> <span id="modalDetailLevel"></span></p>
+                    <p><strong>Regime:</strong> <span id="modalDetailRegime"></span></p>
+                    
+                    <hr>
+                    <p><strong>Descrição:</strong></p>
+                    <div id="modalDetailDescription"></div>
+                    
+                    <hr>
+                    <p><strong>Requisitos:</strong></p>
+                    <ul id="modalDetailRequirements"></ul>
+
+                    <hr>
+                    <p><strong>Responsabilidades:</strong></p>
+                    <ul id="modalDetailResponsibilities"></ul>
+                </div>
+                <div class="modal-footer">
+                    <a id="modalDetailLink" href="#" target="_blank" class="btn btn-success btn-lg w-100">Candidatar-se à Vaga <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -354,8 +373,8 @@
             {
                 id: 1,
                 title: "Desenvolvedor(a) Front-end Pleno",
-                company: "Tech Solutions",
-                location: "Remoto",
+                company: "VAAS",
+                location: "Santa Catarina",
                 level: "Pleno",
                 regime: "CLT",
                 description: "Buscamos um(a) Desenvolvedor(a) Front-end Pleno apaixonado(a) por criar interfaces de usuário intuitivas e responsivas. Você trabalhará em uma equipe ágil, colaborando desde a concepção até a entrega de novas funcionalidades para nossos produtos web. Valorizamos a proatividade e o gosto por desafios.",
@@ -373,13 +392,13 @@
                     "Participar de code reviews, contribuindo para a qualidade e boas práticas do código.",
                     "Traduzir designs e wireframes em código de alta qualidade e interfaces funcionais."
                 ],
-                link: "https://example.com/vaga/frontend-pleno"
+                link: "https://www.linkedin.com/jobs/view/4257184825"
             },
             {
                 id: 2,
                 title: "Engenheiro(a) de Dados Sênior",
-                company: "Data Insights Ltda.",
-                location: "São Paulo",
+                company: "Stealth Healthcare AI Startup",
+                location: "Remoto",
                 level: "Sênior",
                 regime: "CLT",
                 description: "Procuramos um(a) Engenheiro(a) de Dados Sênior para projetar, construir e otimizar nossos pipelines de dados complexos. Você será fundamental para a arquitetura de dados, big data e soluções de análise, garantindo que nossos cientistas e analistas tenham acesso a dados confiáveis e em tempo real.",
@@ -397,12 +416,12 @@
                     "Propor e implementar melhorias contínuas na arquitetura de dados e nas ferramentas utilizadas.",
                     "Monitorar o desempenho dos pipelines e sistemas de dados, implementando otimizações quando necessário."
                 ],
-                link: "https://example.com/vaga/engenheiro-dados-senior"
+                link: "https://www.linkedin.com/jobs/view/4252697178"
             },
             {
                 id: 3,
                 title: "Analista de Cibersegurança Júnior",
-                company: "SecureNet",
+                company: "SPX",
                 location: "Rio de Janeiro",
                 level: "Júnior",
                 regime: "CLT",
@@ -421,13 +440,13 @@
                     "Manter-se atualizado sobre novas ameaças, tendências de ataque e melhores práticas de segurança.",
                     "Colaborar com a equipe para implementar e manter políticas de segurança da informação."
                 ],
-                link: "https://example.com/vaga/ciberseguranca-junior"
+                link: "https://www.linkedin.com/jobs/view/4255362344"
             },
             {
                 id: 4,
                 title: "Engenheiro(a) DevOps Pleno",
-                company: "Cloud Innovators",
-                location: "Remoto",
+                company: "Stefanini",
+                location: "São Paulo",
                 level: "Pleno",
                 regime: "PJ",
                 description: "Buscamos um(a) Engenheiro(a) DevOps Pleno para otimizar nossos processos de CI/CD e gerenciar a infraestrutura em nuvem, garantindo a entrega rápida e eficiente de software com alta disponibilidade e escalabilidade. Ambiente de trabalho dinâmico e colaborativo.",
@@ -445,13 +464,13 @@
                     "Apoiar equipes de desenvolvimento na implantação e operação de aplicações.",
                     "Otimizar a performance e a segurança da infraestrutura."
                 ],
-                link: "https://example.com/vaga/devops-pleno"
+                link: "https://www.linkedin.com/jobs/view/4255783815"
             },
             {
                 id: 5,
                 title: "Desenvolvedor(a) Back-end Sênior",
-                company: "Fintech Solutions",
-                location: "São Paulo",
+                company: "BRQ",
+                location: "Remoto",
                 level: "Sênior",
                 regime: "CLT",
                 description: "Vaga para Desenvolvedor(a) Back-end Sênior com expertise em sistemas distribuídos e alta performance. Atuará no desenvolvimento de APIs e microsserviços críticos para o setor financeiro, garantindo robustez e segurança.",
@@ -469,14 +488,14 @@
                     "Mentorar desenvolvedores juniores e plenos, promovendo boas práticas de código.",
                     "Colaborar com equipes de produto e front-end para entregar soluções completas."
                 ],
-                link: "https://example.com/vaga/backend-senior"
+                link: "https://www.linkedin.com/jobs/view/4202888264"
             },
             {
                 id: 6,
-                title: "Arquiteto(a) de Soluções Cloud",
-                company: "CloudBuilders",
+                title: "Arquiteto de Solução",
+                company: "Ocyan",
                 location: "Remoto",
-                level: "Especialista",
+                level: "Sênior",
                 regime: "PJ",
                 description: "Buscamos Arquiteto(a) de Soluções Cloud para desenhar e implementar arquiteturas robustas e escaláveis em ambientes de nuvem pública. Você será o(a) responsável por guiar a estratégia de adoção de cloud e garantir a otimização de recursos.",
                 requirements: [
@@ -493,13 +512,13 @@
                     "Manter-se atualizado com as últimas tendências e serviços de cloud computing.",
                     "Criar documentação técnica detalhada das arquiteturas e decisões."
                 ],
-                link: "https://example.com/vaga/arquiteto-cloud"
+                link: "https://www.linkedin.com/jobs/view/4255763345"
             },
             {
                 id: 7,
                 title: "Analista de Qualidade de Software (QA)",
-                company: "QualityTech",
-                location: "Belo Horizonte",
+                company: "GazinTech",
+                location: "Paraná",
                 level: "Pleno",
                 regime: "CLT",
                 description: "Procuramos um Analista de QA para garantir a qualidade dos nossos produtos de software, realizando testes manuais e automatizados. Você será parte crucial do ciclo de desenvolvimento, assegurando a entrega de soluções livres de bugs e com excelente experiência do usuário.",
@@ -517,16 +536,16 @@
                     "Participar das reuniões de planejamento e revisão, contribuindo com a perspectiva de qualidade.",
                     "Garantir a entrega de software de alta qualidade e que atenda às expectativas do cliente."
                 ],
-                link: "https://example.com/vaga/qa-analyst"
+                link: "https://www.linkedin.com/jobs/view/4174884930"
             },
             {
                 id: 8,
-                title: "Cientista de Dados Júnior",
-                company: "Analytic Minds",
-                location: "Curitiba",
-                level: "Júnior",
+                title: "Estágio em Análise de Dados",
+                company: "Petlove",
+                location: "Remoto",
+                level: "Estagiário",
                 regime: "CLT",
-                description: "Vaga para Cientista de Dados Júnior para atuar na coleta, processamento e análise de grandes volumes de dados. Você ajudará a transformar dados em insights acionáveis, auxiliando na tomada de decisões estratégicas para o negócio.",
+                description: "Vaga para Análise de Dados Júnior para atuar na coleta, processamento e análise de grandes volumes de dados. Você ajudará a transformar dados em insights acionáveis, auxiliando na tomada de decisões estratégicas para o negócio.",
                 requirements: [
                     "Conhecimento em Python (bibliotecas Pandas, NumPy, Scikit-learn) ou R.",
                     "Noções de estatística, probabilidade e álgebra linear.",
@@ -541,16 +560,15 @@
                     "Criar dashboards e visualizações para apresentar insights.",
                     "Colaborar com outras equipes para entender as necessidades de dados."
                 ],
-                link: "https://example.com/vaga/data-scientist-junior"
+                link: "https://www.linkedin.com/jobs/view/4258590674"
             },
             {
                 id: 9,
-                title: "Desenvolvedor(a) Mobile (Android/iOS) Pleno",
-                company: "App Innovate",
-                location: "Porto Alegre",
-                level: "Pleno",
+                title: "Estagiário em Desenvolvimento Java",
+                company: "ANBIMA",
+                location: "Rio de Janeiro",
                 regime: "CLT",
-                description: "Buscamos Desenvolvedor(a) Mobile Pleno para atuar no desenvolvimento e manutenção de nossos aplicativos nativos para Android e iOS. Você fará parte de uma equipe multidisciplinar, focada em entregar a melhor experiência mobile.",
+                description: "Buscamos Desenvolvedor(a) Mobile para atuar no desenvolvimento e manutenção de nossos aplicativos nativos para Android e iOS. Você fará parte de uma equipe multidisciplinar, focada em entregar a melhor experiência mobile.",
                 requirements: [
                     "Experiência com desenvolvimento Android (Kotlin/Java) ou iOS (Swift/Objective-C).",
                     "Conhecimento de MVVM/MVP ou arquiteturas Clean Architecture.",
@@ -565,7 +583,7 @@
                     "Colaborar com designers e equipes de back-end.",
                     "Escrever testes unitários e de integração."
                 ],
-                link: "https://example.com/vaga/mobile-dev-pleno"
+                link: "https://www.linkedin.com/jobs/view/4259926289"
             }
         ];
 
@@ -657,7 +675,7 @@
                 }
 
                 const jobCard = createJobCardElement(job);
-                jobCard.classList.add('mb-0'); // Remove margem inferior se o card estiver no carrossel
+                jobCard.classList.add('mb-0'); // Remove margem inferior padrão se o card estiver no carrossel
 
                 const dFlexDiv = document.createElement('div');
                 dFlexDiv.classList.add('d-flex', 'justify-content-center');
@@ -702,20 +720,19 @@
                 return matchesKeywords && matchesLocation;
             });
             displayJobs(filtered);
-            clearJobDetails(); 
+            // clearJobDetails(); // Removido, pois os detalhes agora são exibidos no modal
             if (currentSelectedCard) {
                 currentSelectedCard.classList.remove('selected-card');
                 currentSelectedCard = null;
             }
         }
 
-        // Função para selecionar e exibir os detalhes de uma vaga
+        // Função para selecionar e exibir os detalhes de uma vaga no modal
         function selectJob(event, jobId) {
-            event.preventDefault(); 
+            event.preventDefault(); // Impede o comportamento padrão, se houver
             const selectedJob = allJobs.find(job => job.id === jobId);
-            const jobDetailContentDiv = document.getElementById('jobDetailContent');
 
-            // Remove o destaque do card selecionado anteriormente
+            // Remove o destaque do card selecionado anteriormente, se houver
             if (currentSelectedCard) {
                 currentSelectedCard.classList.remove('selected-card');
             }
@@ -728,38 +745,46 @@
             }
 
             if (selectedJob) {
-                jobDetailContentDiv.innerHTML = `
-                    <h3 id="detailTitle">${selectedJob.title}</h3>
-                    <p><strong>Empresa:</strong> <span id="detailCompany">${selectedJob.company}</span></p>
-                    <p><strong>Localização:</strong> <span id="detailLocation">${selectedJob.location}</span></p>
-                    <p><strong>Nível:</strong> <span id="detailLevel">${selectedJob.level}</span></p>
-                    <p><strong>Regime:</strong> <span id="detailRegime">${selectedJob.regime}</span></p>
-                    <p><strong>Descrição:</strong></p>
-                    <div id="detailDescription">${selectedJob.description}</div>
-                    
-                    <p class="mt-4"><strong>Requisitos:</strong></p>
-                    <ul id="detailRequirements">
-                        ${selectedJob.requirements.map(req => `<li>${req}</li>`).join('')}
-                    </ul>
+                // Popula o conteúdo do modal com os detalhes da vaga
+                document.getElementById('modalDetailTitle').textContent = selectedJob.title;
+                document.getElementById('modalDetailCompany').textContent = selectedJob.company;
+                document.getElementById('modalDetailLocation').textContent = selectedJob.location;
+                document.getElementById('modalDetailLevel').textContent = selectedJob.level;
+                document.getElementById('modalDetailRegime').textContent = selectedJob.regime;
+                document.getElementById('modalDetailDescription').innerHTML = selectedJob.description; // Use innerHTML para formatar quebras de linha se necessário
 
-                    <p class="mt-4"><strong>Responsabilidades:</strong></p>
-                    <ul id="detailResponsibilities">
-                        ${selectedJob.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                    </ul>
+                // Popula requisitos
+                const reqList = document.getElementById('modalDetailRequirements');
+                reqList.innerHTML = '';
+                selectedJob.requirements.forEach(req => {
+                    const li = document.createElement('li');
+                    li.textContent = req;
+                    reqList.appendChild(li);
+                });
 
-                    <a id="detailLink" href="${selectedJob.link}" target="_blank" class="btn btn-success btn-lg mt-4 w-100">Candidatar-se à Vaga <i class="fas fa-external-link-alt"></i></a>
-                `;
-                // Rola para a seção de detalhes da vaga, se ela estiver fora da tela
-                document.getElementById('jobDetailsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Popula responsabilidades
+                const respList = document.getElementById('modalDetailResponsibilities');
+                respList.innerHTML = '';
+                selectedJob.responsibilities.forEach(resp => {
+                    const li = document.createElement('li');
+                    li.textContent = resp;
+                    respList.appendChild(li);
+                });
+
+                document.getElementById('modalDetailLink').href = selectedJob.link;
+
+                // Exibe o modal
+                const jobDetailsModal = new bootstrap.Modal(document.getElementById('jobDetailsModal'));
+                jobDetailsModal.show();
             }
         }
 
         // Função para limpar os detalhes da vaga e mostrar a mensagem de placeholder
+        // Esta função não é mais estritamente necessária se os detalhes só forem no modal,
+        // mas pode ser mantida para clareza ou uso futuro.
         function clearJobDetails() {
-            const jobDetailContentDiv = document.getElementById('jobDetailContent');
-            jobDetailContentDiv.innerHTML = `
-                <p class="job-detail-placeholder" id="placeholderMessage">Selecione uma vaga para ver os detalhes.</p>
-            `;
+            // Se você tivesse uma seção de detalhes na página principal, ela seria limpa aqui.
+            // Como os detalhes agora vão para o modal, essa parte não faz mais nada visível na página.
             if (currentSelectedCard) {
                 currentSelectedCard.classList.remove('selected-card');
                 currentSelectedCard = null;
@@ -769,8 +794,8 @@
         // Ao carregar a página, não exibe as vagas inicialmente
         document.addEventListener('DOMContentLoaded', () => {
             populateCarousel(); // Popula o carrossel
-            // Não chame displayJobs(allJobs) aqui, pois queremos que esteja oculto
-            // O container de resultados já estará oculto via CSS
+            // A chamada a clearJobDetails() aqui não terá um efeito visual direto na página,
+            // mas garante o estado inicial da variável currentSelectedCard.
             clearJobDetails(); 
         });
     </script>
