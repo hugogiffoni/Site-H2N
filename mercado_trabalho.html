@@ -9,12 +9,52 @@
     <style>
         body {
             background-color: #ffffff;
+            /* Ajuste o padding-top para o tamanho da sua navbar. 70px é a altura da sua navbar + um pouco de folga. */
+            padding-top: 80px; 
         }
         .nav-bar {
             background-color: #052442;
             width: 100%;
             height: 70px;
+            /* Removido fixed-top daqui pois será adicionado diretamente no HTML para maior clareza */
         }
+        .btn-secondary,
+        .btn-primary { /* Adicionado .btn-primary aqui */
+            background-color: #0d355e !important; /* Cor do botão Voltar */
+            border-color: #0d355e !important; /* Garante que a borda também seja da mesma cor */
+            color: #fff !important; /* Garante que o texto do botão seja branco */
+        }
+
+        /* Ajuste para o hover dos botões padronizados */
+        .btn-secondary:hover,
+        .btn-primary:hover {
+            background-color: #092a4a !important; /* Um tom ligeiramente mais escuro no hover */
+            border-color: #092a4a !important;
+        }
+
+        .voltar {
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+        .titulo-site{
+        margin-top: -15px;
+        }
+        
+        /* Ajustes específicos para esta seção de título/subtítulo */
+        .section-title {
+            color: #0d355e;
+            /* Removido margin-top: 9px; para que o padding-top do body controle o espaço inicial */
+            /* Removido o margin-bottom daqui para usar classes Bootstrap no HTML */
+        }
+
+        .texto {
+            white-space: pre-line;
+            color: #004F9F;
+            /* Removido o margin-top e margin-bottom daqui para usar classes Bootstrap no HTML */
+        }
+        
+        /* ... outros estilos ... */
+
         .form-control-dark {
             border-color: var(--bs-gray);
         }
@@ -28,16 +68,13 @@
         .dropdown-toggle:not(:focus) {
             outline: 0;
         }
-        .texto {
-            white-space: pre-line;
-            color: #004F9F;
-        }
         a {
             text-align: center;
         }
         .container {
             padding-bottom: 10px;
         }
+        
         .noticia_direcionamento {
             padding-bottom: 50px;
         }
@@ -53,11 +90,6 @@
             }
         }
         /* Estilos específicos para esta página */
-        .section-title {
-            color: #0d355e;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
         .accordion-button {
             background-color: #0d355e;
             color: white;
@@ -105,11 +137,56 @@
         .quiz-option.disabled-click { /* Para desativar cliques após seleção */
             pointer-events: none;
         }
+        /* Seu CSS existente para a marca d'água (se for o caso) */
+.footer-custom .text-muted {
+    color: #6c757d !important; /* Força a cor para o copyright */
+}
+
+/* --- Ajustes para alinhamento dos títulos e links no footer --- */
+
+/* Garante que os títulos não tenham margens laterais que os desalinhem */
+.titulo-footer {
+    margin-left: 0;
+    padding-left: 0;
+    /* Se houver algum espaçamento extra que você queira remover */
+    /* text-align: left; /* Garante alinhamento à esquerda, se necessário */
+}
+
+/* Ajusta as listas de navegação */
+.nav.flex-column {
+    /* Remove padding padrão da UL que pode empurrar os LIs para a direita */
+    padding-left: 0; 
+    /* Remove margem padrão da UL que pode empurrar os LIs para a direita */
+    margin-left: 0; 
+}
+
+/* Garante que os itens da lista estejam sem padding/margin lateral */
+.nav-item {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* O .nav-link px-0 já faz muito do trabalho, mas podemos reforçar */
+.nav-link.px-0 {
+    padding-left: 0 !important; /* Garante que não haja padding à esquerda */
+    padding-right: 0 !important; /* Garante que não haja padding à direita */
+    text-align: left; /* Garante que o texto dos links seja alinhado à esquerda */
+}
+/* Estilos para a caixa de análise de sucesso */
+.alert-analysis-success {
+    background-color: #d4edda; /* Fundo verde claro, como o quiz-option.correct */
+    color: #155724;             /* Cor do texto para contraste com o verde claro */
+    border-color: #28a745;      /* Borda verde escuro, como o quiz-option.correct */
+}
+
+/* Garante que o título dentro do alerta também tenha a cor correta */
+.alert-analysis-success .alert-heading {
+    color: #155724; 
+}
     </style>
 </head>
 <body>
-    <div class="nav-bar">
-        <header class="container">
+    <div class="nav-bar fixed-top"> <header class="container">
             <ul class="nav nav-pills justify-content-center py-3">
                 <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
                 <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
@@ -122,15 +199,20 @@
             </ul>
         </header>
     </div>
+    <div class="voltar">
+        <a class="btn btn-secondary btn-s" href="saibamais.html" role="button">Voltar</a>
+    </div>
 
     <main class="container my-5">
-        <h1 class="text-center section-title"> Compreendendo as Etapas do Processo Seletivo</h1>
-        <p class="text-center texto mb-5">
+        <div class="titulo-site">
+        <h1 class="text-center section-title mb-2"> Compreendendo as Etapas do Processo Seletivo</h1>
+        <h5 class="text-center texto mt-1 mb-5">
             Bem-vindo à sua jornada no dinâmico mercado de trabalho em Tecnologia da Informação!
             Aqui você encontrará as ferramentas e informações essenciais para impulsionar sua carreira. 
             Entender as etapas do processo seletivo e se preparar adequadamente é fundamental para alcançar seus objetivos.
-        </p>
-
+        </h5>
+        </div>
+    
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <ul class="nav nav-tabs justify-content-center" id="jobMarketTabs" role="tablist">
@@ -146,7 +228,7 @@
                 </ul>
                 <div class="tab-content border border-top-0 p-3" id="jobMarketTabContent">
                     <div class="tab-pane fade show active" id="resume-content" role="tabpanel" aria-labelledby="resume-tab">
-                        <h4 class="text-center mt-3 mb-4 texto">Otimizando Seu Currículo para o Mercado de TI</h4>
+                        <h3 class="text-center section-title mb-2">Otimizando Seu Currículo para o Mercado de TI</h3>
                         <p class="mb-3">Seu currículo é seu cartão de visitas! Aprenda a destacá-lo com as informações certas e as palavras-chave que os recrutadores de TI buscam.</p>
                         
                         <h5>Recursos Interativos:</h5>
@@ -376,17 +458,19 @@
                                         Simulador de Perguntas STAR
                                     </button>
                                 </h2>
-                                <div id="collapseBehavioral1" class="accordion-collapse collapse" aria-labelledby="headingBehavioral1" data-bs-parent="#accordionBehavioral">
-                                    <div class="accordion-body">
-                                        <p>Pratique suas respostas usando o método STAR (Situação, Tarefa, Ação, Resultado).</p>
-                                        <div class="card p-3 mb-3">
-                                            <p><strong>Pergunta Exemplo:</strong> "Descreva uma situação em que você teve que lidar com um prazo apertado."</p>
-                                            <textarea class="form-control" rows="4" placeholder="Sua resposta usando o método STAR"></textarea>
-                                            <button type="button" class="btn btn-primary mt-2" onclick="analyzeBehavioralResponse()">Analisar Resposta (em breve)</button>
-                                        </div>
-                                         <p><small><strong>Dica STAR:</strong> Estruture sua resposta descrevendo a <strong>S</strong>ituação, a <strong>T</strong>arefa que você tinha, as <strong>A</strong>ções que tomou e os <strong>R</strong>esultados alcançados.</small></p>
-                                    </div>
-                                </div>
+                                 <div id="collapseBehavioral1" class="accordion-collapse collapse" aria-labelledby="headingBehavioral1" data-bs-parent="#accordionBehavioral">
+    <div class="accordion-body">
+        <p>Pratique suas respostas usando o método STAR (Situação, Tarefa, Ação, Resultado).</p>
+        <div class="card p-3 mb-3">
+            <p><strong>Pergunta Exemplo:</strong> "Descreva uma situação em que você teve que lidar com um prazo apertado."</p>
+            <textarea id="behavioralResponseTextarea" class="form-control" rows="4" placeholder="Sua resposta usando o método STAR"></textarea>
+            <button type="button" class="btn btn-primary mt-2" onclick="analyzeBehavioralResponse()">Analisar Resposta</button>
+            <div id="behavioralFeedback" class="mt-3">
+                </div>
+        </div>
+        <p><small><strong>Dica STAR:</strong> Estruture sua resposta descrevendo a Situação, a Tarefa que você tinha, as Ações que tomou e os Resultados alcançados.</small></p>
+    </div>
+      </div>
                             </div>
                             <div class="accordion-item">
     <h2 class="accordion-header" id="headingBehavioral2">
@@ -419,62 +503,48 @@
             </div>
         </div>
 
-        <h3 class="text-center section-title mt-5">Assista a dicas e exemplos de Entrevistas</h2>
-        <p class="text-center texto mb-4">Aprenda na prática! Assista a simulações de entrevistas e analise as melhores abordagens.</p>
-        
         <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title texto">Entrevista real para uma vaga de programador</h5>
-                        <p class="card-text">Veja como funciona uma entrevista técnica e comportamental para uma vaga de Programador.</p>
-                        <div class="embed-responsive embed-responsive-16by9">
-                            
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/zgWLE39vBww?si=-s22GmVr23nP9xVC" 
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-                 gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        <h6 class="mt-3 texto">Análise e Feedback:</h6>
-                        <p><small>Este vídeo demonstra a importância de articular bem suas experiências. <br>Observe como o candidato explica seus projetos pessoais e lida com perguntas sobre trabalho em equipe.</small></p>
-                        
-                    </div>
-                </div>
+             <h3 class="text-center section-title mb-2">Assista a dicas e exemplos de Entrevistas</h3>
+             <p class="text-center mb-3">Aprenda na prática! Assista a simulações de entrevistas e analise as melhores abordagens.</p>
 
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title texto"> Dicas para passar em uma entrevista</h5>
-                        <p class="card-text">Acompanhe dicas sobre o que os recrutadores avaliam e maneiras<br> ideais para se comportar em uma entrevista.</p>
-                        <div class="embed-responsive embed-responsive-16by9">
-                          <iframe width="560" height="315" src="https://www.youtube.com/embed/YxmGKWf7RqU?si=Pis_KXgka3VBFK7D" 
-                          title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-                           gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
-                          
-                        </div>
-                        <h6 class="mt-3 texto">Análise e Feedback:</h6>
-                        <p><small>Observe a clareza nas explicações e a forma como o candidato aborda problemas complexos. <br>A comunicação técnica é crucial nesta área.</small></p>
-                        
-                    </div>
+            <div class="col-lg-10">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="text-center card-title texto">Entrevista real para uma vaga de programador</h5>
+            <p class="text-center card-text">Veja como funciona uma entrevista técnica e comportamental para uma vaga de Programador.</p>
+            
+            <div class="d-flex justify-content-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zgWLE39vBww?si=-s22GmVr23nP9xVC" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                      gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
-    </main>
 
-    <footer class="container mt-5">
-        <div class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
-            <p class="col-md-4 mb-0 text-muted">© H2N Technology</p>
-
-            <ul class="nav col-md-8 justify-content-end">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="carreiras.html" class="nav-link px-2 text-muted">Carreiras</a></li>
-                <li class="nav-item"><a href="cursos.html" class="nav-link px-2 text-muted">Cursos</a></li>
-                <li class="nav-item"><a href="oportunidades.html" class="nav-link px-2 text-muted">Oportunidades</a></li>
-                <li class="nav-item"><a href="duvidas.html" class="nav-link px-2 text-muted">Dúvidas Frequentes</a></li>
-                <li class="nav-item"><a href="saibamais.html" class="nav-link px-2 text-muted">Saiba Mais</a></li>
-                <li class="nav-item"><a href="sobre.html" class="nav-link px-2 text-muted">Sobre Nós</a></li>
-                <li class="nav-item"><a href="noticias.html" class="nav-link px-2 text-muted">Notícias</a></li>
-            </ul>
+            <h6 class="text-center mt-3 texto">Análise e Feedback:</h6>
+            <p class="text-center card-text">Este vídeo demonstra a importância de articular bem suas experiências. <br>Observe como o candidato explica seus projetos pessoais e lida com perguntas sobre trabalho em equipe.</p>
         </div>
-    </footer>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="text-center card-title texto"> Dicas para passar em uma entrevista</h5>
+            <p class="text-center card-text">Acompanhe dicas sobre o que os recrutadores avaliam e maneiras<br> ideais para se comportar em uma entrevista.</p>
+            
+            <div class="d-flex justify-content-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YxmGKWf7RqU?si=Pis_KXgka3VBFK7D" 
+                  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                   gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+                </div>
+            </div>
+            
+            <h6 class="text-center mt-3 texto">Análise e Feedback:</h6>
+            <p class="text-center card-text">Observe a clareza nas explicações e a forma como o candidato aborda problemas complexos. <br>A comunicação técnica é crucial nesta área.</p>
+        </div>
+    </div>
+</div>
+        </div>
 
     
     <div class="modal fade" id="logicQuizModal" tabindex="-1" aria-labelledby="logicQuizModalLabel" aria-hidden="true">
@@ -574,382 +644,511 @@
             </div>
         </div>
     </div>
+    </main>
+    <footer class="container mt-5">
+    <div class="row py-4 border-top text-muted">
+        <div class="col-md-3">
+            <h5 class="titulo-footer">Navegação</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="index.html" class="nav-link px-0">Home</a></li>
+                <li class="nav-item"><a href="cursos.html" class="nav-link px-0">Cursos</a></li>
+                <li class="nav-item"><a href="noticias.html" class="nav-link px-0">Notícias</a></li>
+                <li class="nav-item"><a href="saibamais.html" class="nav-link px-0">Saiba Mais</a></li>
+                <li class="nav-item"><a href="notadecorte.html" class="nav-link px-0">Nota de Corte</a></li>
+            </ul>
+        </div>
 
+        <div class="col-md-3">
+            <h5 class="titulo-footer">Futuro Profissional</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="carreiras.html" class="nav-link px-0">Carreiras</a></li>
+                <li class="nav-item"><a href="questionario.html" class="nav-link px-0">Questionário</a></li>
+                <li class="nav-item"><a href="oportunidades.html" class="nav-link px-0">Oportunidades</a></li>
+                <li class="nav-item"><a href="mercado_trabalho.html" class="nav-link px-0">Mercado de Trabalho</a></li>
+                <li class="nav-item"><a href="programas.html" class="nav-link px-0">Programas mais utilizados</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <h5 class="titulo-footer">Busque Ajuda</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="duvidas.html" class="nav-link px-0">Dúvidas Frequentes</a></li>
+                <li class="nav-item"><a href="glossario.html" class="nav-link px-0">Glossário</a></li>
+                <li class="nav-item"><a href="contato.html" class="nav-link px-0">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-3">
+            <h5 class="titulo-footer">Sobre o H2N-Tech</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a href="sobre.html" class="nav-link px-0">Sobre Nós</a></li>
+                <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="row pt-3 pb-2 text-center text-muted border-top mt-3">
+        <div class="col-12">
+            <p class="mb-0">&copy; H2N Technology</p>
+        </div>
+    </div>
+</footer>  
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Função para o feedback do Checklist do Currículo
-        function generateChecklistFeedback() {
-            const checklist = [
-                { id: "checkKeyword", label: "Palavras-chave técnicas (ex: Python, Java...)" },
-                { id: "checkObjective", label: "Objetivo profissional claro e alinhado à vaga" },
-                { id: "checkProjects", label: "Projetos com links (GitHub, portfólio)" },
-                { id: "checkMetrics", label: "Resultados/conquistas mensuráveis" },
-                { id: "checkFormat", label: "Formato limpo e fácil de ler" }
-            ];
+    function analyzeBehavioralResponse() {
+    const userResponseTextarea = document.getElementById('behavioralResponseTextarea');
+    const feedbackDiv = document.getElementById('behavioralFeedback');
+    
+    feedbackDiv.innerHTML = ''; // Limpa mensagens anteriores
 
-            const checkedItems = checklist.filter(item => document.getElementById(item.id).checked);
-            const missingItems = checklist.filter(item => !document.getElementById(item.id).checked);
+    const userResponse = userResponseTextarea.value.trim();
 
-            let html = "";
+    // 1. Validação de resposta vazia
+    if (userResponse === '') {
+        feedbackDiv.innerHTML = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Atenção!</h4>
+                <p>Por favor, digite sua resposta antes de analisar.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return; 
+    }
 
-            if (checkedItems.length > 0) {
-                html += `<div class="alert alert-success"><strong>✅ Itens completos:</strong><ul>`;
-                checkedItems.forEach(item => {
-                    html += `<li>${item.label}</li>`;
-                });
-                html += `</ul></div>`;
-            }
+    // 2. Mensagem de carregamento
+    feedbackDiv.innerHTML = `
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Analisando sua resposta...</h4>
+            <p>Isso pode levar alguns segundos. Estamos verificando a estrutura STAR.</p>
+        </div>
+    `;
+    feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            if (missingItems.length > 0) {
-                html += `<div class="alert alert-warning"><strong>⚠️ Itens que você pode melhorar:</strong><ul>`;
-                missingItems.forEach(item => {
-                    html += `<li>${item.label}</li>`;
-                });
-                html += `</ul></div>`;
-            }
+    // Simula o processamento com um pequeno atraso (ex: 2 segundos)
+    setTimeout(() => {
+        let analysisResultHtml = '';
+        let customAlertClass = ''; // Esta variável armazenará a classe de cor
+        let buttonCloseClass = ''; // Para o botão de fechar (se precisar ser branco)
 
-            if (checkedItems.length === checklist.length) {
-                html += `<div class="alert alert-primary"><strong>🎉 Parabéns!</strong> Seu currículo está bem estruturado com todos os pontos essenciais para o mercado de T.I.</div>`;
-            }
+        const lowerCaseResponse = userResponse.toLowerCase();
 
-            document.getElementById("feedbackResult").innerHTML = html;
+        const hasSituacao = lowerCaseResponse.includes('situação') || lowerCaseResponse.includes('contexto') || lowerCaseResponse.includes('ocasião');
+        const hasTarefa = lowerCaseResponse.includes('tarefa') || lowerCaseResponse.includes('objetivo') || lowerCaseResponse.includes('desafio');
+        const hasAcao = lowerCaseResponse.includes('ação') || lowerCaseResponse.includes('eu fiz') || lowerCaseResponse.includes('decidi') || lowerCaseResponse.includes('implementei');
+        const hasResultado = lowerCaseResponse.includes('resultado') || lowerCaseResponse.includes('consequência') || lowerCaseResponse.includes('impacto') || lowerCaseResponse.includes('concluí');
+
+        let feedbackMessages = [];
+        let score = 0;
+
+        if (hasSituacao) {
+            feedbackMessages.push('Sua resposta descreve uma Situação clara.');
+            score++;
+        } else {
+            feedbackMessages.push('Tente detalhar mais a Situação ou o contexto inicial.');
         }
 
-        // Funções para os vídeos (mantendo alerts por enquanto)
-        function showVideoQuizAlert() {
-            alert('Quizzes e pontos de discussão para este vídeo em desenvolvimento!');
+        if (hasTarefa) {
+            feedbackMessages.push('A Tarefa ou desafio que você enfrentou está bem definida.');
+            score++;
+        } else {
+            feedbackMessages.push('Certifique-se de descrever claramente a Tarefa ou seu objetivo na situação.');
         }
 
-        // Função para o botão de análise da Entrevista Comportamental
-        function analyzeBehavioralResponse() {
-            alert('Sua resposta foi enviada para análise (funcionalidade em desenvolvimento)!');
+        if (hasAcao) {
+            feedbackMessages.push('Suas Ações são evidentes e demonstram sua iniciativa.');
+            score++;
+        } else {
+            feedbackMessages.push('Detalhe mais as Ações específicas que você tomou.');
         }
 
+        if (hasResultado) {
+            feedbackMessages.push('O Resultado das suas ações está presente, mostrando o impacto.');
+            score++;
+        } else {
+            feedbackMessages.push('Inclua os Resultados concretos de suas ações para fechar a resposta.');
+        }
+
+        // Determina as classes de estilo do alerta com base na pontuação
+        if (score === 4) {
+            customAlertClass = 'alert-analysis-success'; // Usa a nova classe CSS personalizada
+            analysisResultHtml += '<h4 class="alert-heading">Análise Concluída: Excelente!</h4>';
+            analysisResultHtml += '<p>Sua resposta STAR está completa e muito bem estruturada.</p>';
+            buttonCloseClass = ''; // Botão de fechar padrão (escuro) para fundo claro
+        } else if (score >= 2) {
+            customAlertClass = 'alert-warning'; // Mantém o amarelo padrão do Bootstrap
+            analysisResultHtml += '<h4 class="alert-heading">Análise Concluída: Bom progresso!</h4>';
+            analysisResultHtml += '<p>Sua resposta já possui elementos STAR, mas há pontos para aprimoramento:</p>';
+            buttonCloseClass = '';
+        } else {
+            customAlertClass = 'alert-danger'; // Mantém o vermelho padrão do Bootstrap
+            analysisResultHtml += '<h4 class="alert-heading">Análise Concluída: Precisa de atenção.</h4>';
+            analysisResultHtml += '<p>Sua resposta pode ser aprimorada. Revise a dica STAR e tente novamente:</p>';
+            buttonCloseClass = 'btn-close-white'; // Botão de fechar branco para fundo escuro
+        }
+
+        // Adiciona as mensagens de feedback detalhadas
+        analysisResultHtml += '<hr>';
+        analysisResultHtml += '<ul>' + feedbackMessages.map(msg => `<li>${msg}</li>`).join('') + '</ul>';
+        
+        // Exibe o resultado final na interface com as classes de estilo corretas
+        feedbackDiv.innerHTML = `
+            <div class="alert ${customAlertClass} alert-dismissible fade show" role="alert">
+                ${analysisResultHtml}
+                <button type="button" class="btn-close ${buttonCloseClass}" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+        feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    }, 2000); // 2000 milissegundos = 2 segundos de atraso simulado
+}
         /* --- Funções Auxiliares Comuns para Quizzes --- */
-        // Usei prefixos para evitar conflito de IDs e variáveis
-        function createQuizManager(prefix, questions) {
-            let currentQuestionIndex = 0;
-            let score = 0;
-            let selectedOption = null;
+// Usei prefixos para evitar conflito de IDs e variáveis
+function createQuizManager(prefix, questions) {
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedOption = null;
+    let feedbackShown = false; // Nova flag para controlar o estado do feedback
 
-            const quizContent = document.getElementById(`${prefix}QuizContent`);
-            const questionText = document.getElementById(`${prefix}QuestionText`);
-            const optionsContainer = document.getElementById(`${prefix}OptionsContainer`);
-            const feedbackContainer = document.getElementById(`${prefix}FeedbackContainer`);
-            const quizResult = document.getElementById(`${prefix}QuizResult`);
-            const scoreDisplay = document.getElementById(`${prefix}ScoreDisplay`);
-            const totalQuestionsDisplay = document.getElementById(`${prefix}TotalQuestionsDisplay`);
-            const resultFeedback = document.getElementById(`${prefix}ResultFeedback`);
-            const nextQuestionBtn = document.getElementById(`${prefix}NextQuestionBtn`);
-            const restartQuizBtn = document.getElementById(`${prefix}RestartQuizBtn`);
+    const quizContent = document.getElementById(`${prefix}QuizContent`);
+    const questionText = document.getElementById(`${prefix}QuestionText`);
+    const optionsContainer = document.getElementById(`${prefix}OptionsContainer`);
+    const feedbackContainer = document.getElementById(`${prefix}FeedbackContainer`);
+    const quizResult = document.getElementById(`${prefix}QuizResult`);
+    const scoreDisplay = document.getElementById(`${prefix}ScoreDisplay`);
+    const totalQuestionsDisplay = document.getElementById(`${prefix}TotalQuestionsDisplay`);
+    const resultFeedback = document.getElementById(`${prefix}ResultFeedback`);
+    const nextQuestionBtn = document.getElementById(`${prefix}NextQuestionBtn`);
+    const restartQuizBtn = document.getElementById(`${prefix}RestartQuizBtn`);
 
-            function startQuiz() {
-                currentQuestionIndex = 0;
-                score = 0;
-                selectedOption = null;
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        selectedOption = null;
+        feedbackShown = false; // Resetar a flag
 
-                quizContent.style.display = 'block';
-                quizResult.style.display = 'none';
-                nextQuestionBtn.style.display = 'block';
-                restartQuizBtn.style.display = 'none';
-                feedbackContainer.innerHTML = '';
-                
-                loadQuestion();
-            }
+        quizContent.style.display = 'block';
+        quizResult.style.display = 'none';
+        nextQuestionBtn.style.display = 'block';
+        restartQuizBtn.style.display = 'none';
+        feedbackContainer.innerHTML = '';
+        
+        loadQuestion();
+    }
 
-            function loadQuestion() {
-                const currentQuestion = questions[currentQuestionIndex];
-                questionText.textContent = `Pergunta ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
-                optionsContainer.innerHTML = '';
-                feedbackContainer.innerHTML = '';
-                selectedOption = null;
+    function loadQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionText.textContent = `Pergunta ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+        optionsContainer.innerHTML = '';
+        feedbackContainer.innerHTML = '';
+        selectedOption = null;
+        feedbackShown = false; // Resetar a flag ao carregar nova pergunta
 
-                questions[currentQuestionIndex].options.forEach((option, index) => {
-                    const optionDiv = document.createElement('div');
-                    optionDiv.classList.add('quiz-option');
-                    optionDiv.textContent = option;
-                    optionDiv.dataset.index = index;
-                    optionDiv.addEventListener('click', () => selectOption(optionDiv, index));
-                    optionsContainer.appendChild(optionDiv);
-                });
+        // Remover a classe 'disabled-click' de todas as opções antes de adicionar novas
+        document.querySelectorAll(`#${prefix}OptionsContainer .quiz-option`).forEach(option => {
+            option.classList.remove('disabled-click');
+        });
 
-                nextQuestionBtn.textContent = (currentQuestionIndex === questions.length - 1) ? 'Ver Resultado' : 'Próxima Pergunta';
-                nextQuestionBtn.disabled = true; // Desabilita até uma opção ser selecionada
-            }
 
-            function selectOption(selectedDiv, selectedIndex) {
-                // Remove a classe 'selected' de todas as opções e limpa classes de feedback
-                document.querySelectorAll(`#${prefix}OptionsContainer .quiz-option`).forEach(option => {
-                    option.classList.remove('selected', 'correct', 'incorrect');
-                });
+        questions[currentQuestionIndex].options.forEach((option, index) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.classList.add('quiz-option');
+            optionDiv.textContent = option;
+            optionDiv.dataset.index = index;
+            // O evento de clique agora só seleciona a opção
+            optionDiv.addEventListener('click', () => selectOption(optionDiv, index));
+            optionsContainer.appendChild(optionDiv);
+        });
 
-                // Adiciona a classe 'selected' à opção clicada
-                selectedDiv.classList.add('selected');
-                selectedOption = selectedIndex;
-                nextQuestionBtn.disabled = false; // Habilita o botão "Próxima Pergunta"
-            }
+        nextQuestionBtn.textContent = (currentQuestionIndex === questions.length - 1) ? 'Ver Resultado' : 'Verificar Resposta'; // Texto inicial do botão
+        nextQuestionBtn.disabled = true; // Desabilita até uma opção ser selecionada
+    }
 
-            function checkAnswerAndAdvance() {
-                if (selectedOption === null) {
-                    alert('Por favor, selecione uma opção antes de avançar.');
-                    return;
-                }
+    function selectOption(selectedDiv, selectedIndex) {
+        // Se o feedback já foi mostrado para esta pergunta, não permitir novas seleções
+        if (feedbackShown) return; 
 
-                const currentQuestion = questions[currentQuestionIndex];
-                const isCorrect = (selectedOption === currentQuestion.correctAnswerIndex);
-                
-                // Aplica feedback visual às opções e desabilita cliques
-                document.querySelectorAll(`#${prefix}OptionsContainer .quiz-option`).forEach((optionDiv, index) => {
-                    if (index === currentQuestion.correctAnswerIndex) {
-                        optionDiv.classList.add('correct');
-                    } else if (index === selectedOption && !isCorrect) {
-                        optionDiv.classList.add('incorrect');
-                    }
-                    optionDiv.classList.add('disabled-click'); // Desabilita cliques após a seleção
-                });
+        document.querySelectorAll(`#${prefix}OptionsContainer .quiz-option`).forEach(option => {
+            option.classList.remove('selected', 'correct', 'incorrect');
+        });
 
-                // Exibe o feedback textual
-                feedbackContainer.innerHTML = `
-                    <div class="alert ${isCorrect ? 'alert-success' : 'alert-danger'}">
-                        ${isCorrect ? '✅ Correto!' : '❌ Incorreto.'}
-                        <br>
-                        <strong>Explicação:</strong> ${currentQuestion.rationale}
-                    </div>
-                `;
+        selectedDiv.classList.add('selected');
+        selectedOption = selectedIndex;
+        nextQuestionBtn.textContent = (currentQuestionIndex === questions.length - 1) ? 'Ver Resultado' : 'Verificar Resposta'; // Garante o texto correto
+        nextQuestionBtn.disabled = false; // Habilita o botão para verificar a resposta
+    }
 
-                if (isCorrect) {
-                    score++;
-                }
+    // NOVA FUNÇÃO PARA AVANÇAR APÓS O FEEDBACK
+    function advanceQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
 
-                nextQuestionBtn.disabled = true; // Desabilita o botão "Próxima Pergunta" temporariamente
-
-                setTimeout(() => {
-                    currentQuestionIndex++;
-                    if (currentQuestionIndex < questions.length) {
-                        loadQuestion();
-                    } else {
-                        showResult();
-                    }
-                }, 1500); // Atraso de 1.5 segundos para o usuário ver o feedback
-            }
-
-            function showResult() {
-                quizContent.style.display = 'none';
-                quizResult.style.display = 'block';
-                nextQuestionBtn.style.display = 'none';
-                restartQuizBtn.style.display = 'block';
-
-                scoreDisplay.textContent = score;
-                totalQuestionsDisplay.textContent = questions.length;
-
-                if (score === questions.length) {
-                    resultFeedback.innerHTML = `<div class="alert alert-success text-center">🎉 Parabéns! Você acertou todas as perguntas!</div>`;
-                } else if (score >= questions.length / 2) {
-                    resultFeedback.innerHTML = `<div class="alert alert-info text-center">Muito bem! Você teve um bom desempenho. Continue praticando!</div>`;
-                } else {
-                    resultFeedback.innerHTML = `<div class="alert alert-warning text-center">Continue estudando! Você pode melhorar sua pontuação.</div>`;
-                }
-            }
-
-            nextQuestionBtn.addEventListener('click', checkAnswerAndAdvance);
-            restartQuizBtn.addEventListener('click', startQuiz);
-
-            return { startQuiz }; // Retorna a função para iniciar o quiz
+    // Modificada para exibir feedback e esperar pelo clique do usuário para avançar
+    function processAnswer() {
+        if (selectedOption === null) {
+            alert('Por favor, selecione uma opção antes de verificar.');
+            return;
         }
 
+        const currentQuestion = questions[currentQuestionIndex];
+        const isCorrect = (selectedOption === currentQuestion.correctAnswerIndex);
+        
+        // Aplica feedback visual às opções e desabilita cliques
+        document.querySelectorAll(`#${prefix}OptionsContainer .quiz-option`).forEach((optionDiv, index) => {
+            if (index === currentQuestion.correctAnswerIndex) {
+                optionDiv.classList.add('correct');
+            } else if (index === selectedOption && !isCorrect) {
+                optionDiv.classList.add('incorrect');
+            }
+            optionDiv.classList.add('disabled-click'); // Desabilita cliques após a seleção
+        });
 
+        // Exibe o feedback textual
+        feedbackContainer.innerHTML = `
+            <div class="alert ${isCorrect ? 'alert-success' : 'alert-danger'} mt-3">
+                ${isCorrect ? '✅ Correto!' : '❌ Incorreto.'}
+                <br>
+                <strong>Explicação:</strong> ${currentQuestion.rationale}
+            </div>
+        `;
+
+        if (isCorrect) {
+            score++;
+        }
+
+        feedbackShown = true; // Define a flag de feedback como true
+        nextQuestionBtn.textContent = (currentQuestionIndex === questions.length - 1) ? 'Ver Resultado Final' : 'Próxima Pergunta'; // Altera o texto do botão
+        nextQuestionBtn.disabled = false; // Reabilita o botão para o usuário avançar
+    }
+
+    function showResult() {
+        quizContent.style.display = 'none';
+        quizResult.style.display = 'block';
+        nextQuestionBtn.style.display = 'none';
+        restartQuizBtn.style.display = 'block';
+
+        scoreDisplay.textContent = score;
+        totalQuestionsDisplay.textContent = questions.length;
+
+        if (score === questions.length) {
+            resultFeedback.innerHTML = `<div class="alert alert-success text-center">🎉 Parabéns! Você acertou todas as perguntas!</div>`;
+        } else if (score >= questions.length / 2) {
+            resultFeedback.innerHTML = `<div class="alert alert-info text-center">Muito bem! Você teve um bom desempenho. Continue praticando!</div>`;
+        } else {
+            resultFeedback.innerHTML = `<div class="alert alert-warning text-center">Continue estudando! Você pode melhorar sua pontuação.</div>`;
+        }
+    }
+
+    // Modificando o event listener do botão "Próxima Pergunta"
+    nextQuestionBtn.addEventListener('click', () => {
+        if (!feedbackShown) { // Se o feedback ainda não foi mostrado
+            processAnswer(); // Processa a resposta e mostra o feedback
+        } else { // Se o feedback já foi mostrado, significa que o usuário clicou para avançar
+            advanceQuestion(); // Avança para a próxima pergunta
+        }
+    });
+
+    restartQuizBtn.addEventListener('click', startQuiz);
+
+    return { startQuiz }; // Retorna a função para iniciar o quiz
+}
         /* --- DADOS DOS QUIZZES --- */
 
-        const logicQuizQuestions = [
-            {
-                question: "Se 'todos os A são B' e 'nenhum B é C', o que podemos concluir sobre A e C?",
-                options: [ "Todos os A são C.", "Nenhum A é C.", "Alguns A são C.", "Alguns B são A." ],
-                correctAnswerIndex: 1,
-                rationale: "Se todos os A pertencem ao grupo B, e nenhum item do grupo B pode ser C, então é logicamente impossível que qualquer A seja C."
-            },
-            {
-                question: "Qual é o resultado da expressão booleana: `(TRUE AND FALSE) OR (NOT FALSE)`?",
-                options: [ "TRUE", "FALSE", "Erro de sintaxe", "Depende da linguagem de programação" ],
-                correctAnswerIndex: 0,
-                rationale: "A expressão 'TRUE AND FALSE' resulta em FALSE. A expressão 'NOT FALSE' resulta em TRUE. Portanto, 'FALSE OR TRUE' resulta em TRUE."
-            },
-            {
-                question: "Se a afirmação 'Se chove, então a rua fica molhada' é verdadeira, e 'a rua não está molhada' é uma constatação, o que podemos concluir?",
-                options: [ "Choveu.", "Não choveu.", "Pode ter chovido ou não.", "A premissa é falsa." ],
-                correctAnswerIndex: 1,
-                rationale: "Se a rua não está molhada, então a condição 'choveu' não pode ter ocorrido, pois isso contradiria a premissa de que 'se chove, a rua fica molhada'."
-            },
-            {
-                question: "Em um circuito lógico, se a entrada A é 1 e a entrada B é 0, qual é a saída de uma porta XOR (OU Exclusivo)?",
-                options: [ "0", "1", "Depende da polaridade", "Erro de circuito" ],
-                correctAnswerIndex: 1,
-                rationale: "A porta XOR (Exclusive OR) produz uma saída 1 se e somente se suas entradas são diferentes. Com A=1 e B=0, as entradas são diferentes, resultando em 1."
-            },
-            {
-                question: "Qual das seguintes proposições é uma tautologia?",
-                options: [ "P AND (NOT P)", "P OR (NOT P)", "P IMPLIES Q", "(P AND Q) IMPLIES P" ],
-                correctAnswerIndex: 1,
-                rationale: "Uma tautologia é uma proposição que é sempre verdadeira, independentemente dos valores de verdade de suas proposições componentes. 'P OR (NOT P)' é sempre verdadeira, pois P é verdadeiro ou P é falso."
-            },
-            {
-                question: "Se 'todo desenvolvedor usa Git' e 'Maria é desenvolvedora', o que podemos afirmar?",
-                options: [ "Maria pode não usar Git.", "Maria usa Git.", "Git é usado apenas por desenvolvedores.", "A afirmação é inválida." ],
-                correctAnswerIndex: 1,
-                rationale: "Este é um exemplo de silogismo dedutivo válido. Se todos os membros de um grupo (desenvolvedores) possuem uma característica (usam Git) e um indivíduo pertence a esse grupo, então o indivíduo possui essa característica."
-            },
-            {
-                question: "Qual o valor de Y no algoritmo: 'X = 5, Y = X + 2, X = Y - 1'?",
-                options: [ "4", "6", "7", "5" ],
-                correctAnswerIndex: 2,
-                rationale: "Primeiro, X é 5. Depois, Y recebe X + 2, então Y = 5 + 2 = 7. A última operação (X = Y - 1) altera X, mas não Y, que já foi definido."
-            },
-            {
-                question: "Se (P OR Q) é verdadeiro e P é falso, o que podemos concluir sobre Q?",
-                options: [ "Q é falso.", "Q é verdadeiro.", "Não se pode concluir nada sobre Q.", "Pode ser verdadeiro ou falso." ],
-                correctAnswerIndex: 1,
-                rationale: "Para que a disjunção 'P OR Q' seja verdadeira, pelo menos uma das proposições (P ou Q) deve ser verdadeira. Se P é falso, então Q obrigatoriamente precisa ser verdadeiro."
-            },
-            {
-                question: "Qual é a negação da afirmação 'Todo software é perfeito'?",
-                options: [ "Nenhum software é perfeito.", "Algum software é perfeito.", "Algum software não é perfeito.", "O software não é bom." ],
-                correctAnswerIndex: 2,
-                rationale: "A negação de uma proposição universal afirmativa ('Todo S é P') é uma proposição particular negativa ('Algum S não é P')."
-            },
-            {
-                question: "Se um loop 'while' tem a condição `(contador < 5)` e `contador` começa em 0 e é incrementado em 1 a cada iteração, quantas vezes o loop será executado?",
-                options: [ "4 vezes", "5 vezes", "6 vezes", "Infinitas vezes" ],
-                correctAnswerIndex: 1,
-                rationale: "O loop será executado quando contador for 0, 1, 2, 3 e 4. Quando contador se torna 5, a condição '5 < 5' é falsa, e o loop termina. Isso resulta em 5 execuções."
-            }
-        ];
+const logicQuizQuestions = [
+    {
+        question: "Se 'todos os A são B' e 'nenhum B é C', o que podemos concluir sobre A e C?",
+        options: [ "Todos os A são C.", "Nenhum A é C.", "Alguns A são C.", "Alguns B são A." ],
+        correctAnswerIndex: 1,
+        rationale: "Se todos os A pertencem ao grupo B, e nenhum item do grupo B pode ser C, então é logicamente impossível que qualquer A seja C."
+    },
+    {
+        question: "Qual é o resultado da expressão booleana: `(TRUE AND FALSE) OR (NOT FALSE)`?",
+        options: [ "TRUE", "FALSE", "Erro de sintaxe", "Depende da linguagem de programação" ],
+        correctAnswerIndex: 0,
+        rationale: "A expressão 'TRUE AND FALSE' resulta em FALSE. A expressão 'NOT FALSE' resulta em TRUE. Portanto, 'FALSE OR TRUE' resulta em TRUE."
+    },
+    {
+        question: "Se a afirmação 'Se chove, então a rua fica molhada' é verdadeira, e 'a rua não está molhada' é uma constatação, o que podemos concluir?",
+        options: [ "Choveu.", "Não choveu.", "Pode ter chovido ou não.", "A premissa é falsa." ],
+        correctAnswerIndex: 1,
+        rationale: "Se a rua não está molhada, então a condição 'choveu' não pode ter ocorrido, pois isso contradiria a premissa de que 'se chove, a rua fica molhada'."
+    },
+    {
+        question: "Em um circuito lógico, se a entrada A é 1 e a entrada B é 0, qual é a saída de uma porta XOR (OU Exclusivo)?",
+        options: [ "0", "1", "Depende da polaridade", "Erro de circuito" ],
+        correctAnswerIndex: 1,
+        rationale: "A porta XOR (Exclusive OR) produz uma saída 1 se e somente se suas entradas são diferentes. Com A=1 e B=0, as entradas são diferentes, resultando em 1."
+    },
+    {
+        question: "Qual das seguintes proposições é uma tautologia?",
+        options: [ "P AND (NOT P)", "P OR (NOT P)", "P IMPLIES Q", "(P AND Q) IMPLIES P" ],
+        correctAnswerIndex: 1,
+        rationale: "Uma tautologia é uma proposição que é sempre verdadeira, independentemente dos valores de verdade de suas proposições componentes. 'P OR (NOT P)' é sempre verdadeira, pois P é verdadeiro ou P é falso."
+    },
+    {
+        question: "Se 'todo desenvolvedor usa Git' e 'Maria é desenvolvedora', o que podemos afirmar?",
+        options: [ "Maria pode não usar Git.", "Maria usa Git.", "Git é usado apenas por desenvolvedores.", "A afirmação é inválida." ],
+        correctAnswerIndex: 1,
+        rationale: "Este é um exemplo de silogismo dedutivo válido. Se todos os membros de um grupo (desenvolvedores) possuem uma característica (usam Git) e um indivíduo pertence a esse grupo, então o indivíduo possui essa característica."
+    },
+    {
+        question: "Qual o valor de Y no algoritmo: 'X = 5, Y = X + 2, X = Y - 1'?",
+        options: [ "4", "6", "7", "5" ],
+        correctAnswerIndex: 2,
+        rationale: "Primeiro, X é 5. Depois, Y recebe X + 2, então Y = 5 + 2 = 7. A última operação (X = Y - 1) altera X, mas não Y, que já foi definido."
+    },
+    {
+        question: "Se (P OR Q) é verdadeiro e P é falso, o que podemos concluir sobre Q?",
+        options: [ "Q é falso.", "Q é verdadeiro.", "Não se pode concluir nada sobre Q.", "Pode ser verdadeiro ou falso." ],
+        correctAnswerIndex: 1,
+        rationale: "Para que a disjunção 'P OR Q' seja verdadeira, pelo menos uma das proposições (P ou Q) deve ser verdadeira. Se P é falso, então Q obrigatoriamente precisa ser verdadeiro."
+    },
+    {
+        question: "Qual é a negação da afirmação 'Todo software é perfeito'?",
+        options: [ "Nenhum software é perfeito.", "Algum software é perfeito.", "Algum software não é perfeito.", "O software não é bom." ],
+        correctAnswerIndex: 2,
+        rationale: "A negação de uma proposição universal afirmativa ('Todo S é P') é uma proposição particular negativa ('Algum S não é P')."
+    },
+    {
+        question: "Se um loop 'while' tem a condição `(contador < 5)` e `contador` começa em 0 e é incrementado em 1 a cada iteração, quantas vezes o loop será executado?",
+        options: [ "4 vezes", "5 vezes", "6 vezes", "Infinitas vezes" ],
+        correctAnswerIndex: 1,
+        rationale: "O loop será executado quando contador for 0, 1, 2, 3 e 4. Quando contador se torna 5, a condição '5 < 5' é falsa, e o loop termina. Isso resulta em 5 execuções."
+    }
+];
 
-        const sqlQuizQuestions = [
-            {
-                question: "Qual comando SQL é usado para extrair dados de um banco de dados?",
-                options: ["UPDATE", "INSERT", "SELECT", "DELETE"],
-                correctAnswerIndex: 2,
-                rationale: "O comando SELECT é o principal comando SQL para recuperar dados de uma ou mais tabelas em um banco de dados."
-            },
-            {
-                question: "Qual cláusula é usada com SELECT para filtrar registros com base em uma condição?",
-                options: ["GROUP BY", "ORDER BY", "WHERE", "HAVING"],
-                correctAnswerIndex: 2,
-                rationale: "A cláusula WHERE é usada para filtrar registros, extraindo apenas aqueles que satisfazem uma condição especificada."
-            },
-            {
-                question: "Qual tipo de JOIN retorna apenas as linhas que têm correspondências em ambas as tabelas?",
-                options: ["LEFT JOIN", "RIGHT JOIN", "FULL JOIN", "INNER JOIN"],
-                correctAnswerIndex: 3,
-                rationale: "Um INNER JOIN retorna apenas as linhas que têm valores correspondentes em ambas as tabelas que estão sendo unidas."
-            },
-            {
-                question: "Qual comando SQL é usado para criar uma nova tabela em um banco de dados?",
-                options: ["ADD TABLE", "NEW TABLE", "CREATE TABLE", "MAKE TABLE"],
-                correctAnswerIndex: 2,
-                rationale: "O comando CREATE TABLE é uma instrução DDL (Data Definition Language) usada para definir a estrutura de uma nova tabela no banco de dados."
-            },
-            {
-                question: "Para contar o número total de linhas em uma tabela, qual função de agregação você usaria?",
-                options: ["SUM()", "AVG()", "COUNT()", "MAX()"],
-                correctAnswerIndex: 2,
-                rationale: "A função COUNT() é usada para retornar o número de linhas que correspondem a um critério especificado. COUNT(*) conta todas as linhas."
-            },
-            {
-                question: "Qual cláusula é usada para agrupar o conjunto de resultados por uma ou mais colunas?",
-                options: ["ORDER BY", "WHERE", "GROUP BY", "DISTINCT"],
-                correctAnswerIndex: 2,
-                rationale: "A cláusula GROUP BY é usada em conjunto com funções de agregação para agrupar linhas que têm os mesmos valores em colunas especificadas em um conjunto de linhas de resumo."
-            },
-            {
-                question: "Qual comando SQL é usado para modificar dados existentes em um banco de dados?",
-                options: ["ALTER", "MODIFY", "CHANGE", "UPDATE"],
-                correctAnswerIndex: 3,
-                rationale: "O comando UPDATE é uma instrução DML (Data Manipulation Language) usada para alterar os dados de uma ou mais linhas existentes em uma tabela."
-            },
-            {
-                question: "Para remover uma tabela inteira de um banco de dados, qual comando você usaria?",
-                options: ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "TRUNCATE TABLE"],
-                correctAnswerIndex: 2,
-                rationale: "O comando DROP TABLE é uma instrução DDL (Data Definition Language) usada para remover completamente uma tabela de um banco de dados, incluindo seus dados e sua definição."
-            },
-            {
-                question: "Qual cláusula é usada para limitar o número de linhas retornadas por uma consulta?",
-                options: ["TOP", "LIMIT", "ROWNUM", "FETCH"],
-                correctAnswerIndex: 1,
-                rationale: "A cláusula LIMIT (usada em MySQL, PostgreSQL, SQLite) ou OFFSET/FETCH (SQL Server 2012+) é usada para restringir o número de linhas no conjunto de resultados. LIMIT é o mais comum para esta finalidade em vários sistemas."
-            },
-            {
-                question: "O que significa 'SQL'?",
-                options: ["Standard Query Language", "Structured Question Language", "Strong Query Logic", "Structured Query Language"],
-                correctAnswerIndex: 3,
-                rationale: "SQL é a sigla para 'Structured Query Language', uma linguagem de domínio específico projetada para gerenciar dados em sistemas de gerenciamento de banco de dados relacionais."
-            }
-        ];
+const sqlQuizQuestions = [
+    {
+        question: "Qual comando SQL é usado para extrair dados de um banco de dados?",
+        options: ["UPDATE", "INSERT", "SELECT", "DELETE"],
+        correctAnswerIndex: 2,
+        rationale: "O comando SELECT é o principal comando SQL para recuperar dados de uma ou mais tabelas em um banco de dados."
+    },
+    {
+        question: "Qual cláusula é usada com SELECT para filtrar registros com base em uma condição?",
+        options: ["GROUP BY", "ORDER BY", "WHERE", "HAVING"],
+        correctAnswerIndex: 2,
+        rationale: "A cláusula WHERE é usada para filtrar registros, extraindo apenas aqueles que satisfazem uma condição especificada."
+    },
+    {
+        question: "Qual tipo de JOIN retorna apenas as linhas que têm correspondências em ambas as tabelas?",
+        options: ["LEFT JOIN", "RIGHT JOIN", "FULL JOIN", "INNER JOIN"],
+        correctAnswerIndex: 3,
+        rationale: "Um INNER JOIN retorna apenas as linhas que têm valores correspondentes em ambas as tabelas que estão sendo unidas."
+    },
+    {
+        question: "Qual comando SQL é usado para criar uma nova tabela em um banco de dados?",
+        options: ["ADD TABLE", "NEW TABLE", "CREATE TABLE", "MAKE TABLE"],
+        correctAnswerIndex: 2,
+        rationale: "O comando CREATE TABLE é uma instrução DDL (Data Definition Language) usada para definir a estrutura de uma nova tabela no banco de dados."
+    },
+    {
+        question: "Para contar o número total de linhas em uma tabela, qual função de agregação você usaria?",
+        options: ["SUM()", "AVG()", "COUNT()", "MAX()"],
+        correctAnswerIndex: 2,
+        rationale: "A função COUNT() é usada para retornar o número de linhas que correspondem a um critério especificado. COUNT(*) conta todas as linhas."
+    },
+    {
+        question: "Qual cláusula é usada para agrupar o conjunto de resultados por uma ou mais colunas?",
+        options: ["ORDER BY", "WHERE", "GROUP BY", "DISTINCT"],
+        correctAnswerIndex: 2,
+        rationale: "A cláusula GROUP BY é usada em conjunto com funções de agregação para agrupar linhas que têm os mesmos valores em colunas especificadas em um conjunto de linhas de resumo."
+    },
+    {
+        question: "Qual comando SQL é usado para modificar dados existentes em um banco de dados?",
+        options: ["ALTER", "MODIFY", "CHANGE", "UPDATE"],
+        correctAnswerIndex: 3,
+        rationale: "O comando UPDATE é uma instrução DML (Data Manipulation Language) usada para alterar os dados de uma ou mais linhas existentes em uma tabela."
+    },
+    {
+        question: "Para remover uma tabela inteira de um banco de dados, qual comando você usaria?",
+        options: ["DELETE TABLE", "REMOVE TABLE", "DROP TABLE", "TRUNCATE TABLE"],
+        correctAnswerIndex: 2,
+        rationale: "O comando DROP TABLE é uma instrução DDL (Data Definition Language) usada para remover completamente uma tabela de um banco de dados, incluindo seus dados e sua definição."
+    },
+    {
+        question: "Qual cláusula é usada para limitar o número de linhas retornadas por uma consulta?",
+        options: ["TOP", "LIMIT", "ROWNUM", "FETCH"],
+        correctAnswerIndex: 1,
+        rationale: "A cláusula LIMIT (usada em MySQL, PostgreSQL, SQLite) ou OFFSET/FETCH (SQL Server 2012+) é usada para restringir o número de linhas no conjunto de resultados. LIMIT é o mais comum para esta finalidade em vários sistemas."
+    },
+    {
+        question: "O que significa 'SQL'?",
+        options: ["Standard Query Language", "Structured Question Language", "Strong Query Logic", "Structured Query Language"],
+        correctAnswerIndex: 3,
+        rationale: "SQL é a sigla para 'Structured Query Language', uma linguagem de domínio específico projetada para gerenciar dados em sistemas de gerenciamento de banco de dados relacionais."
+    }
+];
 
-        const networksQuizQuestions = [
-            {
-                question: "Qual camada do modelo OSI é responsável pela entrega de pacotes de um host de origem para um host de destino em redes diferentes?",
-                options: ["Camada Física", "Camada de Enlace", "Camada de Rede", "Camada de Transporte"],
-                correctAnswerIndex: 2,
-                rationale: "A Camada de Rede (Camada 3) é responsável pelo roteamento lógico dos pacotes e endereçamento IP, permitindo a comunicação entre redes diferentes."
-            },
-            {
-                question: "Qual protocolo é amplamente utilizado para navegação na web e transferência de hipertexto?",
-                options: ["FTP (File Transfer Protocol)", "SMTP (Simple Mail Transfer Protocol)", "HTTP (Hypertext Transfer Protocol)", "SSH (Secure Shell)"],
-                correctAnswerIndex: 2,
-                rationale: "HTTP é o protocolo fundamental para a World Wide Web, utilizado para a comunicação entre navegadores e servidores web."
-            },
-            {
-                question: "Qual dispositivo de rede é usado para conectar diferentes redes e encaminhar pacotes entre elas com base em endereços IP?",
-                options: ["Hub", "Switch", "Roteador", "Modem"],
-                correctAnswerIndex: 2,
-                rationale: "Um roteador é um dispositivo de Camada de Rede (Camada 3) que encaminha pacotes entre redes distintas, usando endereços IP para determinar o melhor caminho."
-            },
-            {
-                question: "Qual é a finalidade principal do DNS (Domain Name System)?",
-                options: ["Criptografar dados transmitidos pela internet.", "Atribuir endereços IP dinamicamente a dispositivos.", "Traduzir nomes de domínio legíveis por humanos em endereços IP.", "Gerenciar o fluxo de tráfego em uma rede local (LAN)."],
-                correctAnswerIndex: 2,
-                rationale: "O DNS funciona como uma 'lista telefônica' da internet, convertendo nomes de sites (como www.exemplo.com) em endereços IP numéricos que os computadores usam para se comunicar."
-            },
-            {
-                question: "Qual protocolo da Camada de Transporte é orientado à conexão e garante a entrega confiável e ordenada dos dados?",
-                options: ["UDP (User Datagram Protocol)", "IP (Internet Protocol)", "TCP (Transmission Control Protocol)", "ICMP (Internet Control Message Protocol)"],
-                correctAnswerIndex: 2,
-                rationale: "TCP é um protocolo orientado à conexão que estabelece uma conexão antes de transmitir dados, garantindo a entrega confiável, ordenada e com controle de fluxo e congestionamento."
-            },
-            {
-                question: "O que é um endereço MAC (Media Access Control)?",
-                options: ["Um endereço lógico usado para roteamento entre redes.", "Um endereço físico único atribuído a cada interface de rede.", "O nome de domínio de um website.", "Um número de porta usado para identificar serviços de aplicação."],
-                correctAnswerIndex: 1,
-                rationale: "O endereço MAC é um identificador físico e único de 48 bits (6 bytes) gravado no hardware da placa de rede (NIC), usado na Camada de Enlace de Dados para identificar dispositivos em uma rede local."
-            },
-            {
-                question: "Qual o principal objetivo de um firewall em uma rede de computadores?",
-                options: ["Aumentar a velocidade da conexão à internet.", "Armazenar backups de dados importantes.", "Proteger a rede contra acessos não autorizados e ataques maliciosos.", "Distribuir endereços IP automaticamente aos dispositivos."],
-                correctAnswerIndex: 2,
-                rationale: "Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de rede de entrada e saída com base em regras de segurança predeterminadas, protegendo contra ameaças."
-            },
-            {
-                question: "Em qual camada do modelo TCP/IP o protocolo HTTP opera?",
-                options: ["Camada de Rede", "Camada de Transporte", "Camada de Aplicação", "Camada de Enlace"],
-                correctAnswerIndex: 2,
-                rationale: "No modelo TCP/IP, a Camada de Aplicação (a camada superior) engloba as funcionalidades das camadas de Aplicação, Apresentação e Sessão do modelo OSI. Protocolos como HTTP, FTP, SMTP e DNS operam nesta camada."
-            },
-            {
-                question: "Qual o nome do processo de converter um nome de domínio (ex: www.google.com) em um endereço IP?",
-                options: ["Roteamento", "Encaminhamento", "Resolução de Nomes (Name Resolution)", "Mapeamento de Rede"],
-                correctAnswerIndex: 2,
-                rationale: "A resolução de nomes é o processo de traduzir nomes de domínio (humanamente legíveis) em endereços IP (numéricos) que os computadores podem usar para se comunicar, sendo a principal função do DNS."
-            },
-            {
-                question: "Uma rede local (LAN) se refere a uma rede que:",
-                options: ["Abrange uma grande área geográfica, como um país ou continente.", "Conecta dispositivos em uma área limitada, como uma casa, escritório ou campus.", "É usada exclusivamente por governos e forças armadas.", "Permite apenas a comunicação unidirecional."],
-                correctAnswerIndex: 1,
-                rationale: "Uma LAN (Local Area Network) é uma rede de computadores que interconecta computadores em uma área limitada, como uma residência, escola, laboratório universitário ou prédio de escritórios."
-            }
-        ];
+const networksQuizQuestions = [
+    {
+        question: "Qual camada do modelo OSI é responsável pela entrega de pacotes de um host de origem para um host de destino em redes diferentes?",
+        options: ["Camada Física", "Camada de Enlace", "Camada de Rede", "Camada de Transporte"],
+        correctAnswerIndex: 2,
+        rationale: "A Camada de Rede (Camada 3) é responsável pelo roteamento lógico dos pacotes e endereçamento IP, permitindo a comunicação entre redes diferentes."
+    },
+    {
+        question: "Qual protocolo é amplamente utilizado para navegação na web e transferência de hipertexto?",
+        options: ["FTP (File Transfer Protocol)", "SMTP (Simple Mail Transfer Protocol)", "HTTP (Hypertext Transfer Protocol)", "SSH (Secure Shell)"],
+        correctAnswerIndex: 2,
+        rationale: "HTTP é o protocolo fundamental para a World Wide Web, utilizado para a comunicação entre navegadores e servidores web."
+    },
+    {
+        question: "Qual dispositivo de rede é usado para conectar diferentes redes e encaminhar pacotes entre elas com base em endereços IP?",
+        options: ["Hub", "Switch", "Roteador", "Modem"],
+        correctAnswerIndex: 2,
+        rationale: "Um roteador é um dispositivo de Camada de Rede (Camada 3) que encaminha pacotes entre redes distintas, usando endereços IP para determinar o melhor caminho."
+    },
+    {
+        question: "Qual é a finalidade principal do DNS (Domain Name System)?",
+        options: ["Criptografar dados transmitidos pela internet.", "Atribuir endereços IP dinamicamente a dispositivos.", "Traduzir nomes de domínio legíveis por humanos em endereços IP.", "Gerenciar o fluxo de tráfego em uma rede local (LAN)."],
+        correctAnswerIndex: 2,
+        rationale: "O DNS funciona como uma 'lista telefônica' da internet, convertendo nomes de sites (como www.exemplo.com) em endereços IP numéricos que os computadores usam para se comunicar."
+    },
+    {
+        question: "Qual protocolo da Camada de Transporte é orientado à conexão e garante a entrega confiável e ordenada dos dados?",
+        options: ["UDP (User Datagram Protocol)", "IP (Internet Protocol)", "TCP (Transmission Control Protocol)", "ICMP (Internet Control Message Protocol)"],
+        correctAnswerIndex: 2,
+        rationale: "TCP é um protocolo orientado à conexão que estabelece uma conexão antes de transmitir dados, garantindo a entrega confiável, ordenada e com controle de fluxo e congestionamento."
+    },
+    {
+        question: "O que é um endereço MAC (Media Access Control)?",
+        options: ["Um endereço lógico usado para roteamento entre redes.", "Um endereço físico único atribuído a cada interface de rede.", "O nome de domínio de um website.", "Um número de porta usado para identificar serviços de aplicação."],
+        correctAnswerIndex: 1,
+        rationale: "O endereço MAC é um identificador físico e único de 48 bits (6 bytes) gravado no hardware da placa de rede (NIC), usado na Camada de Enlace de Dados para identificar dispositivos em uma rede local."
+    },
+    {
+        question: "Qual o principal objetivo de um firewall em uma rede de computadores?",
+        options: ["Aumentar a velocidade da conexão à internet.", "Armazenar backups de dados importantes.", "Proteger a rede contra acessos não autorizados e ataques maliciosos.", "Distribuir endereços IP automaticamente aos dispositivos."],
+        correctAnswerIndex: 2,
+        rationale: "Um firewall é um sistema de segurança de rede que monitora e controla o tráfego de rede de entrada e saída com base em regras de segurança predeterminadas, protegendo contra ameaças."
+    },
+    {
+        question: "Em qual camada do modelo TCP/IP o protocolo HTTP opera?",
+        options: ["Camada de Rede", "Camada de Transporte", "Camada de Aplicação", "Camada de Enlace"],
+        correctAnswerIndex: 2,
+        rationale: "No modelo TCP/IP, a Camada de Aplicação (a camada superior) engloba as funcionalidades das camadas de Aplicação, Apresentação e Sessão do modelo OSI. Protocolos como HTTP, FTP, SMTP e DNS operam nesta camada."
+    },
+    {
+        question: "Qual o nome do processo de converter um nome de domínio (ex: www.google.com) em um endereço IP?",
+        options: ["Roteamento", "Encaminhamento", "Resolução de Nomes (Name Resolution)", "Mapeamento de Rede"],
+        correctAnswerIndex: 2,
+        rationale: "A resolução de nomes é o processo de traduzir nomes de domínio (humanamente legíveis) em endereços IP (numéricos) que os computadores podem usar para se comunicar, sendo a principal função do DNS."
+    },
+    {
+        question: "Uma rede local (LAN) se refere a uma rede que:",
+        options: ["Abrange uma grande área geográfica, como um país ou continente.", "Conecta dispositivos em uma área limitada, como uma casa, escritório ou campus.", "É usada exclusivamente por governos e forças armadas.", "Permite apenas a comunicação unidirecional."],
+        correctAnswerIndex: 1,
+        rationale: "Uma LAN (Local Area Network) é uma rede de computadores que interconecta computadores em uma área limitada, como uma residência, escola, laboratório universitário ou prédio de escritórios."
+    }
+];
 
         /* --- INSTANCIANDO OS QUIZZES --- */
         // Usamos a função createQuizManager para cada quiz, passando um prefixo único
