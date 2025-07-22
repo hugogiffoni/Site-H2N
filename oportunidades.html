@@ -232,17 +232,7 @@
     width: 30px; /* Aumenta um pouco a largura dos indicadores */
     height: 5px; /* Aumenta um pouco a altura dos indicadores */
     border-radius: 0; /* Remove o arredondamento se houver, tornando-os retangulares */
-}
-/* Garantir que os links de navegação do footer estejam alinhados à esquerda */
-        .footer .nav-link {
-            text-align: left; /* Garante alinhamento à esquerda */
-        }
-        
-/* Ajuste para garantir que a lista em si não tenha padding que a desloque */
-        .footer .nav {
-            padding-left: 0; /* Remove padding padrão de UL */
-        }        
-
+}     
 .carousel-indicators .active {
     background-color: #004F9F; /* Cor de fundo para o indicador ativo (seu azul principal) */
     opacity: 1; /* Totalmente opaco quando ativo */
@@ -251,7 +241,16 @@
 
 .nome {
     color: #000;
-}           
+}      
+ /* Garantir que os links de navegação do footer estejam alinhados à esquerda */
+        .footer .nav-link {
+            text-align: left; /* Garante alinhamento à esquerda */
+        }
+        
+/* Ajuste para garantir que a lista em si não tenha padding que a desloque */
+        .footer .nav {
+            padding-left: 0; /* Remove padding padrão de UL */
+        }       
 </style>
 </head>
 <body>
@@ -386,7 +385,7 @@
                         <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
                     </ul>
                 </div>
-                <p class="nome">&copy; H2N Technology</p>
+                <p class="mb-0 text-md-end">&copy; H2N Technology</p>
             </div>
         </div>
     </footer>
