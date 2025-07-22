@@ -10,7 +10,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f5f5;
+      background: #fff;
     }
 
     .container-grafico {
@@ -38,6 +38,18 @@
     canvas {
       max-width: 100%;
     }
+    .btn-secondary,
+        .btn-primary { /* Adicionado .btn-primary aqui */
+            background-color: #0d355e !important; /* Cor do botão Voltar */
+            border-color: #0d355e !important; /* Garante que a borda também seja da mesma cor */
+            color: #fff !important; /* Garante que o texto do botão seja branco */
+        }
+     /* Ajuste para o hover dos botões padronizados */
+        .btn-secondary:hover,
+        .btn-primary:hover {
+            background-color: #092a4a !important; /* Um tom ligeiramente mais escuro no hover */
+            border-color: #092a4a !important;
+        }
     .voltar {
       
       padding-top: 10px;

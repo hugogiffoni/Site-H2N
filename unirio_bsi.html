@@ -6,86 +6,92 @@
     <title>UNIRIO</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <style>
-        body {
-            background-color: #ffff;
-        }
+       body {
+    background-color: #ffff;
+    padding-top: 70px; /* Mantém o espaço para a navbar fixa */
+}
 
-        .nav-bar {
-            background-color: #052442;
-            width: 100%;
-            height: 70px;
-        }
+.nav-bar {
+    background-color: #052442;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 1020;
+}
 
-        .form-control-dark {
-            border-color: var(--bs-gray);
-        }
+/* ... (Mantenha o restante do seu CSS existente aqui) ... */
 
-        .form-control-dark:focus {
-            border-color: #fff;
-            box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
-        }
+.texto {
+    line-height: 1.6;
+    padding: 30px 20px;
+    color: #004F9F;
+}
 
-        .text-small {
-            font-size: 85%;
-        }
+h2 {
+    padding-bottom: 30px;
+}
 
-        .dropdown-toggle:not(:focus) {
-            outline: 0;
-        }
+h5 {
+    padding-bottom: 10px;
+}
 
-        .texto {
-            line-height: 1.6;
-            padding: 30px 20px;
-            color: #004F9F;
-        }
+.btn-secondary {
+    background-color: #0d355e;
+}
 
-        h2 {
-            padding-bottom: 30px;
-        }
+.voltar {
+    padding-top: 10px;
+}
 
-        h5 {
-            padding-bottom: 10px;
-        }
+.img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
 
-        .btn-secondary {
-            background-color: #0d355e;
-        }
+/* --- REVISANDO OS ESTILOS DO FOOTER --- */
+.footer {
+    background-color: #fff; /* Fundo branco para o footer */
+    color: #333; /* Cor padrão do texto no footer (um cinza escuro, como no body) */
+    padding: 20px 0; /* Padding superior e inferior */
+    border-top: 1px solid #ddd; /* Borda superior */
+}
 
-        .voltar {
-            padding-top: 10px;
-        }
+.footer .row {
+    color: #333; /* Garante que o texto dentro do row, que pode ser afetado por text-muted, volte ao padrão */
+}
 
-        .img {
-            width: 100%;
-            max-width: 300px; /* Tamanho máximo */
-            height: auto; /* Mantém proporção */
-            margin: 0 auto; /* Centraliza horizontalmente */
-            display: block;
-        }
+.footer h5 {
+    color: #000; /* Títulos do footer em preto */
+    padding-bottom: 10px; /* Mantém o padding inferior para espaçamento */
+}
 
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-top: 1px solid #ddd;
-        }
+.footer .nav-link {
+    color: #004F9F; /* Cor dos links do footer (azul da sua paleta) */
+    text-align: left; /* Garante alinhamento à esquerda */
+    padding-left: 0; /* Remove padding lateral do link se houver */
+}
 
-        .footer .nav-link:hover {
-            color: #004F9F;
-        }
+.footer .nav-link:hover {
+    color: #007bff; /* Cor dos links ao passar o mouse */
+}
 
-        .nav-link {
-            color: white;
-        }
+.footer .nav {
+    padding-left: 0; /* Remove padding padrão de UL */
+}
 
-        .nav-link.active {
-            color: #004F9F;
-        }
+.footer p {
+    color: #333; /* Cor do parágrafo de copyright no footer */
+    margin: 0;
+}
 
-        .footer p {
-            margin: 0;
-        }
+/* A classe Bootstrap .text-muted se sobrepõe. Vamos garantir que ela seja preta no footer se for usada */
+.footer .text-muted {
+    color: #333 !important; /* Força o text-muted dentro do footer para preto */
+}
     </style>
 </head>
 <body>
@@ -187,7 +193,7 @@
                         <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
                     </ul>
                 </div>
-                <p class="mb-0 text-md-end">&copy; H2N Technology</p>
+                <p class="nome">&copy; H2N Technology</p>
             </div>
         </div>
     </footer>

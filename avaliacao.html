@@ -29,8 +29,10 @@
         }
 
         .voltar {
-            padding-top: 10px;
+            padding-top: 100px; /* Increased padding-top to push it below the fixed navbar */
             padding-left: 10px;
+            position: relative; /* Ensure it respects z-index */
+            z-index: 1; /* Make sure it's above other content */
         }
 
         /* Estilos para a seção de feedback (formulário de avaliação) */
@@ -214,21 +216,21 @@
     </style>
 </head>
 <body>
-  <div class="nav-bar fixed-top">
-     <div class="nav-bar">
-        <header class="container">
-            <ul class="nav nav-pills justify-content-center py-3">
-                <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
-                <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
-                <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
-                <li class="nav-item"><a href="oportunidades.html" class="nav-link text-white">Oportunidades</a></li>
-                <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
-                <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
-                <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
-            </ul>
-        </header> 
-    </div>
-  </div>     
+    <div class="nav-bar fixed-top">
+        <div class="nav-bar">
+            <header class="container">
+                <ul class="nav nav-pills justify-content-center py-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
+                    <li class="nav-item"><a href="cursos.html" class="nav-link text-white">Cursos</a></li>
+                    <li class="nav-item"><a href="carreiras.html" class="nav-link text-white">Carreiras</a></li>
+                    <li class="nav-item"><a href="oportunidades.html" class="nav-link text-white">Oportunidades</a></li>
+                    <li class="nav-item"><a href="duvidas.html" class="nav-link text-white">Dúvidas Frequentes</a></li>
+                    <li class="nav-item"><a href="saibamais.html" class="nav-link text-white">Saiba Mais</a></li>
+                    <li class="nav-item"><a href="sobre.html" class="nav-link text-white">Sobre Nós</a></li>
+                </ul>
+            </header> 
+        </div>
+    </div>        
 
     <div class="voltar">
         <a class="btn btn-secondary btn-s" href="sobre.html" role="button">Voltar</a>
@@ -290,12 +292,10 @@
         </form>
     </div>
 
-    <!-- Avaliação Rápida por Estrelas -->
     <div class="feedback-section star-rating-container">
         <h2>Avaliação Rápida</h2>
         <p class="intro-text">Avalie de forma rápida nosso site! Ajude-nos a manter a qualidade do site e aprimorar ainda mais o H2N-tech.</p>
 
-        <!-- Bloco de Avaliação: Usabilidade -->
         <div class="rating-block">
             <h3>Avalie a Usabilidade do Site</h3>
             <div class="stars" data-content-id="usabilidade-site">
@@ -314,7 +314,6 @@
             </div>
         </div>
 
-        <!-- Bloco de Avaliação: Funcionalidades -->
         <div class="rating-block">
             <h3>Avalie as funcionalidades em geral do site</h3>
             <div class="stars" data-content-id="funcionalidades-site">
@@ -333,7 +332,6 @@
             </div>
         </div>
 
-        <!-- Bloco de Avaliação: Clareza das Informações -->
         <div class="rating-block">
             <h3>Avalie a clareza das informações do site</h3>
             <div class="stars" data-content-id="clareza-informacoes">
@@ -352,7 +350,6 @@
             </div>
         </div>
 
-        <!-- Bloco de Avaliação: Impressão Geral -->
         <div class="rating-block">
             <h3>Avalie a Impressão geral do site</h3>
             <div class="stars" data-content-id="impressao-geral">
@@ -413,7 +410,6 @@
                     <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
                 </ul>
             </div>
-            <!-- Marca d'água alinhada ao final da coluna -->
             <p class="mt-5 mb-0">&copy; H2N Technology</p>
         </div>
        </div>
@@ -547,8 +543,8 @@
                 
                 // Opcional: Esconder a seção de comentário após um tempo ou manter visível
                 // setTimeout(() => {
-                //     document.getElementById(`comment-${contentId}`).style.display = 'none';
-                //     document.getElementById(`thanks-${contentId}`).textContent = 'Obrigado por seu feedback!';
+                //      document.getElementById(`comment-${contentId}`).style.display = 'none';
+                //      document.getElementById(`thanks-${contentId}`).textContent = 'Obrigado por seu feedback!';
                 // }, 3000); // Esconde após 3 segundos
                 
                 // AQUI: Você enviaria o comentário para o seu servidor
