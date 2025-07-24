@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carreiras em T.I.</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlroqP5O5c5l5y8Q3C5O5s0l5h7b5T5d5c5i5k5j5u5w5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5c5v5x5x5y5g5e5o5m5p5q5r5t5u5v5w5x5y5z5" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #f8f9fa; /* Um cinza claro para o corpo */
@@ -70,7 +70,7 @@
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            overflow: hidden; /* Garante que o conteúdo e backgrounds respeitem o border-radius */
+            /* Removendo overflow: hidden; do .card para evitar possíveis conflitos de renderização 3D */
             border: none;
         }
 
@@ -80,6 +80,8 @@
 
         .card-face {
             position: absolute; /* Posiciona as faces uma sobre a outra */
+            top: 0; /* Alinha no topo */
+            left: 0; /* Alinha à esquerda */
             width: 100%;
             height: 100%;
             backface-visibility: hidden; /* ESSENCIAL: Esconde a face quando ela está virada de costas */
@@ -91,6 +93,7 @@
             justify-content: center; /* Centraliza o conteúdo verticalmente */
             align-items: center; /* Centraliza o conteúdo horizontalmente */
             text-align: center;
+            -webkit-backface-visibility: hidden; /* Para compatibilidade com WebKit (Safari) */
         }
 
         /* --- CARD FRENTE --- */
@@ -128,7 +131,7 @@
         .card-front .icon {
             font-size: 60px;
             margin-bottom: 15px;
-            color: #007bff; /* Mantenha a cor azul para o ícone se quiser destaque */
+            color: #052442; /* Mantenha a cor azul para o ícone se quiser destaque */
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para o ícone */
         }
 
@@ -143,7 +146,7 @@
 
         /* --- CARD VERSO --- */
         .card-back {
-            background-color: #007bff; /* Fundo azul puro para o verso */
+            background-color: #052442; /* Fundo azul puro para o verso */
             color: #ffffff;
             transform: rotateY(180deg); /* Gira o verso para ele ficar escondido atrás da frente */
             z-index: 1; /* O verso deve ter um z-index menor que a frente inicialmente */
@@ -518,7 +521,14 @@
 </section>
      
     </div>
- 
+<div class="interview-popup-background" id="interviewPopup">
+    <div class="interview-popup-content">
+        <button class="close-btn" id="closePopupBtn">&times;</button>
+        <h3 id="popupInterviewName"></h3>
+        <div id="popupInterviewContent"></div>
+    </div>
+</div>
+
     <footer class="container mt-5 footer">
         <div class="row py-4 border-top text-muted">
             <div class="col-md-3">
@@ -549,69 +559,67 @@
                     <li class="nav-item"><a href="duvidas.html" class="nav-link px-0">Dúvidas Frequentes</a></li>
                     <li class="nav-item"><a href="glossario.html" class="nav-link px-0">Glossário</a></li>
                     <li class="nav-item"><a href="contato.html" class="nav-link px-0">Contato</a></li>
+                    <li class="nav-item"><a href="privacidade.html" class="nav-link px-0">Política de Privacidade</a></li>
                 </ul>
             </div>
 
-            <div class="col-md-3 d-flex flex-column justify-content-between">
-                <div>
-                    <h5>Sobre o H2N-Tech</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a href="sobre.html" class="nav-link px-0">Sobre Nós</a></li>
-                        <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
-                    </ul>
-                </div>
-                <p class="mb-0 text-md-end">&copy; H2N Technology</p>
+            <div class="col-md-3">
+                <h5>Nossas Redes</h5>
+                <ul class="nav flex-column social-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-0">
+                            <i class="fab fa-linkedin fa-lg"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-0">
+                            <i class="fab fa-github fa-lg"></i> GitHub
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link px-0">
+                            <i class="fab fa-twitter fa-lg"></i> Twitter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row text-center py-3 border-top">
+            <div class="col">
+                <p class="mb-0">&copy; 2024 Carreiras em T.I. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <div id="interviewPopup" class="interview-popup-background">
-        <div class="interview-popup-content">
-            <button class="close-btn" id="closeInterviewPopup">&times;</button>
-            <h3 id="interviewPopupTitle"></h3>
-            <div id="interviewPopupBody">
-                </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const openPopupButtons = document.querySelectorAll('.open-interview-popup');
+            // Script para o pop-up de entrevistas
             const interviewPopup = document.getElementById('interviewPopup');
-            const closeInterviewPopupButton = document.getElementById('closeInterviewPopup');
-            const interviewPopupTitle = document.getElementById('interviewPopupTitle');
-            const interviewPopupBody = document.getElementById('interviewPopupBody');
-            const interviewPopupContent = document.querySelector('.interview-popup-content');
+            const closePopupBtn = document.getElementById('closePopupBtn');
+            const popupInterviewName = document.getElementById('popupInterviewName');
+            const popupInterviewContent = document.getElementById('popupInterviewContent');
+            const openPopupButtons = document.querySelectorAll('.open-interview-popup');
 
-            // Função para mostrar o pop-up com o conteúdo da entrevista
-            function showInterviewPopup(name, interviewContent) {
-                interviewPopupTitle.innerHTML = `Entrevista com ${name}`;
-                interviewPopupBody.innerHTML = interviewContent; // Isso permite HTML, tome cuidado com fontes externas
-                interviewPopup.classList.add('active');
-            }
-
-            // Função para esconder o pop-up
-            function hideInterviewPopup() {
-                interviewPopup.classList.remove('active');
-            }
-
-            // Adiciona evento de clique a todos os botões "Leia a Entrevista Completa"
             openPopupButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const name = this.dataset.name; // Pega o nome do atributo data-name
-                    const interview = this.dataset.interview; // Pega o conteúdo da entrevista do data-interview
-                    showInterviewPopup(name, interview);
+                    const name = this.getAttribute('data-name');
+                    const interviewHtml = this.getAttribute('data-interview');
+
+                    popupInterviewName.textContent = name;
+                    popupInterviewContent.innerHTML = interviewHtml;
+                    interviewPopup.classList.add('active');
                 });
             });
 
-            // Fechar o pop-up ao clicar no botão "x"
-            closeInterviewPopupButton.addEventListener('click', hideInterviewPopup);
+            closePopupBtn.addEventListener('click', function() {
+                interviewPopup.classList.remove('active');
+            });
 
-            // Fechar o pop-up ao clicar fora do conteúdo da entrevista
+            // Fechar pop-up clicando fora
             interviewPopup.addEventListener('click', function(event) {
-                if (!interviewPopupContent.contains(event.target)) {
-                    hideInterviewPopup();
+                if (event.target === interviewPopup) {
+                    interviewPopup.classList.remove('active');
                 }
             });
         });
