@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #ffff;
+         background-color: #ffff;
+         padding-top: 70px; /* Mantém o espaço para a navbar fixa */
         }
-
         .nav-bar {
             background-color: #052442;
             width: 100%; /* Mudança para 100% para que ocupe toda a largura */
@@ -56,6 +56,7 @@
 
         .voltar {
             padding-top: 10px;
+            margin-left: 20px; /* Adicionado para alinhar com o padding do .texto */
         }
 
         .img {
@@ -87,7 +88,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+     <div class="nav-bar fixed-top">
         <div class="nav-bar">
             <header class="container">
                 <ul class="nav nav-pills justify-content-center py-3">
@@ -101,7 +102,7 @@
                 </ul>
               </header>
         </div>
-
+      </div>
         <div class="voltar">
             <a class="btn btn-secondary btn-s" href="ccomp.html" role="button">Voltar</a>
         </div>
@@ -110,16 +111,29 @@
             <img src="img/logo_cefet.jpg" class="d-block w-100 h-100" alt="Logo CEFET/RJ">
         </div>
 
-        <div class="texto">
-            <h4 class="text-#004F9F mt-4">Ciência da Computação - CEFET/RJ</h4>
-            <h5 class="text-#004F9F">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto excepturi
-                porro nisi dolore ex ducimus tempora obcaecati consequuntur dignissimos nesciunt maiores
-                incidunt, aliquid adipisci doloribus dolorem facilis earum ad suscipit?
-            </h5>
-        </div>
+    <div class="texto">
+          <h4 class="text-#004F9F mt-4">Ciência da Computação - CEFET/RJ</h4>
+           <h5 class="text-#004F9F">O curso de Ciência da Computação do Centro Federal de Educação Tecnológica Celso Suckow da Fonseca (CEFET/RJ)
+        oferece uma formação de excelência, alinhando teoria e prática para capacitar profissionais na área de tecnologia da informação.
+        Com foco no desenvolvimento de habilidades técnicas e analíticas, o curso prepara os estudantes para os desafios do mercado de trabalho,
+        que está em constante evolução.</h5>
+           <h5 class="text-#004F9F">A graduação em Ciência da Computação no CEFET/RJ visa formar especialistas aptos a desenvolver e aplicar soluções computacionais
+        em diversas áreas. A grade curricular abrange temas como algoritmos, estrutura de dados, engenharia de software, inteligência artificial,
+        redes de computadores, segurança da informação e ciência de dados. O currículo é cuidadosamente elaborado para proporcionar uma base teórica robusta,
+        complementada por atividades práticas em laboratórios modernos e projetos integrados.</h5>
+           <h5 class="text-#004F9F">Com uma abordagem que equilibra os fundamentos da computação com as tecnologias emergentes, os alunos do CEFET/RJ
+        têm a oportunidade de explorar áreas inovadoras e se especializar em subcampos de interesse. A instituição é reconhecida pela sua tradição em ensino tecnológico
+        e o curso de Ciência da Computação reflete esse compromisso, oferecendo um ambiente estimulante para o aprendizado e o aprimoramento em programação e resolução de problemas.</h5>
+           <h5 class="text-#004F9F">O CEFET/RJ disponibiliza uma infraestrutura de ponta, com laboratórios equipados e acesso a recursos tecnológicos atualizados,
+        garantindo um aprendizado dinâmico e prático. O corpo docente é composto por professores altamente qualificados, muitos com experiência em pesquisa e no mercado,
+        o que assegura que os alunos recebam uma educação alinhada às demandas da indústria e às últimas inovações tecnológicas.</h5>
+           <h5 class="text-#004F9F">Além da formação acadêmica, o CEFET/RJ incentiva a participação dos alunos em projetos de pesquisa, extensão e em atividades
+        extracurriculares, como grupos de estudo e competições de programação. Essas oportunidades permitem a aplicação dos conhecimentos adquiridos em sala de aula
+        e promovem o desenvolvimento de competências essenciais para uma carreira bem-sucedida na área de Ciência da Computação.</h5>
+    </div>
         <!-- Seção do Mapa com Legenda -->
         <div class="container-mapa container mt-5 text-center">
-            <h2 class="textoGlobalNegrito">Mapa CEFET</h2>
+            <h2 class="texto">Mapa CEFET</h2>
 
             <!-- Aqui entra o iframe -->
             <iframe
@@ -133,32 +147,51 @@
             </p>
         </div>
 
-        <div class="texto-footer">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-body-secondary">&copy; H2N Technology</p>
-                <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="cursos.html" class="nav-link">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="duvidas.html" class="nav-link">Duvidas Frequentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="saibamais.html" class="nav-link">Saiba Mais</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sobre.html" class="nav-link">Sobre Nós</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="noticias.html" class="nav-link">Notícias</a>
-                    </li>
+        <footer class="container mt-5 footer">
+          <div class="row py-4 border-top text-muted">
+            <div class="col-md-3">
+                <h5>Navegação</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="index.html" class="nav-link px-0">Home</a></li>
+                    <li class="nav-item"><a href="cursos.html" class="nav-link px-0">Cursos</a></li>
+                    <li class="nav-item"><a href="noticias.html" class="nav-link px-0">Notícias</a></li>
+                    <li class="nav-item"><a href="saibamais.html" class="nav-link px-0">Saiba Mais</a></li>
+                    <li class="nav-item"><a href="notadecorte.html" class="nav-link px-0">Nota de Corte</a></li>
                 </ul>
-            </footer>
-        </div>
-    </div>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Futuro Profissional</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="carreiras.html" class="nav-link px-0">Carreiras</a></li>
+                    <li class="nav-item"><a href="questionario.html" class="nav-link px-0">Questionário</a></li>
+                    <li class="nav-item"><a href="oportunidades.html" class="nav-link px-0">Oportunidades</a></li>
+                    <li class="nav-item"><a href="mercado_trabalho.html" class="nav-link px-0">Mercado de Trabalho</a></li>
+                    <li class="nav-item"><a href="programas.html" class="nav-link px-0">Programas mais utilizados</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Busque Ajuda</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="duvidas.html" class="nav-link px-0">Dúvidas Frequentes</a></li>
+                    <li class="nav-item"><a href="glossario.html" class="nav-link px-0">Glossário</a></li>
+                    <li class="nav-item"><a href="contato.html" class="nav-link px-0">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 d-flex flex-column justify-content-between">
+                <div>
+                    <h5>Sobre o H2N-Tech</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="sobre.html" class="nav-link px-0">Sobre Nós</a></li>
+                        <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
+                    </ul>
+                </div>
+                <p class="mb-0 text-md-end">&copy; H2N Technology</p>
+            </div>
+          </div>
+        </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>

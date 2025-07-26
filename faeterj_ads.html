@@ -6,8 +6,10 @@
     <title>FAETERJ</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
     <style>
+
         body {
-            background-color: #ffff;
+         background-color: #ffff;
+         padding-top: 70px; /* Mantém o espaço para a navbar fixa */
         }
 
         .nav-bar {
@@ -56,6 +58,7 @@
 
         .voltar {
             padding-top: 10px;
+            margin-left: 20px; /* Adicionado para alinhar com o padding do .texto */
         }
 
         .img {
@@ -87,7 +90,7 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="nav-bar fixed-top">
         <div class="nav-bar">
             <header class="container">
                 <ul class="nav nav-pills justify-content-center py-3">
@@ -101,7 +104,7 @@
                 </ul>
               </header>
         </div>
-
+     </div>
         <div class="voltar">
             <a class="btn btn-secondary btn-s" href="ads.html" role="button">Voltar</a>
         </div>
@@ -110,16 +113,27 @@
             <img src="img/logo_faeterj.webp" class="d-block w-100 h-100" alt="Logo CEFET/RJ">
         </div>
 
-        <div class="texto">
-            <h4 class="text-#004F9F mt-4">Análise e Desenvolvimento de Sistemas - FAETERJ</h4>
-            <h5 class="text-#004F9F">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto excepturi
-                porro nisi dolore ex ducimus tempora obcaecati consequuntur dignissimos nesciunt maiores
-                incidunt, aliquid adipisci doloribus dolorem facilis earum ad suscipit?
-            </h5>
-        </div>
+    <div class="texto">
+        <h4 class="text-#004F9F mt-4">Análise e Desenvolvimento de Sistemas - FAETERJ</h4>
+        <h5 class="text-#004F9F">O curso de Análise e Desenvolvimento de Sistemas (ADS) das Faculdades de Tecnologia do Estado do Rio de Janeiro (FAETERJ)
+        oferece uma formação tecnológica sólida e prática, preparando profissionais para as crescentes demandas do mercado de Tecnologia da Informação.
+        O foco é capacitar os alunos a analisar, projetar, desenvolver, implementar e gerenciar sistemas computacionais de forma eficiente e inovadora.</h5>
+        <h5 class="text-#004F9F">A graduação em ADS na FAETERJ abrange um currículo moderno e alinhado com as tendências do setor, incluindo disciplinas como
+        lógica de programação, bancos de dados, engenharia de software, desenvolvimento web e mobile, inteligência artificial e segurança da informação.
+        O curso prioriza a aplicação prática dos conhecimentos, com aulas em laboratórios bem equipados e o desenvolvimento de projetos que simulam cenários reais
+        da indústria de software.</h5>
+        <h5 class="text-#004F9F">Com um corpo docente qualificado, composto por professores com experiência acadêmica e de mercado, a FAETERJ proporciona um ambiente
+        de aprendizado dinâmico e colaborativo. Os alunos são incentivados a desenvolver habilidades essenciais para a área, como o pensamento crítico, a capacidade
+        de resolver problemas complexos e o trabalho em equipe, preparando-os para os desafios e inovações do mundo da tecnologia.</h5>
+        <h5 class="text-#004F9F">O mercado para profissionais de Análise e Desenvolvimento de Sistemas é vasto e oferece diversas oportunidades em empresas de tecnologia,
+        startups, consultorias e no setor público. A formação na FAETERJ visa garantir que os egressos estejam aptos a atuar de forma estratégica, contribuindo
+        para a criação de soluções tecnológicas que otimizem processos e gerem valor para organizações de diferentes portes e segmentos.</h5>
+        <h5 class="text-#004F9F">Optar por ADS na FAETERJ significa investir em uma carreira promissora e em constante evolução, com a possibilidade de impactar
+        diretamente a transformação digital e inovações tecnológicas no cenário nacional e global.</h5>
+    </div>
         <!-- Seção do Mapa com Legenda -->
         <div class="container-mapa container mt-5 text-center">
-            <h2 class="textoGlobalNegrito">Mapa FAETERJ</h2>
+            <h2 class="texto">Mapa FAETERJ</h2>
 
             <!-- Aqui entra o iframe -->
             <iframe
@@ -133,32 +147,51 @@
             </p>
         </div>
 
-        <div class="texto-footer">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-body-secondary">&copy; H2N Technology</p>
-                <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active" aria-current="page">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="cursos.html" class="nav-link">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="duvidas.html" class="nav-link">Duvidas Frequentes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="saibamais.html" class="nav-link">Saiba Mais</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="sobre.html" class="nav-link">Sobre Nós</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="noticias.html" class="nav-link">Notícias</a>
-                    </li>
+        <footer class="container mt-5 footer">
+          <div class="row py-4 border-top text-muted">
+            <div class="col-md-3">
+                <h5>Navegação</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="index.html" class="nav-link px-0">Home</a></li>
+                    <li class="nav-item"><a href="cursos.html" class="nav-link px-0">Cursos</a></li>
+                    <li class="nav-item"><a href="noticias.html" class="nav-link px-0">Notícias</a></li>
+                    <li class="nav-item"><a href="saibamais.html" class="nav-link px-0">Saiba Mais</a></li>
+                    <li class="nav-item"><a href="notadecorte.html" class="nav-link px-0">Nota de Corte</a></li>
                 </ul>
-            </footer>
-        </div>
-    </div>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Futuro Profissional</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="carreiras.html" class="nav-link px-0">Carreiras</a></li>
+                    <li class="nav-item"><a href="questionario.html" class="nav-link px-0">Questionário</a></li>
+                    <li class="nav-item"><a href="oportunidades.html" class="nav-link px-0">Oportunidades</a></li>
+                    <li class="nav-item"><a href="mercado_trabalho.html" class="nav-link px-0">Mercado de Trabalho</a></li>
+                    <li class="nav-item"><a href="programas.html" class="nav-link px-0">Programas mais utilizados</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Busque Ajuda</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a href="duvidas.html" class="nav-link px-0">Dúvidas Frequentes</a></li>
+                    <li class="nav-item"><a href="glossario.html" class="nav-link px-0">Glossário</a></li>
+                    <li class="nav-item"><a href="contato.html" class="nav-link px-0">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 d-flex flex-column justify-content-between">
+                <div>
+                    <h5>Sobre o H2N-Tech</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="sobre.html" class="nav-link px-0">Sobre Nós</a></li>
+                        <li class="nav-item"><a href="avaliacao.html" class="nav-link px-0">Avaliação</a></li>
+                    </ul>
+                </div>
+                <p class="mb-0 text-md-end">&copy; H2N Technology</p>
+            </div>
+          </div>
+        </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </body>
